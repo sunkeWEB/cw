@@ -6,7 +6,7 @@ let userSchema = new mongoose.Schema({
     pwd: String,
     ip: String,
     status: Number,
-    time:String
-});
+    time: String
+},{ versionKey: false});
 
 module.exports = mongoose.model('users', userSchema);

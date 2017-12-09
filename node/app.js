@@ -8,10 +8,24 @@ let bodyParser = require('body-parser');
 let index = require('./routes/index');
 // 用户操作的路由
 let users = require('./routes/users/users');
-
-
+// 增加 删除 修改 操作路由
+let dxtypes = require('./routes/caozuo/caozuo');
+// 读取路由
+let read = require('./routes/caozuo/read');
 
 let app = express();
+
+// app.use((req, res, next) => {
+//     if(req.cookies.userid) {  //当前用户已经登录状态
+//         next();
+//     }else {
+//         if (req.originalUrl === "/users/register"|| req.originalUrl === "/users/login") {
+//             next();
+//         }else{
+//             res.redirect('/users/login');
+//         }
+//     }
+// });
 
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -36,6 +50,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+//  添加  删除  修改 路由
+app.use('/dxtypes',dxtypes);
+// 读取 路由
+app.use('/reads',read);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

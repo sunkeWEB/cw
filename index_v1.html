@@ -213,9 +213,8 @@
 </div>
 
 
-
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal4">
-    收入支出记账
+    员工添加
 </button>
 
 <!--Modal       //type,xtype,price,zjzh,yshb,ywxm,jbr,sm&ndash;&gt;-->
@@ -225,50 +224,42 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel4">添加资金</h4>
+                <h4 class="modal-title" id="myModalLabel4">员工添加</h4>
             </div>
             <div class="modal-body">
+
                 <div class="form-group">
-                    <label class="col-sm-10 control-label">type</label>
+                    <label class="col-sm-2 control-label">姓名</label>
                     <div class="">
-                        <select class="rktype" name="" id="">
-                            <option value="1">收入</option>
-                            <option value="0">支出</option>
-                        </select>
+                        <input type="text" class="form-control staffname">
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label class="col-sm-2 control-label">电话</label>
                     <div class="">
-                        <input type="text" class="form-control khphone">
+                        <input type="text" class="form-control staffphone">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">传真</label>
+                    <label class="col-sm-2 control-label">生日</label>
                     <div class="">
-                        <input type="text" class="form-control khcz">
+                        <input type="date" class="form-control staffbir">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Email</label>
+                    <label class="col-sm-2 control-label">部门</label>
                     <div class="">
-                        <input type="text" class="form-control khemail">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">地址</label>
-                    <div class="">
-                        <input type="text" class="form-control khadders">
+                        <input type="text" class="form-control staffnext">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label">备注</label>
                     <div class="">
-                        <input type="text" class="form-control khbz">
+                        <input type="text" class="form-control staffbz">
                     </div>
                 </div>
 
@@ -276,12 +267,231 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary addkh">Save changes</button>
+                <button type="button" class="btn btn-primary addstaff">Save changes</button>
             </div>
         </div>
     </div>
 </div>
 
+
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal5">
+    账户类型添加
+</button>
+
+<!--Modal       //type,xtype,price,zjzh,yshb,ywxm,jbr,sm&ndash;&gt;-->
+<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel5">账户类型添加</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">排序</label>
+                    <div class="">
+                        <input type="number" class="form-control accountsort" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">账户类型名称</label>
+                    <div class="">
+                        <input type="text" class="form-control accountname" required>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary addaccount">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal6">
+    账户管理添加
+</button>
+
+<!--Modal       //type,xtype,price,zjzh,yshb,ywxm,jbr,sm&ndash;&gt;-->
+<div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel6">账户添加</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">账户类型</label>
+                    <div class="">
+                        <select class="accountgltype" name="" id="">
+                            <option value="">现金</option>
+                            <option value="">理财</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">账户名称</label>
+                    <div class="">
+                        <input type="text" class="form-control accountglname" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">当前余额</label>
+                    <div class="">
+                        <input type="number" class="form-control accountglprice" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">说明</label>
+                    <div class="">
+                        <input type="text" class="form-control accountglsm" required>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary addaccountgl">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal7">
+    添加用户
+</button>
+
+<!--Modal       //type,xtype,price,zjzh,yshb,ywxm,jbr,sm&ndash;&gt;-->
+<div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel7">用户添加</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">用户名(登录名)</label>
+                    <div class="">
+                        <input type="text" class="form-control username" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">真实名</label>
+                    <div class="">
+                        <input type="text" class="form-control userzsname" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">头像图片</label>
+                    <div class="">
+                        <input type="text" class="form-control useravatar" required>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">默认资金账户</label>
+                    <div class="">
+                        <select class="userdefaultzh" name="">
+                            <option value="">中国银行</option>
+                            <option value="">工商银行</option>
+                            <option value="">光大银行</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">默认客户</label>
+                    <div class="">
+                        <select class="useraccount" name="">
+                            <option value="">x科技</option>
+                            <option value="">y科技</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">默认项目</label>
+                    <div class="">
+                        <select class="userxm" name="">
+                            <option value="">死间计划</option>
+                            <option value="">xx公司网站</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">密码</label>
+                    <div class="">
+                        <input type="password" class="form-control userpwd" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">确认密码</label>
+                    <div class="">
+                        <input type="password" class="form-control userreqpwd" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">用户级别</label>
+                    <div class="">
+                        <input class="yhdj" name="kk" value="系统管理" type="radio" title="拥有全部用户数据管理和系统设置">系统管理
+                        <input class="yhdj" name="kk" value="经理记账" type="radio" title="拥有全用户数据管理权不包括系统设置">经理记账
+                        <input class="yhdj" name="kk" checked="checked" value="普通记账" type="radio" title="只拥有自己数据的管理权">普通记账
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">权限</label>
+                    <div class="quanxian">
+                        <input checked="checked" value="收支记账" type="checkbox">收支记账
+                        <input checked="checked" value="流水修改" type="checkbox">流水修改
+                        <input checked="checked" value="流水删除" type="checkbox">流水删除
+                        <input checked="checked" value="流水修改" type="checkbox">应收应付
+                        <input checked="checked" value="应收应付" type="checkbox">借出报销
+                        <input checked="checked" value="借入归还" type="checkbox">借入归还
+                        <input checked="checked" value="资金账户" type="checkbox">资金账户
+                        <input checked="checked" value="账户转账" type="checkbox">账户转账
+                        <input checked="checked" value="账号对账" type="checkbox">账号对账
+                        <input checked="checked" value="EXCEL导出" type="checkbox">EXCEL导出
+                        <input checked="checked" value="年度统计" type="checkbox">年度统计
+                        <input checked="checked" value="收支曲线" type="checkbox">收支曲线
+                        <input checked="checked" value="年柱状图" type="checkbox">年柱状图
+                        <input checked="checked" value="成员柱状" type="checkbox">成员柱状
+                        <input checked="checked" value="收支构表" type="checkbox">收支构表
+                        <input checked="checked" value="汇总饼状" type="checkbox">汇总饼状
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary addusers">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- 全局js -->
@@ -302,16 +512,16 @@
             var name = $('.name').val();
             var sm = $('.sm').val();
             var data = {
-                type:type,
-                name:name,
-                sm:sm
+                type: type,
+                name: name,
+                sm: sm
             };
             $.ajax({
-                url:'http://localhost:3000/dxtypes/addTypes',
-                data:data,
-                type:'post',
-                dataType:'json',
-                success:function (data) {
+                url: 'http://localhost:3000/dxtypes/addTypes',
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
                     console.log(data);
                 }
             });
@@ -322,16 +532,16 @@
             var name = $('.slname').val();
             var sm = $('.slsm').val();
             var data = {
-                sname:type,
-                name:name,
-                sm:sm
+                sname: type,
+                name: name,
+                sm: sm
             };
             $.ajax({
-                url:'http://localhost:3000/dxtypes/addxtypes',
-                data:data,
-                type:'post',
-                dataType:'json',
-                success:function (data) {
+                url: 'http://localhost:3000/dxtypes/addxtypes',
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
                     console.log(data);
                 }
             });
@@ -341,15 +551,15 @@
             var name = $('.xmname').val();
             var sm = $('.xmsm').val();
             var data = {
-                name:name,
-                sm:sm
+                name: name,
+                sm: sm
             };
             $.ajax({
-                url:'http://localhost:3000/dxtypes/addxm',
-                data:data,
-                type:'post',
-                dataType:'json',
-                success:function (data) {
+                url: 'http://localhost:3000/dxtypes/addxm',
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
                     console.log(data);
                 }
             });
@@ -363,28 +573,127 @@
             var adders = $('.khadders').val();
             var bz = $('.khbz').val();
             var data = {
-                name:name,
-                phone:phone,
-                cz:cz,
-                email:email,
-                adders:adders,
-                bz:bz
+                name: name,
+                phone: phone,
+                cz: cz,
+                email: email,
+                adders: adders,
+                bz: bz
             };
             $.ajax({
-                url:'http://localhost:3000/dxtypes/addkh',
-                data:data,
-                type:'post',
-                dataType:'json',
-                success:function (res) {
+                url: 'http://localhost:3000/dxtypes/addkh',
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function (res) {
                     console.log(res);
                 }
             })
         });
 
+        $('.addstaff').click(function () {
+            var name = $('.staffname').val();
+            var phone = $('.staffphone').val();
+            var bir = $('.staffbir').val();
+            var bz = $('.staffbz').val();
+            var next = $('.staffnext').val();
+            var data = {
+                name: name,
+                birthday: bir,
+                phone: phone,
+                bz: bz,
+                department: next
+            };
+            $.ajax({
+                url: 'http://localhost:3000/dxtypes/addstaff',
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        });
 
+        //    添加账户类型
+        $('.addaccount').click(function () {
+            var sort = $('.accountsort').val();
+            var name = $('.accountname').val();
+            var data = {
+                sort: sort,
+                name: name
+            };
+            $.ajax({
+                url: 'http://localhost:3000/dxtypes/addacount',
+                type: 'post',
+                dataType: 'json',
+                data: data,
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        });
+        //    添加账户
+        $('.addaccountgl').click(function () {
+            var type = $('.accountgltype').find('option:selected').text();
+            var name = $('.accountglname').val();
+            var price = $('.accountglprice').val();
+            var sm = $('.accountglsm').val();
+            var data = {
+                type: type,
+                name: name,
+                price: price,
+                sm: sm
+            };
+            $.ajax({
+                url: "http://localhost:3000/dxtypes/addacountzh",
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        });
+       // 添加用户
+        $('.addusers').click(function () {
+            var name = $('.username').val(); // 登录名
+            var zsname = $('.userzsname').val(); // 真实姓名
+            var avatar = $('.useravatar').val(); // 用户头像
+            var zjzh = $('.userdefaultzh').find('option:selected').text(); // 默认资金账户
+            var xm = $('.userxm').find('option:selected').text(); // 默认项目
+            var account = $('.useraccount').find('option:selected').text(); // 默认客户
+            var pwd = $('.userpwd').val(); // 登录密码
+            var repwd = $('.userreqpwd').val(); // 登录确认密码
+            var dengji = $("[type='radio'][checked]").val(); // 用户级别
+            var quanxian='';
+            $("[type='checkbox'][checked]").each(function () {
+                // quanxian.push($(this).val());
+                quanxian += $(this).val() + ' ';
+            });
+            var data = {
+                name:name,
+                zsname:zsname,
+                avatar:avatar,
+                defaultyhk:zjzh,
+                pwd:pwd,
+                defaultxm:xm,
+                dengji:dengji,
+                quanxian:quanxian
+            };
+            console.log(quanxian);
+            $.ajax({
+                url:'http://localhost:3000/users/register',
+                type:'post',
+                data:data,
+                dataType:'json',
+                success:function (data) {
+                    console.log(data);
+                }
+            });
+        });
     });
 </script>
 
 </body>
-
 </html>

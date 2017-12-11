@@ -5,7 +5,7 @@ let szSchema = new mongoose.Schema({
     type: Number, // 0 是支出  1是收入
     dtype:String ,
     xtype:String,
-    price: Number,
+    price: String,
     time: String,
     zjzh:String,
     yshb:String,

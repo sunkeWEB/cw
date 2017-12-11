@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
 
     <title>H+ 后台主题UI框架 - 首页示例二</title>
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
@@ -34,6 +34,9 @@
         <div class="row">
             <div>
                 <table data-toggle="table" id="table">
+                    <div id="toolbar">
+                        <button class="btn btn-primary">添加</button>
+                    </div>
                 </table>
             </div>
         </div>
@@ -83,11 +86,13 @@
     <script>
         var $table = $('#table');
         $table.bootstrapTable({
-            url: 'http://localhost:3000/picture/read',         //请求后台的URL（*）
+            // http://127.0.0.1:3000/reads/readsrzc
+            url: 'http://127.0.0.1:3000/reads/readsrzc',         //请求后台的URL（*）
             method: 'get',             //请求方式（*）
             toolbar: '#toolbar',        //工具按钮用哪个容器
             pagination: true,                   //是否显示分页（*）
             cache: true,
+            contentType: "application/x-www-form-urlencoded",/**支持跨域**/
             showColumns: true,
             striped: true,
             clickToSelect: true,
@@ -99,81 +104,64 @@
             search: true,
             sidePagination: "server", //服务端处理分页
             columns: [
-                {
-                    title: '单号',
-                    field: 'dannum',
-                    align: 'center',
-                    valign: 'middle',
-                },
+                // {
+                //     title: '单号',
+                //     field: 'dannum',
+                //     align: 'center',
+                //     valign: 'middle',
+                // },
                 {
                     title: '时间',
-                    field: 'create_time',
+                    field: 'time',
                     align: 'center',
                     valign: 'middle',
                 },
                 {
                     title: '[类型]大类->小类',
-                    field: 'types',
+                    field: 'dtype',
                     align: 'center',
                     valign: 'middle',
                     sortable: true
                 }, {
                     title: '流入',
-                    field: 'inflow',
+                    field: 'price',
                     align: 'center',
                     valign: 'middle',
-                },{
-                    title: '流出',
-                    field: 'flowout',
-                    align: 'center',
-                    valign: 'middle',
-                    sortable: true
                 }
                 ,{
                     title: '所属帐户',
-                    field: 'account',
+                    field: 'zjzh',
                     align: 'center',
                     valign: 'middle',
                     sortable: true
                 },{
-                    title: '所属帐户',
-                    field: 'business',
+                    title: '生意伙伴',
+                    field: 'yshb',
                     align: 'center',
                     valign: 'middle',
                     sortable: true
                 }
                 ,{
                     title: '业务项目',
-                    field: 'ywxms',
+                    field: 'ywxm',
                     align: 'center',
                     valign: 'middle',
                     sortable: true
                 }
                 ,{
                     title: '经手人',
-                    field: 'handman',
+                    field: 'jbr',
                     align: 'center',
                     valign: 'middle',
                     sortable: true
                 },{
                     title: '说明',
-                    field: 'explain',
-                    align: 'center',
-                    valign: 'middle',
-                    sortable: true
-                },{
-                    title: '记账人',
-                    field: 'bookkeeper',
+                    field: 'sm',
                     align: 'center',
                     valign: 'middle',
                     sortable: true
                 }
                 ,{
-                    title: '审核状态',
-                    field: 'auditstatus',
-                    align: 'center',
-                    valign: 'middle',
-                },{
                     title: '操作',
                     align: 'center',
                     valign: 'middle',
@@ -185,13 +173,23 @@
                 }
             ],
             responseHandler: function (res) {
+                // console.log(res.data);
                 return {
                     "total": res.total,//总页数
-                    "rows": res.data   //数据
+                    "rows": res.data //数据
                 };
             },
         });
         $(function () {
+            // $.ajax({
+            //     url:'http://localhost:3000/reads/readsrzc',
+            //     type:'get',
+            //     data:{},
+            //     dataType:'json',
+            //     success:function (data) {
+            //         console.log(data);
+            //     }
+            // });
         });
     </script>
 </body>

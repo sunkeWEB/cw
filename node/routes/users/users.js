@@ -17,7 +17,6 @@ router.get('/', function (req, res, next) {
 //登录操作
 router.post('/login', (req, res) => {
     let {name, pwd} = req.body;
-    console.log({name, pwd});
     let obj = {
         name: name,
         pwd: md5Pwd(pwd)
@@ -35,7 +34,10 @@ router.post('/login', (req, res) => {
                 msg: '用户名或者密码错误'
             });
         }
-        res.cookie('userid', doc._id);
+        res.cookie('username', doc.name,{
+            maxAge: 60000,
+            path:'/'
+        });
         return res.json({
             code: 0,
             msg: '登录成功',
@@ -101,8 +103,10 @@ router.post('/register', (req, res) => {
 
 //修改密码
 router.post('/updatepwd', (req, res) => {
-    let id = req.cookies.userid; // 获取用户的id
-    Users.count({_id: id}, (err, doc) => {
+    let {old, newpwd} = req.body;
+    let name = req.cookies.username; // 获取用户名
+    console.log("修改:"+name);
+    Users.count({name: name,pwd:md5Pwd(old)}, (err, num) => {
         if (err) {
             return res.json({
                 code: 1,
@@ -112,11 +116,10 @@ router.post('/updatepwd', (req, res) => {
         if (num === 0) {
             return res.json({
                 code: 1,
-                msg: '账号不正确'
+                msg: '原密码错误'
             });
         } else {
-            let {pwd} = req.body;
-            Users.update({_id: id}, {$set: {pwd: md5Pwd(pwd)}}, (err, doc) => {
+            Users.update({_id: id}, {$set: {pwd: md5Pwd(newpwd)}}, (err, doc) => {
                 if (err) {
                     return res.json({
                         code: 1,

@@ -97,3 +97,9 @@ function sendAjax(ajaxUrl, ajaxType, ajaxData) {
     });
     return result;
 }
+
+function kk() {
+    console.log($('.asa'));
+}
+
+kk();

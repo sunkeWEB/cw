@@ -8,7 +8,8 @@ let kehuSchema = new mongoose.Schema({
     cz:String,
     email:String,
     adders:String,
-    bz:String
+    bz:String,
+    status:Number
 },{ versionKey: false});
 
 module.exports = mongoose.model('kehus', kehuSchema);

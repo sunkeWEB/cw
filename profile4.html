@@ -24,16 +24,74 @@
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
-
-
-
+    <link href="https://cdn.bootcss.com/layer/3.1.0/mobile/need/layer.css" rel="stylesheet">
 </head>
 
 <body class="gray-bg">
 <div class="wrapper wrapper-content">
+    <!--Modal       //type,xtype,price,zjzh,yshb,ywxm,jbr,sm&ndash;&gt;-->
+    <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel4">员工添加</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">姓名</label>
+                        <div class="">
+                            <input type="text" class="form-control staffname">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">电话</label>
+                        <div class="">
+                            <input type="text" class="form-control staffphone">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">生日</label>
+                        <div class="">
+                            <input type="date" class="form-control staffbir">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">部门</label>
+                        <div class="">
+                            <input type="text" class="form-control staffnext">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">备注</label>
+                        <div class="">
+                            <input type="text" class="form-control staffbz">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary addstaff">保存</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div>
             <table data-toggle="table" id="table">
+                <div id="toolbar">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4">
+                        员工添加
+                    </button>
+                </div>
             </table>
         </div>
     </div>
@@ -79,15 +137,16 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
-
+<script src="https://cdn.bootcss.com/layer/3.1.0/mobile/layer.js"></script>
 <script>
     var $table = $('#table');
     $table.bootstrapTable({
-        url: 'http://localhost:3000/picture/read',         //请求后台的URL（*）
+        url: 'http://localhost:3000/reads/readyuangong',         //请求后台的URL（*）
         method: 'get',             //请求方式（*）
         toolbar: '#toolbar',        //工具按钮用哪个容器
         pagination: true,                   //是否显示分页（*）
         cache: true,
+        contentType: "application/x-www-form-urlencoded", /**支持跨域**/
         showColumns: true,
         striped: true,
         clickToSelect: true,
@@ -99,47 +158,54 @@
         search: true,
         sidePagination: "server", //服务端处理分页
         columns: [
-            {
-                title: 'ID',
-                field: 'dannum',
-                align: 'center',
-                valign: 'middle',
-            },
+            // {
+            //     title: 'ID',
+            //     field: 'dannum',
+            //     align: 'center',
+            //     valign: 'middle',
+            // },
             {
                 title: '员工(经办人)名称',
-                field: 'create_time',
+                field: 'name',
                 align: 'center',
                 valign: 'middle',
             },
             {
                 title: '联系电话',
-                field: 'create_time',
+                field: 'phone',
                 align: 'center',
                 valign: 'middle',
             },
             {
                 title: '生日',
-                field: 'create_time',
+                field: 'birthday',
                 align: 'center',
                 valign: 'middle',
             },
             {
                 title: '部门',
-                field: 'create_time',
+                field: 'department',
                 align: 'center',
                 valign: 'middle',
             },
             {
                 title: '备注',
-                field: 'create_time',
+                field: 'bz',
                 align: 'center',
                 valign: 'middle'
             },
             {
                 title: '状态（是否锁定）',
-                field: 'create_time',
+                field: 'status',
                 align: 'center',
-                valign: 'middle'
+                valign: 'middle',
+                formatter:function (v) {
+                    if (v==0) {
+                        return "<span>正常</span>";
+                    }else{
+                        return "<span style='color:red;'>锁定</span>";
+                    }
+                }
             },{
                 title: '操作',
                 align: 'center',
@@ -159,6 +225,49 @@
         },
     });
     $(function () {
+        $('.addstaff').click(function () {
+            var name = $('.staffname').val();
+            var phone = $('.staffphone').val();
+            var bir = $('.staffbir').val();
+            var bz = $('.staffbz').val();
+            var next = $('.staffnext').val();
+            if (name=='') {
+                layer.msg("姓名必须填写");
+                return false;
+            }
+            if (phone=='') {
+                layer.msg("电话必须填写");
+                return false;
+            }
+
+            if (next=='') {
+                layer.msg("部门必须填写");
+                return false;
+            }
+
+            var data = {
+                name: name,
+                birthday: bir,
+                phone: phone,
+                bz: bz,
+                department: next
+            };
+            $.ajax({
+                url: 'http://localhost:3000/dxtypes/addstaff',
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function (res) {
+                    if (res.code==1) {
+                        layer.msg(res.msg);
+                        return false;
+                    }
+                    layer.msg(res.msg);
+                    $('#myModal4').modal('hide');
+                    $('.modal-body input').val('');
+                }
+            });
+        });
     });
 </script>
 </body>

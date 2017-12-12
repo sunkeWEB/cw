@@ -24,16 +24,55 @@
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
-
+    <link href="https://cdn.bootcss.com/layer/3.1.0/mobile/need/layer.css" rel="stylesheet">
 
 
 </head>
 
 <body class="gray-bg">
 <div class="wrapper wrapper-content">
+
+    <!--Modal       //type,xtype,price,zjzh,yshb,ywxm,jbr,sm&ndash;&gt;-->
+    <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel5">账户类型添加</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label class="col-sm-10 control-label">排序</label>
+                        <div class="">
+                            <input type="number" class="form-control accountsort" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-10control-label">账户类型名称</label>
+                        <div class="">
+                            <input type="text" class="form-control accountname" required>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary addaccount">保存</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div>
             <table data-toggle="table" id="table">
+                <div id="toolbar">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal5">账户类型添加</button>
+                </div>
             </table>
         </div>
     </div>
@@ -79,17 +118,18 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
-
+<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
 <script>
     var $table = $('#table');
     $table.bootstrapTable({
-        url: 'http://localhost:3000/picture/read',         //请求后台的URL（*）
+        url: 'http://localhost:3000/reads/readaccountype',         //请求后台的URL（*）
         method: 'get',             //请求方式（*）
         toolbar: '#toolbar',        //工具按钮用哪个容器
         pagination: true,                   //是否显示分页（*）
         cache: true,
         showColumns: true,
         striped: true,
+        contentType: "application/x-www-form-urlencoded",/**支持跨域**/
         clickToSelect: true,
         showRefresh: true,                  //是否显示刷新按钮
         pageList: [5, 10, 15, 20],
@@ -101,13 +141,13 @@
         columns: [
             {
                 title: '排序',
-                field: 'dannum',
+                field: 'sort',
                 align: 'center',
                 valign: 'middle',
             },
             {
                 title: '账户类型名称',
-                field: 'create_time',
+                field: 'name',
                 align: 'center',
                 valign: 'middle',
             },{
@@ -129,6 +169,38 @@
         },
     });
     $(function () {
+        //    添加账户类型
+        $('.addaccount').click(function () {
+            var sort = $('.accountsort').val();
+            var name = $('.accountname').val();
+            if (sort=='') {
+                layer.msg("序号必须填写");
+                return false;
+            }
+            if (name=="") {
+                layer.msg("账户类型名称必须填写");
+                return false;
+            }
+            var data = {
+                sort: sort,
+                name: name
+            };
+            $.ajax({
+                url: 'http://localhost:3000/dxtypes/addacount',
+                type: 'post',
+                dataType: 'json',
+                data: data,
+                success: function (res) {
+                    if (res.code==1) {
+                        layer.msg(res.msg);
+                        return false;
+                    }
+                    layer.msg(res.msg);
+                    $('#myModal5').modal('hide');
+                    $('.modal-body input').val('');
+                }
+            });
+        });
     });
 </script>
 </body>

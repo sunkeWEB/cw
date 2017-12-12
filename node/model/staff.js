@@ -6,7 +6,8 @@ let ygSchema = new mongoose.Schema({
     phone:String,
     birthday:String,
     department:String,  //部门
-    bz:String //备注
+    bz:String,//备注
+    status:Number // 转台
 });
 
 module.exports = mongoose.model('staffs', ygSchema);

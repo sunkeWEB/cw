@@ -158,7 +158,8 @@ router.post('/addkh', (req, res) => {
                 cz: cz,
                 email: email,
                 adders: adders,
-                bz: bz
+                bz: bz,
+                status:0
             };
             let kehuModel = new KeHus(obj);
             kehuModel.save((err, doc) => {

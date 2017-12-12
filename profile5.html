@@ -11,7 +11,8 @@
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
 
     <!-- Morris -->
@@ -24,16 +25,50 @@
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
-
-
-
+    <link href="https://cdn.bootcss.com/layer/3.1.0/mobile/need/layer.css" rel="stylesheet">
 </head>
 
 <body class="gray-bg">
 <div class="wrapper wrapper-content">
+    <!--项目添加-->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel2">添加项目</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">项目名称</label>
+                        <div class="">
+                            <input type="text" class="form-control xmname">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">项目说明</label>
+                        <div class="">
+                            <input type="text" class="form-control xmsm">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary addxm">保存</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div>
             <table data-toggle="table" id="table">
+                <div id="toolbar">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+                        项目添加
+                    </button>
+                </div>
             </table>
         </div>
     </div>
@@ -42,7 +77,6 @@
 <!-- 全局js -->
 <script src="js/jquery.min.js?v=2.1.4"></script>
 <script src="js/bootstrap.min.js?v=3.3.6"></script>
-
 
 
 <!-- Flot -->
@@ -79,16 +113,17 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
-
+<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
 <script>
     var $table = $('#table');
     $table.bootstrapTable({
-        url: 'http://localhost:3000/picture/read',         //请求后台的URL（*）
+        url: 'http://localhost:3000/reads/readxm',         //请求后台的URL（*）
         method: 'get',             //请求方式（*）
         toolbar: '#toolbar',        //工具按钮用哪个容器
         pagination: true,                   //是否显示分页（*）
         cache: true,
         showColumns: true,
+        contentType: "application/x-www-form-urlencoded", /**支持跨域**/
         striped: true,
         clickToSelect: true,
         showRefresh: true,                  //是否显示刷新按钮
@@ -99,21 +134,30 @@
         search: true,
         sidePagination: "server", //服务端处理分页
         columns: [
+            // {
+            //     title: '项目ID',
+            //     field: 'dannum',
+            //     align: 'center',
+            //     valign: 'middle',
+            // },
             {
-                title: '项目ID',
-                field: 'dannum',
+                title: '项目名称',
+                field: 'name',
                 align: 'center',
                 valign: 'middle',
             },
             {
-                title: '项目名称',
-                field: 'create_time',
+                title: '操作时间',
+                field: 'time',
                 align: 'center',
                 valign: 'middle',
+                formatter: function (v) {
+                    return formatDate(parseInt(v))
+                }
             },
             {
                 title: '备注',
-                field: 'create_time',
+                field: 'sm',
                 align: 'center',
                 valign: 'middle',
             },
@@ -121,8 +165,15 @@
                 title: '状态（是否锁定）',
                 field: 'create_time',
                 align: 'center',
-                valign: 'middle'
-            },{
+                valign: 'middle',
+                formatter: function (v) {
+                    if (v == 0) {
+                        return "<span>正常</span>";
+                    } else {
+                        return "<span style='color:red;'>锁定</span>";
+                    }
+                }
+            }, {
                 title: '操作',
                 align: 'center',
                 valign: 'middle',
@@ -141,7 +192,45 @@
         },
     });
     $(function () {
+        $('.addxm').click(function () {
+            var name = $('.xmname').val();
+            var sm = $('.xmsm').val();
+            if (name == '') {
+                layer.msg("项目名称必须填写");
+                return false;
+            }
+            var data = {
+                name: name,
+                sm: sm
+            };
+            $.ajax({
+                url: 'http://localhost:3000/dxtypes/addxm',
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function (res) {
+                    if (res.code == 1) {
+                        layer.msg(res.msg);
+                        return false;
+                    }
+                    layer.msg(res.msg);
+                    $('#myModal2').modal('hide');
+                    $('.modal-body input').val('');
+                }
+            });
+        });
     });
+
+    function formatDate(nows) {
+        var now = new Date(nows);
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        var date = now.getDate();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+        return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+    }
 </script>
 </body>
 

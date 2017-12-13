@@ -18,6 +18,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// ------------------------添加------------------------
 // 添加大类
 router.post('/addTypes', (req, res) => {
     let {type, name, sm} = req.body;
@@ -355,6 +356,50 @@ router.post('/addacountzh',(req,res)=>{
             });
         }
     });
+});
+
+
+// ------------------------读取------------------------
+
+// ----------------------  删除操作 -----------------------------
+// 删除项目
+router.post('/delxm', (req, res) => {
+    let {id} = req.body;
+    Srzcs.count({_id:id},(err,num)=>{
+        if (err) {
+            return res.json({
+                code:1,
+                msg:"系统错误 稍后再尝试"
+            });
+        }
+
+        if (num===0) {
+            return res.json({
+                code:1,
+                msg:"你删除的项目不存在"
+            });
+        }
+
+        if (num>=1) {
+            Srzcs.remove({_id:id},(err,doc)=>{
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误 稍后再尝试",
+                        data:[]
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"系统删除成功",
+                        data:doc
+                    });
+                }
+            })
+        }
+
+    })
 });
 
 module.exports = router;

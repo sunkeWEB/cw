@@ -75,23 +75,30 @@ function sersch(searchValue) {
     return obj;
 }
 router.get('/readsrzc',(req,res)=>{
-    let {order,offset,limit,sort} = req.query; // 获取查询条件
+    let {order,offset,limit,sort,sid} = req.query; // 获取查询条件
     let searchValue = req.query.search;
     let k = [];
-    let searchValue1 = searchValue ? k=sersch(searchValue) : k ;
     let kkk = {};
-    if (k.length>=1) {
+    let doc1,total=1;
+    console.log(sid);
+    if (sid === undefined) {
+        let searchValue1 = searchValue ? k=sersch(searchValue) : k ;
+        if (k.length>=1) {
+            kkk = {
+                '$or':k
+            };
+        }
+        let query = Srzcs.find(kkk, (err, doc) => {
+            doc1 = doc;
+        });
+        query.count((err, num) => {
+            total = num;
+        });
+    }else{
         kkk = {
-            '$or':k
+            _id:sid
         };
     }
-    let doc1,total;
-    let query = Srzcs.find(kkk, (err, doc) => {
-        doc1 = doc;
-    });
-    query.count((err, num) => {
-        total = num;
-    });
     Srzcs.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).exec((err,doc)=>{
         res.json({
             code:0,
@@ -358,7 +365,7 @@ router.get('/readxm',(req,res)=>{
 
 });
 
-//项目管理列表
+//用户管理列表
 function serschusers(searchValue) {
     let obj = [{
         name: {$regex:searchValue},

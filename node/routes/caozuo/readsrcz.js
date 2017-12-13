@@ -62,19 +62,4 @@ module.exports = async function (item = {}) {
             return [doc,1];
         });
     }
-
-
-    // return await Srzcs.find(data, {__v: 0}, (err, doc) => {
-    //     if (err) {
-    //         return {
-    //             code:1,
-    //             msg:err
-    //         }
-    //     }
-    //     if (doc) {
-    //         return doc
-    //     }
-    // });
-
-
 };

@@ -12,7 +12,17 @@ let userSchema = new mongoose.Schema({
     status: Number,  // 状态  是否激活 0 是激活
     time: String,  // 最近登录时间
     dengji:String, // 级别  系统管理  普通记账 经理记账
-    quanxian:Array // 权限数组
+    quanxian:[
+        {
+            name:String,
+            list:{
+                read:Number,    // 0表示具有权限 增删改 浏览 权限
+                update:Number,
+                create:Number,
+                delete:Number
+            }
+        }
+    ] // 权限数组
 },{ versionKey: false});
 
 module.exports = mongoose.model('users', userSchema);

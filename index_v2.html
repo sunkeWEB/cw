@@ -17,7 +17,6 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="js/plugins/layDate/laydate/theme/default/laydate.css">
-
 </head>
 
 <body class="gray-bg">
@@ -178,6 +177,7 @@
         var xsrzcarr = [[],[]]; // 小类容器
         var srzc = res.data;
 
+
         srzc.forEach(function (item, index) {
             if (item.type == 1) {
                 srzcarr[0].push(item);
@@ -191,6 +191,8 @@
                 }
             }
         });
+
+        // console.log(srzcarr[0]);
 
         // 初始化渲染 大类
         srzcarr[0].forEach(function (item, index) {
@@ -209,21 +211,29 @@
             style: 'btn-white',
             size:5,
         });
+
         //所属小类下拉
         $('.ssxl').nextAll().remove();  // bug
         $('.ssxl').selectpicker('refresh');
 
         $('.srzcoptions').change(function (event) {
             event.stopPropagation();
-            console.log("aqsas");
             var index = $(this).find('option:selected').val();  // 这里的index 和数组里面对应
+            if (index==0) {
+                index=1
+            }else{
+                index=0
+            }
             $('.ssdl option').remove();
+
             srzcarr[index].forEach(function (items, index) {
                 $('.ssdl').append(`<option value="${items._id}">${items.name}</option>`);
             });
+
             //所属大类下拉
             $('.ssdl').nextAll().remove();  // bug
             $('.ssdl').selectpicker('refresh');
+
             // 初始化渲染小类
             $('.ssxl option').remove();
             xsrzcarr[index].forEach(function (item, index) {
@@ -249,8 +259,6 @@
             style: 'btn-white',
             size:5,
         });
-
-
       //保存 数据库
         $('.savebtn').click(function () {
             var type = $('.srzcoptions').find('option:selected').val(); // 收入支出

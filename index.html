@@ -66,7 +66,7 @@
                         <li>
                             <a class="J_menuItem" href="index_v1.html" data-index="0">主页示例一</a>
                         </li>
-                        <li>
+                        <li class="authszrzcreate">
                             <a class="J_menuItem" href="index_v2.html">收入 / 支出记账</a>
                         </li>
                         <li>
@@ -653,7 +653,34 @@
 
 <!-- 第三方插件 -->
 <script src="js/plugins/pace/pace.min.js"></script>
+<script>
+    var listsrzc;
+    $(function () {
+        $.ajax({
+            url: 'http://127.0.0.1:3000/users/auth',
+            type: 'get',
+            dataType: 'json',
+            success: function (res) {
+                var arr = res.data[0].quanxian;
+                for (item of arr) {
 
+                    if (item.name == "收支入账") {
+                        listsrzc = item.list;
+                        if (listsrzc.read == 0) {   // 收支流水列表的权限 默认有
+                            if (listsrzc.create != 0) {  // 没有增加 收入支出 的权限
+                                $('.authszrzcreate').remove();
+                            }
+                        }
+                    }
+
+
+
+                }
+
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

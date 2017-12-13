@@ -335,10 +335,11 @@
             var repwd = $('.userreqpwd').val(); // 登录确认密码
             var dengji = $("[type='radio'][checked]").val(); // 用户级别
             var quanxian = '';
-            $("[type='checkbox'][checked]").each(function () {
-                // quanxian.push($(this).val());
+
+            $(".quanxian > [type='checkbox'][checked]").each(function () {
                 quanxian += $(this).val() + ' ';
             });
+
             var data = {
                 name: name,
                 zsname: zsname,
@@ -349,9 +350,8 @@
                 dengji: dengji,
                 quanxian: quanxian
             };
-            console.log(quanxian);
             $.ajax({
-                url: 'http://localhost:3000/users/register',
+                url: 'http://localhost:3000/users/register1',
                 type: 'post',
                 data: data,
                 dataType: 'json',

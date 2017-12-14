@@ -35,6 +35,10 @@
         .m-b{
             margin: 0;
         }
+        .columns  button {
+            background-color: white;
+            color: #000;
+        }
     </style>
 </head>
 
@@ -122,7 +126,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary">保存内容</button>
+                    <button type="button" class="btn btn-primary savedata">保存内容</button>
                 </div>
             </div>
         </div>
@@ -130,6 +134,13 @@
     <div class="row">
         <div>
             <table data-toggle="table" id="table">
+                <div id="toolbar">
+                    <select id="sel_exportoption" class="form-control selecrex">
+                        <option value="basic">导出当前页面数据</option>
+                        <option value="all">导出全部数据</option>
+                        <option value="selected">导出选中数据</option>
+                    </select>
+                </div>
             </table>
         </div>
     </div>
@@ -171,19 +182,38 @@
 
 <!-- Sparkline demo data  -->
 <script src="js/demo/sparkline-demo.js"></script>
-
+<!--导出-->
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="js/plugins/bootstrap-table/tableExport.js"></script>
+<script src="js/plugins/bootstrap-table/export/bootstrap-table-export.min.js"></script>
 <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
 <script  src="js/plugins/layDate/laydate/laydate.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script src="js/plugins/bootstrap-table/xlsx.core.min.js"></script>
 <script>
+    function DoOnMsoNumberFormat(cell, row, col) {
+        var result = "";
+        if (row > 0 && col == 0)
+            result = "\\@";
+        return result;
+    }
+    var pid =''; // 修改项目的id
     var $table = $('#table');
     $table.bootstrapTable({
-        // http://127.0.0.1:3000/reads/readsrzc
         url: 'http://127.0.0.1:3000/reads/readsrzc',         //请求后台的URL（*）
         method: 'get',             //请求方式（*）
         toolbar: '#toolbar',        //工具按钮用哪个容器
+        showExport: true,//显示导出按钮
+        exportDataType: "basic", //basic', 'all', 'selected'.
+        exportTypes:['excel'],
+        exportOptions:{
+            ignoreColumn: [0,10],  //忽略某一列的索引
+            fileName: '收入支出流水账',  //文件名称设置
+            worksheetName: 'sheet1',  //表格工作区名称
+            excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
+            onMsoNumberFormat: DoOnMsoNumberFormat
+        },
         pagination: true,                   //是否显示分页（*）
         cache: true,
         contentType: "application/x-www-form-urlencoded", /**支持跨域**/
@@ -192,12 +222,15 @@
         clickToSelect: true,
         showRefresh: true,                  //是否显示刷新按钮
         pageList: [5, 10, 15, 20],
-//        showPaginationSwitch: true,       //是否显示选择分页数按钮
         pageNumber: 1,                       //初始化加载第一页，默认第一页
         pageSize: 10, //每页的记录行数（*）
         search: true,
         sidePagination: "server", //服务端处理分页
         columns: [
+            {
+                checkbox: true,
+                title: '选择'
+            },
             {
                 title: '类型',
                 field: 'type',
@@ -218,13 +251,13 @@
                 class:"xmstime",
                 align: 'center',
                 valign: 'middle',
+                sortable: true,
             },
             {
                 title: '[类型]大类->小类',
                 field: 'dtype',
                 align: 'center',
                 valign: 'middle',
-                sortable: true,
                 formatter: function (value, row, index) {
                     return value +" -> "+ row.xtype
                 }
@@ -233,6 +266,7 @@
                 field: 'price',
                 align: 'center',
                 valign: 'middle',
+                sortable: true,
                 formatter: function (value, row, index) {
                     var aId = row.type;
                     if (aId == 1) {
@@ -245,6 +279,7 @@
                 field: 'price',
                 align: 'center',
                 valign: 'middle',
+                sortable: true,
                 formatter: function (value, row, index) {
                     var bId = row.type;
                     if (bId == 0) {
@@ -256,42 +291,36 @@
                 title: '所属帐户',
                 field: 'zjzh',
                 align: 'center',
-                valign: 'middle',
-                sortable: true
+                valign: 'middle'
             }, {
                 title: '生意伙伴',
                 field: 'yshb',
                 align: 'center',
                 valign: 'middle',
-                sortable: true
             }
             , {
                 title: '业务项目',
                 field: 'ywxm',
                 align: 'center',
                 valign: 'middle',
-                class:"ywxm",
-                sortable: true
+                class:"ywxm"
             }
             , {
                 title: '经手人',
                 field: 'jbr',
                 align: 'center',
-                valign: 'middle',
-                sortable: true
+                valign: 'middle'
             }, {
                 title: '说明',
                 field: 'sm',
                 align: 'center',
-                valign: 'middle',
-                sortable: true
+                valign: 'middle'
             }
             , {
                 title: '操作',
                 field: '_id',
                 align: 'center',
                 valign: 'middle',
-                sortable: true,
                 formatter: function (value,row,index) {
                     return `<button title="你没有权限进行此操作" data-id="${value}" disabled="disabled" type="button" class="btn delete" onclick="del(this)" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
                              <button title="你没有权限进行此操作" data-id="${value}" disabled="disabled" type="button" class="btn update" onclick="edit(this)" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
@@ -305,34 +334,27 @@
             };
         },
     });
+
+
     $(function () {
         setTimeout(kkk, 27);  // 等dom 渲染完毕
-
-        // 银行下拉框
-        $('.yinhan').selectpicker({
+        $('#sel_exportoption').selectpicker({
             style: 'btn-white',
-            size:5,
-        });
-        // 支出或者收入下拉
-        $('.srzcoptions').selectpicker({
-            style: 'btn-white',
-            size:5,
+            size: 4
         });
         // 经办人
         $('.jbpeople').selectpicker({
             style: 'btn-white',
             size:5,
         });
-        var hostname = location.hostname;
         //  渲染业务项目 开始
         var res = sendAjax('http://localhost:3000/reads/read', 'get');
         if (!res.code == 0) {
             layer.msg("系统错误  获取失败");
         }
-
         var xm = res.xm;
         xm.forEach(function (item, index) {
-            $('.ywxm1').append(`<option value="${item._id}">${item.name}</option>`);
+            $('.ywxm1').append(`<option value="${item.name}">${item.name}</option>`);
         });
         $('.selectpicker').selectpicker({
             style: 'btn-white',
@@ -340,83 +362,62 @@
             liveSearchPlaceholder:'查找你的项目',
             noneResultsText:'没有查询到相关的信息'
         });
-
-
-        // //  封装 大类
-        // var srzcarr = [[],[]];  //大类容器
-        // var xsrzcarr = [[],[]]; // 小类容器
-        // var srzc = res.data;
-
-
-        // srzc.forEach(function (item, index) {
-        //     if (item.type == 1) {
-        //         srzcarr[0].push(item);
-        //         if (item.sunlist.length>0) {
-        //             xsrzcarr[0].push(item.sunlist);
-        //         }
-        //     }else if(item.type == 0){
-        //         srzcarr[1].push(item);
-        //         if (item.sunlist.length>0) {
-        //             xsrzcarr[1].push(item.sunlist);
-        //         }
-        //     }
-        // });
-
-        // console.log(srzcarr[0]);
-
-
-        // 初始化渲染小类
-        // xsrzcarr[0].forEach(function (item, index) {
-        //     $('.ssxl').append(`<option value="${item[0]._id}">${item[0].name}</option>`);
-        // });
-        // $('.ssxl').selectpicker({
-        //     style: 'btn-white',
-        //     size:5,
-        // });
-
-        // //所属小类下拉
-        // $('.ssxl').nextAll().remove();  // bug
-        // $('.ssxl').selectpicker('refresh');
-        // $('.srzcoptions').change(function (event) {
-        //     event.stopPropagation();
-        //     var index = $(this).find('option:selected').val();  // 这里的index 和数组里面对应
-        //     if (index==0) {
-        //         index=1
-        //     }else{
-        //         index=0
-        //     }
-        //     $('.ssdl option').remove();
-        //
-        //     srzcarr[index].forEach(function (items, index) {
-        //         $('.ssdl').append(`<option value="${items._id}">${items.name}</option>`);
-        //     });
-        //
-        //     //所属大类下拉
-        //     $('.ssdl').nextAll().remove();  // bug
-        //     $('.ssdl').selectpicker('refresh');
-        //
-        //     // 初始化渲染小类
-        //     $('.ssxl option').remove();
-        //     xsrzcarr[index].forEach(function (item, index) {
-        //         $('.ssxl').append(`<option value="${item[0]._id}">${item[0].name}</option>`);
-        //     });
-        //     $('.ssxl').selectpicker({
-        //         style: 'btn-white',
-        //         size: 5,
-        //     });
-        //     //所属小类下拉
-        //     $('.ssxl').nextAll().remove();  // bug
-        //     $('.ssxl').selectpicker('refresh');
-        // });
-
         // 生意伙伴
         var khs = res.kh;
         khs.forEach(function (item,index) {
-            $('.syhb').append(`<option value="${item._id}">${item.name}</option>`);
+            $('.syhb').append(`<option value="${item.name}">${item.name}</option>`);
         });
         $('.syhb').selectpicker({
             style: 'btn-white',
             size:5,
+        });
+
+       // 保存
+        $('.savedata').click(function (data) {
+                var dtype = $('.ssdl').find('option:selected').text();// 大类
+                var xtype = $('.ssxl').find('option:selected').text();// 小类
+                var price = $('.price').val();// 金额
+                var yinhan = $('.yinhan').find('option:selected').text();// 银行
+                var time = $('.time').val();// 时间
+                var syhb = $('.syhb').find('option:selected').text();// 生意伙伴
+                var ywxm = $('.ywxm1').find('option:selected').text();// 业务项目
+                var sm = $('.sm').val();// 说明
+                var jbpeople = $('.jbpeople').find('option:selected').text();// 经办人
+                var data = {
+                    pid:pid,
+                    dtype:dtype,
+                    xtype:xtype,
+                    price:price,
+                    zjzh:yinhan,
+                    yshb:syhb,
+                    ywxm:ywxm,
+                    jbr:jbpeople,
+                    sm:sm,
+                    time:time
+                };
+                $.ajax({
+                    url: 'http://localhost:3000/dxtypes/updatexm',
+                    data: data,
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (res) {
+                        if (res.code!=0) {
+                            layer.msg(res.msg);
+                            return false;
+                        }
+                        layer.msg(res.msg);
+                        $('#myModal78').modal('hide');
+                    }
+                });
+            });
+
+       // 选择导出 all selected basic
+        $('.selecrex').click(function(){
+            var exportoption = $(this).find('option:selected').val();
+            $('#table').bootstrapTable('refreshOptions',{
+                exportDataType:exportoption
+            });
+            console.log($('#table').bootstrapTable('getOptions'));
         });
 
     });
@@ -457,12 +458,11 @@
     }
 
     function edit(item) {
-        console.log($('.modal-content .ssdl  '));
-        var id = $(item).data('id'); // 获取项目的唯一id
+        pid = $(item).data('id'); // 获取项目的唯一id
         $.ajax({
             url:'http://127.0.0.1:3000/reads/readsrzc',
             type:'get',
-            data:{sid:id},
+            data:{sid:pid},
             dataType:'json',
             success:function (res) {
                 if (res.code!=0) {
@@ -470,16 +470,39 @@
                     return false;
                 }
                 var lists = res.data[0];
+                // 银行下拉框
+                $('.yinhan').selectpicker('val',lists.zjzh);
+                $('.yinhan').selectpicker({
+                    style: 'btn-white',
+                    size:5,
+                });
+                $('.yinhan').selectpicker('refresh');
 
+
+                // 生意伙伴
+                $('.syhb').selectpicker('val',lists.yshb);
+                $('.syhb').selectpicker({
+                    style: 'btn-white',
+                    size:5,
+                });
+                $('.syhb').selectpicker('refresh');
+
+                $('.ywxm1').selectpicker('val',lists.ywxm);
+                $('.ywxm1').selectpicker({
+                    style: 'btn-white',
+                    size:5,
+                });
+                $('.ywxm1').selectpicker('refresh');
+
+                // 时间
                 laydate.render({
                     elem: '#test1', //指定元素mmmlkas
+                    value:lists.time
                 });
 
                 $('.sm').val(lists.sm);
 
                 $('.price').val(lists.price);
-
-
                 var res = sendAjax('http://localhost:3000/reads/read', 'get');
                 if (!res.code == 0) {
                     layer.msg("系统错误  获取失败");
@@ -502,22 +525,41 @@
                     }
                 });
                 // 初始化渲染 大类
-                console.log(srzcarr[lists.type]);
-                srzcarr[lists.type].forEach(function (item, index) {
-                    $('.ssdl').append(`<option value="${item._id}">${item.name}</option>`);
+                var vat = lists.type == 0 ? 1 : 0;
+                srzcarr[vat].forEach(function (item, index) {
+                    $('.ssdl').append(`<option value="${item.name}">${item.name}</option>`);
                 });
+                $('.ssdl').selectpicker('val',lists.dtype);
                 $('.ssdl').selectpicker({
                     style: 'btn-white',
-                    size:5,
+                    size:5
                 });
+                $('.ssdl').nextAll().remove();  // bug
+                $('.ssdl').selectpicker('refresh');
+
+                // 初始化渲染小类
+                $('.ssxl option').remove();
+                xsrzcarr[vat].forEach(function (item, index) {
+                    $('.ssxl').append(`<option value="${item[0].name}">${item[0].name}</option>`);
+                });
+                $('.ssxl').selectpicker('val',lists.xtype);
+                $('.ssxl').selectpicker({
+                    style: 'btn-white',
+                    size: 5,
+                });
+                //所属小类下拉
+                $('.ssxl').nextAll().remove();  // bug
+                $('.ssxl').selectpicker('refresh');
                 $('#myModal78').modal('show');
             }
         });
     }
+
     $('#myModal78').on('hidden.bs.modal', function (e) {
-        console.log("zhixng");
         $('.modal-content .ssdl option').remove();
-    })
+        $('.modal-content .ssxl option').remove();
+    });   // 解决edit 里面的 bug
+
 </script>
 </body>
 </html>

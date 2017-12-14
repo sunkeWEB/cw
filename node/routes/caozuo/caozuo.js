@@ -186,7 +186,6 @@ router.post('/addkh', (req, res) => {
 // time: String,
 router.post('/addsrzc', (req, res) => {
     let {type, xtype, price, zjzh, yshb, ywxm, jbr, sm, time, dtype} = req.body;
-    console.log({type, xtype, price, zjzh, yshb, ywxm, jbr, sm, time, dtype});
     let obj = {
         type: type,
         xtype: xtype,
@@ -361,7 +360,7 @@ router.post('/addacountzh',(req,res)=>{
 
 // ------------------------读取------------------------
 
-// ----------------------  删除操作 -----------------------------
+// ----------------------  删除修改操作 -----------------------------
 // 删除项目
 router.post('/delxm', (req, res) => {
     let {id} = req.body;
@@ -401,5 +400,34 @@ router.post('/delxm', (req, res) => {
 
     })
 });
-
+router.post('/updatexm',(req,res)=>{
+    let {pid,xtype, price, zjzh, yshb, ywxm, jbr, sm, time, dtype} = req.body;
+    let obj = {
+        xtype: xtype,
+        price: price,
+        zjzh: zjzh,
+        yshb: yshb,
+        ywxm: ywxm,
+        time: time,
+        jbr: jbr,
+        sm: sm,
+        dtype: dtype
+    };
+    Srzcs.update({_id:pid},obj,function (err, doc) {
+        if (err) {
+            return res.json({
+                code:1,
+                msg:"系统错误",
+                data:msg
+            });
+        }
+        if (doc) {
+            return res.json({
+                code:0,
+                msg:"修改成功",
+                data:doc
+            })
+        }
+    })
+});
 module.exports = router;

@@ -25,6 +25,14 @@
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
     <link href="https://cdn.bootcss.com/layer/3.1.0/mobile/need/layer.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <style>
+        .columns button,.dropup button {
+            background-color: white;
+            color: #000;
+        }
+    </style>
 </head>
 
 <body class="gray-bg">
@@ -152,10 +160,15 @@
     <div class="row">
         <div>
             <table data-toggle="table" id="table">
-                <div id="toolbar">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal7">
+                <div id="toolbar" style="display: flex">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal7" style="margin-right: 15px">
                         添加用户
                     </button>
+                    <select id="sel_exportoption" class="form-control selecrex">
+                        <option value="basic">导出当前页面数据</option>
+                        <option value="all">导出全部数据</option>
+                        <option value="selected">导出选中数据</option>
+                    </select>
                 </div>
             </table>
         </div>
@@ -202,6 +215,11 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
 <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+<script src="js/plugins/bootstrap-table/tableExport.js"></script>
+<script src="js/plugins/bootstrap-table/export/bootstrap-table-export.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script  src="js/plugins/layDate/laydate/laydate.js"></script>
+<script src="js/myjquery.js"></script>
 <script>
     var $table = $('#table');
     $table.bootstrapTable({
@@ -214,6 +232,16 @@
         showColumns: true,
         striped: true,
         clickToSelect: true,
+        showExport: true,//显示导出按钮
+        exportDataType: "basic", //basic', 'all', 'selected'.
+        exportTypes: ['excel'],
+        exportOptions: {
+            ignoreColumn: [0,10,12],  //忽略某一列的索引
+            fileName: '用户表',  //文件名称设置
+            worksheetName: 'sheet1',  //表格工作区名称
+            excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
+            onMsoNumberFormat: $.DoOnMsoNumberFormat
+        },
         showRefresh: true,                  //是否显示刷新按钮
         pageList: [5, 10, 15, 20],
 //        showPaginationSwitch: true,       //是否显示选择分页数按钮
@@ -222,12 +250,17 @@
         search: true,
         sidePagination: "server", //服务端处理分页
         columns: [
-            // {
-            //     title: 'ID',
-            //     field: 'dannum',
-            //     align: 'center',
-            //     valign: 'middle',
-            // },
+            {
+                checkbox: true,
+                title: '选择'
+            },
+            {
+                title: "单号",
+                field: '_id',
+                align: 'center',
+                valign: 'middle',
+                visible: false
+            },
             {
                 title: '用户名',
                 field: 'name',
@@ -239,7 +272,8 @@
                 field: 'zsname',
                 align: 'center',
                 valign: 'middle',
-            }, {
+            },
+            {
                 title: '默认资金账户',
                 field: 'defaultyhk',
                 align: 'center',
@@ -310,8 +344,10 @@
                 align: 'center',
                 valign: 'middle',
                 sortable: true,
-                formatter: function () {
-                    return `<button type="button" class="btn" onclick="del(this)" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
+                formatter: function (value,row) {
+                    var id = row._id;
+                    var name = row.name;
+                    return `<button type="button" class="btn" onclick="del('${name}','${id}')" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
                              <button type="button" class="btn" onclick="edit(this)" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
                 }
             }
@@ -324,6 +360,7 @@
         },
     });
     $(function () {
+
         $('.addusers').click(function () {
             var name = $('.username').val(); // 登录名
             var zsname = $('.userzsname').val(); // 真实姓名
@@ -366,7 +403,35 @@
                 }
             });
         });
+
+        $('#sel_exportoption').selectpicker({
+            style: 'btn-white',
+            size: 4
+        });
+// 选择导出 all selected basic
+        $('.selecrex').click(function () {
+            var exportoption = $(this).find('option:selected').val();
+            $('#table').bootstrapTable('refreshOptions', {
+                exportDataType: exportoption
+            });
+        });
+
     });
+
+    function del(name,id) {
+        layer.confirm('你确定删除 ' + name + ' 嘛？', {
+            btn: ['果断删除', '放弃'] //按钮
+        }, function () {
+            var url = "http://localhost:3000/dxtypes/delusers";
+            var res = $.deletelData(url, id);
+            if (res.code == 1) {
+                layer.msg(res.msg);
+                return false;
+            }
+            layer.msg(res.msg);
+            $table.bootstrapTable('refresh');
+        });
+    }
 
     function formatDate(nows) {
         var now = new Date(nows);

@@ -11,7 +11,8 @@
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
 
     <!-- Morris -->
@@ -26,17 +27,23 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link href="https://cdn.bootcss.com/layer/3.1.0/mobile/need/layer.css" rel="stylesheet">
-
+    <style>
+        .columns  button {
+            background-color: white;
+            color: #000;
+        }
+    </style>
 </head>
 
 <body class="gray-bg">
 <div class="wrapper wrapper-content">
-    <!--Modal       //type,xtype,price,zjzh,yshb,ywxm,jbr,sm&ndash;&gt;-->
+    <!--Modal  添加 修改     //type,xtype,price,zjzh,yshb,ywxm,jbr,sm&ndash;&gt;-->
     <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title" id="myModalLabel6">账户添加</h4>
                 </div>
@@ -46,8 +53,8 @@
                         <label class="col-sm-2 control-label">账户类型</label>
                         <div class="">
                             <select class="accountgltype form-control" name="" id="">
-                                <option value="">现金</option>
-                                <option value="">理财</option>
+                                <option value="现金">现金</option>
+                                <option value="理财">理财</option>
                             </select>
                         </div>
                     </div>
@@ -76,7 +83,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary addaccountgl">添加</button>
+                    <button type="button" class="btn btn-primary addaccountgl switch">添加</button>
+                    <button type="button" class="btn btn-primary updatedata switch" style="display: none">修改</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div>
@@ -85,8 +93,15 @@
     <div class="row">
         <div>
             <table data-toggle="table" id="table">
-                <div id="toolbar">
-                    <botton type="button" class="btn btn-primary toolbar" data-toggle="modal" data-target="#myModal6">账户管理添加</botton>
+                <div id="toolbar" style="display: flex">
+                    <botton type="button" class="btn btn-primary toolbar" data-toggle="modal" data-target="#myModal6" style="margin-right: 15px">
+                        账户管理添加
+                    </botton>
+                     <select id="sel_exportoption" class="form-control selecrex" >
+                            <option value="basic">导出当前页面数据</option>
+                            <option value="all">导出全部数据</option>
+                            <option value="selected">导出选中数据</option>
+                     </select>
                 </div>
             </table>
         </div>
@@ -96,7 +111,6 @@
 <!-- 全局js -->
 <script src="js/jquery.min.js?v=2.1.4"></script>
 <script src="js/bootstrap.min.js?v=3.3.6"></script>
-
 
 
 <!-- Flot -->
@@ -135,7 +149,11 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+<script src="js/myjquery.js"></script>
+<script src="js/plugins/bootstrap-table/tableExport.js"></script>
+<script src="js/plugins/bootstrap-table/export/bootstrap-table-export.min.js"></script>
 <script>
+    var accountglid;
     var $table = $('#table');
     $table.bootstrapTable({
         url: 'http://localhost:3000/reads/readaccountzh',         //请求后台的URL（*）
@@ -145,7 +163,17 @@
         cache: true,
         showColumns: true,
         striped: true,
-        contentType: "application/x-www-form-urlencoded",/**支持跨域**/
+        showExport: true,//显示导出按钮
+        exportDataType: "basic", //basic', 'all', 'selected'.
+        exportTypes:['excel'],
+        exportOptions:{
+            ignoreColumn: [0,8],  //忽略某一列的索引
+            fileName: '账户管理',  //文件名称设置
+            worksheetName: 'sheet1',  //表格工作区名称
+            excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
+            onMsoNumberFormat: $.DoOnMsoNumberFormat
+        },
+        contentType: "application/x-www-form-urlencoded", /**支持跨域**/
         clickToSelect: true,
         showRefresh: true,                  //是否显示刷新按钮
         pageList: [5, 10, 15, 20],
@@ -153,14 +181,21 @@
         pageNumber: 1,                       //初始化加载第一页，默认第一页
         pageSize: 10, //每页的记录行数（*）
         search: true,
+        // showFooter:true,
+        // cardView:true,
         sidePagination: "server", //服务端处理分页
         columns: [
-            // {
-            //     title: '账户ID',
-            //     field: 'dannum',
-            //     align: 'center',
-            //     valign: 'middle',
-            // },
+            {
+                checkbox: true,
+                title: '选择'
+            },
+            {
+                title: "单号",
+                field: '_id',
+                align: 'center',
+                valign: 'middle',
+                visible: false
+            },
             {
                 title: '账户类型',
                 field: 'dtype',
@@ -172,55 +207,53 @@
                 field: 'name',
                 align: 'center',
                 valign: 'middle',
-                sortable: true
+                sortable: true,
             },
             {
                 title: '创建日期',
                 field: 'createtime',
                 align: 'center',
                 valign: 'middle',
-                sortable: true,
-                formatter:function(v) {
-                    return formatDate(parseInt(v))
-                }
+                sortable: true
             }, {
                 title: '期初（创建时）金额',
                 field: 'defaultprice',
                 align: 'center',
                 valign: 'middle',
-            },{
+            }, {
                 title: '当前余额',
                 field: 'price',
                 align: 'center',
-                valign: 'middle',
-                sortable: true
+                sortable: true,
             }
-            ,{
+            , {
                 title: '备注',
                 field: 'sm',
                 align: 'center',
                 valign: 'middle',
                 sortable: true
-            },{
+            }, {
                 title: '状态（是否锁定）',
                 field: 'status',
                 align: 'center',
                 valign: 'middle',
-                formatter:function (v) {
-                    if (v==0) {
-                        return  "<span>正常</span>"
-                    }else {
+                formatter: function (v) {
+                    if (v == 0) {
+                        return "<span>正常</span>"
+                    } else {
                         return "<span style='color:red'>异常</span>"
                     }
                 }
-            },{
+            }, {
                 title: '操作',
                 align: 'center',
                 valign: 'middle',
                 sortable: true,
-                formatter: function () {
-                    return `<button type="button" class="btn" onclick="del(this)" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
-                             <button type="button" class="btn" onclick="edit(this)" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
+                formatter: function (value, row) {
+                    var xmname = row.name;
+                    var xmpid = row._id;
+                    return `<button type="button" class="btn" onclick="del('${xmname}','${xmpid}')" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
+                             <button type="button" class="btn" onclick="edit('${xmname}','${xmpid}')" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
                 }
             }
         ],
@@ -234,35 +267,64 @@
     $(function () {
         $('.accountgltype').selectpicker({
             style: 'btn-white',
-            size:5,
+            size: 5,
         });
         //    添加账户
         $('.addaccountgl').click(function () {
-            var type = $('.accountgltype').find('option:selected').text();
-            var name = $('.accountglname').val();
-            var price = $('.accountglprice').val();
-            var sm = $('.accountglsm').val();
-            if (name=='') {
-                layer.msg('账户名称不能为空');
-                return false;
-            }
-            if (price=='') {
-                layer.msg('账户余额不能为空');
-                return false;
-            }
-            var data = {
-                type: type,
-                name: name,
-                price: price,
-                sm: sm
-            };
+            // alert("添加");
+            createUpdate(1); // 添加数据
+        });
+
+
+        $('#sel_exportoption').selectpicker({
+            style: 'btn-white',
+            size: 4
+        });
+       // 修改数据
+        $('.updatedata').click(function(){
+            // alert("update");
+            createUpdate(0); // 修改数据 i
+        });
+
+        // 选择导出 all selected basic
+        $('.selecrex').click(function(){
+            var exportoption = $(this).find('option:selected').val();
+            $('#table').bootstrapTable('refreshOptions',{
+                exportDataType:exportoption
+            });
+            console.log($('#table').bootstrapTable('getOptions'));
+        });
+
+    });
+
+    function createUpdate (types) {
+        var type = $('.accountgltype').find('option:selected').val();
+        var name = $('.accountglname').val();
+        var price = $('.accountglprice').val();
+        var sm = $('.accountglsm').val();
+        if (name == '') {
+            layer.msg('账户名称不能为空');
+            return false;
+        }
+        if (price == '') {
+            layer.msg('账户余额不能为空');
+            return false;
+        }
+        var data = {
+            type: type,
+            name: name,
+            price: price,
+            sm: sm
+        };
+        if (types == 1) {
+            console.log(typeof types + types);
             $.ajax({
                 url: "http://localhost:3000/dxtypes/addacountzh",
                 data: data,
                 type: 'post',
                 dataType: 'json',
                 success: function (res) {
-                    if (res.code==1) {
+                    if (res.code == 1) {
                         layer.msg(res.msg);
                         return false;
                     }
@@ -271,19 +333,75 @@
                     $('.modal-body input').val('');
                 }
             });
-        });
-    });
+        }else{
+            console.log(typeof types + types);
+            var url = "http://localhost:3000/dxtypes/updateaccount";
+            var res = $.updateData(url, accountglid,data);
+            if (res.code == 1) {
+                layer.msg(res.msg);
+                return false;
+            }
+            layer.msg(res.msg);
+            $('#myModal6').modal('hide');
+            $('.modal-body input').val('');
+        }
+    }
 
     function formatDate(nows) {
-        var now=new Date(nows);
-        var year=now.getFullYear();
-        var month=now.getMonth()+1;
-        var date=now.getDate();
-        var hour=now.getHours();
-        var minute=now.getMinutes();
-        var second=now.getSeconds();
-        return year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second;
+        var now = new Date(nows);
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        var date = now.getDate();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+        return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
     }
+
+    function del(name, id) {
+        layer.confirm('你确定删除 ' + name + ' 嘛？', {
+            btn: ['果断删除', '放弃'] //按钮
+        }, function () {
+            var url = "http://localhost:3000/dxtypes/delaccountzh";
+            var res = $.deletelData(url, id);
+            console.log(res);
+            if (res.code == 1) {
+                layer.msg(res.msg);
+                return false;
+            }
+            layer.msg(res.msg);
+            $table.bootstrapTable('refresh');
+        });
+    }
+
+    function edit (name,id) {
+        accountglid = id;
+       var url = "http://localhost:3000/reads/readaccountzh"; // 获取数据的url
+       var res = $.readData(url, id);
+        if (res.code != 0) {
+            layer.msg(res.msg);
+            return false;
+        }
+        var lists = res.data[0];
+        $('.accountgltype').selectpicker('val',lists.dtype);
+        $('.accountglname').val(lists.name);
+        $('.accountglprice').val(lists.price);
+        $('.accountglsm').val(lists.sm);
+        $('#myModalLabel6').text("账户修改");
+        $('#myModal6  .addaccountgl').css("display","none");
+        $('#myModal6  .updatedata').css("display","inline-block");
+        $('#myModal6').modal('show');
+    }
+
+    //  这里公用一个modal 修改class
+    $('#myModal6').on('hidden.bs.modal', function (e) {
+        $('#myModalLabel6').text("账户添加");
+        $('#myModal6  .addaccountgl').css("display","inline-block");
+        $('#myModal6  .updatedata').css("display","none");
+        $('.accountglname').val('');
+        $('.accountglprice').val('');
+        $('.accountglsm').val('');
+    });
 
 </script>
 </body>

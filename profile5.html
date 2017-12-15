@@ -26,6 +26,14 @@
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
     <link href="https://cdn.bootcss.com/layer/3.1.0/mobile/need/layer.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <style>
+        .columns button, .dropup button {
+            background-color: white;
+            color: #000;
+        }
+    </style>
 </head>
 
 <body class="gray-bg">
@@ -56,6 +64,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary addxm">保存</button>
+                    <button type="button" class="btn btn-primary updatexm">修改</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div>
@@ -64,10 +73,16 @@
     <div class="row">
         <div>
             <table data-toggle="table" id="table">
-                <div id="toolbar">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+                <div id="toolbar" style="display: flex">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2"
+                            style="margin-right: 15px">
                         项目添加
                     </button>
+                    <select id="sel_exportoption" class="form-control selecrex">
+                        <option value="basic">导出当前页面数据</option>
+                        <option value="all">导出全部数据</option>
+                        <option value="selected">导出选中数据</option>
+                    </select>
                 </div>
             </table>
         </div>
@@ -114,7 +129,12 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
 <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script src="js/plugins/bootstrap-table/tableExport.js"></script>
+<script src="js/plugins/bootstrap-table/export/bootstrap-table-export.min.js"></script>
+<script src="js/myjquery.js"></script>
 <script>
+    var xmspid;
     var $table = $('#table');
     $table.bootstrapTable({
         url: 'http://localhost:3000/reads/readxm',         //请求后台的URL（*）
@@ -123,6 +143,16 @@
         pagination: true,                   //是否显示分页（*）
         cache: true,
         showColumns: true,
+        showExport: true,//显示导出按钮
+        exportDataType: "basic", //basic', 'all', 'selected'.
+        exportTypes: ['excel'],
+        exportOptions: {
+            ignoreColumn: [0, 5],  //忽略某一列的索引
+            fileName: '项目表',  //文件名称设置
+            worksheetName: 'sheet1',  //表格工作区名称
+            excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
+            onMsoNumberFormat: $.DoOnMsoNumberFormat
+        },
         contentType: "application/x-www-form-urlencoded", /**支持跨域**/
         striped: true,
         clickToSelect: true,
@@ -134,12 +164,16 @@
         search: true,
         sidePagination: "server", //服务端处理分页
         columns: [
-            // {
-            //     title: '项目ID',
-            //     field: 'dannum',
-            //     align: 'center',
-            //     valign: 'middle',
-            // },
+            {
+                checkbox: true,
+                title: '选择'
+            }, {
+                title: "单号",
+                field: '_id',
+                align: 'center',
+                valign: 'middle',
+                visible: false
+            },
             {
                 title: '项目名称',
                 field: 'name',
@@ -178,9 +212,12 @@
                 align: 'center',
                 valign: 'middle',
                 sortable: true,
-                formatter: function () {
-                    return `<button type="button" class="btn" onclick="del(this)" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
-                             <button type="button" class="btn" onclick="edit(this)" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
+                formatter: function (value, row) {
+                    var id = row._id;
+                    var name = row.name;
+                    var sm = row.sm;
+                    return `<button type="button" class="btn" onclick="del('${name}','${id}')" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
+                             <button type="button" class="btn" onclick="edit('${name}','${id}','${sm}')" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
                 }
             }
         ],
@@ -192,17 +229,41 @@
         },
     });
     $(function () {
+        $('#sel_exportoption').selectpicker({
+            style: 'btn-white',
+            size: 4
+        });
+
         $('.addxm').click(function () {
-            var name = $('.xmname').val();
-            var sm = $('.xmsm').val();
-            if (name == '') {
-                layer.msg("项目名称必须填写");
-                return false;
-            }
-            var data = {
-                name: name,
-                sm: sm
-            };
+            updatexmcreate(1)
+        });
+
+        $('.updatexm').click(function () {
+            updatexmcreate(0);
+        });
+
+        // 选择导出 all selected basic
+        $('.selecrex').click(function () {
+            var exportoption = $(this).find('option:selected').val();
+            $('#table').bootstrapTable('refreshOptions', {
+                exportDataType: exportoption
+            });
+        });
+    });
+
+    function updatexmcreate(types) {
+        console.log(types);
+        var name = $('.xmname').val();
+        var sm = $('.xmsm').val();
+        if (name == '') {
+            layer.msg("项目名称必须填写");
+            return false;
+        }
+        var data = {
+            name: name,
+            sm: sm
+        };
+        if (types==1) {
             $.ajax({
                 url: 'http://localhost:3000/dxtypes/addxm',
                 data: data,
@@ -218,8 +279,33 @@
                     $('.modal-body input').val('');
                 }
             });
+        } else {
+            var url = "http://localhost:3000/dxtypes/updatexms";
+            var res = $.updateData(url, xmspid, data);
+            if (res.code == 1) {
+                layer.msg(res.msg);
+                return false;
+            }
+            layer.msg(res.msg);
+            $('#myModal2').modal('hide');
+            $('.modal-body input').val('');
+        }
+    }
+
+    function del(name, id) {
+        layer.confirm('你确定删除 ' + name + ' 嘛？', {
+            btn: ['果断删除', '放弃'] //按钮
+        }, function () {
+            var url = "http://localhost:3000/dxtypes/delxms";
+            var res = $.deletelData(url, id);
+            if (res.code == 1) {
+                layer.msg(res.msg);
+                return false;
+            }
+            layer.msg(res.msg);
+            $table.bootstrapTable('refresh');
         });
-    });
+    }
 
     function formatDate(nows) {
         var now = new Date(nows);
@@ -231,6 +317,25 @@
         var second = now.getSeconds();
         return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
     }
+
+    function edit(name, id, sm) {
+        xmspid = id;
+        $('.xmname').val(name);
+        $('.xmsm').val(sm);
+        $('#myModalLabel2').text("项目信息修改");
+        $('#myModal2  .updatexm').css("display","inline-block");
+        $('#myModal2  .addxm').css("display", "none");
+        $('#myModal2').modal('show');
+    }
+
+    //  这里公用一个modal 修改class
+    $('#myModa12').on('hidden.bs.modal', function (e) {
+        $('#myModalLabel2').text("项目添加");
+        $('#myModal4  .addxm').css("display", "inline-block");
+        $('#myModal4  .updatexm').css("display", "none");
+        $('.modal-body input').val('');
+    });
+
 </script>
 </body>
 

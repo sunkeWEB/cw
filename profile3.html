@@ -27,7 +27,14 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
     <link rel="stylesheet" href="js/plugins/layDate/laydate/theme/default/laydate.css">
     <link href="https://cdn.bootcss.com/layer/3.1.0/mobile/need/layer.css" rel="stylesheet">
-
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <style>
+        .columns button,.dropup button {
+            background-color: white;
+            color: #000;
+        }
+    </style>
 </head>
 
 <body class="gray-bg">
@@ -89,6 +96,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary addkh">保存</button>
+                    <button type="button" class="btn btn-primary updatekh" style="display: none">修改</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div>
@@ -97,9 +105,14 @@
     <div class="row">
         <div>
             <table data-toggle="table" id="table">
-                <div id="toolbar">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3">客户添加
+                <div id="toolbar" style="display: flex">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3" style="margin-right: 15px">客户添加
                     </button>
+                    <select id="sel_exportoption" class="form-control selecrex">
+                        <option value="basic">导出当前页面数据</option>
+                        <option value="all">导出全部数据</option>
+                        <option value="selected">导出选中数据</option>
+                    </select>
                 </div>
             </table>
         </div>
@@ -109,7 +122,7 @@
 <!-- 全局js -->
 <script src="js/jquery.min.js?v=2.1.4"></script>
 <script src="js/bootstrap.min.js?v=3.3.6"></script>
-<script src="https://cdn.bootcss.com/layer/3.1.0/mobile/layer.js"></script>
+<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
 
 
 <!-- Flot -->
@@ -146,8 +159,12 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
-
+<script src="js/plugins/bootstrap-table/tableExport.js"></script>
+<script src="js/plugins/bootstrap-table/export/bootstrap-table-export.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script src="js/myjquery.js"></script>
 <script>
+    var kehusid;
     var $table = $('#table');
     $table.bootstrapTable({
         url: 'http://localhost:3000/reads/readkehus',         //请求后台的URL（*）
@@ -155,6 +172,16 @@
         toolbar: '#toolbar',        //工具按钮用哪个容器
         pagination: true,                   //是否显示分页（*）
         cache: true,
+        showExport: true,//显示导出按钮
+        exportDataType: "basic", //basic', 'all', 'selected'.
+        exportTypes: ['excel'],
+        exportOptions: {
+            ignoreColumn: [0, 8],  //忽略某一列的索引
+            fileName: '客户列表',  //文件名称设置
+            worksheetName: 'sheet1',  //表格工作区名称
+            excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
+            onMsoNumberFormat: $.DoOnMsoNumberFormat
+        },
         contentType: "application/x-www-form-urlencoded", /**支持跨域**/
         showColumns: true,
         striped: true,
@@ -167,6 +194,16 @@
         search: true,
         sidePagination: "server", //服务端处理分页
         columns: [
+            {
+                checkbox: true,
+                title: '选择'
+            }, {
+                title: "单号",
+                field: '_id',
+                align: 'center',
+                valign: 'middle',
+                visible: false
+            },
             {
                 title: '生意伙伴(客户)名称',
                 field: 'name',
@@ -220,9 +257,16 @@
                 align: 'center',
                 valign: 'middle',
                 sortable: true,
-                formatter: function () {
-                    return `<button type="button" class="btn" onclick="del(this)" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
-                             <button type="button" class="btn" onclick="edit(this)" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
+                formatter: function (value,row) {
+                    var name = row.name;
+                    var id = row._id;
+                    var phone = row.phone;
+                    var cz = row.cz;
+                    var bz = row.bz;
+                    var adders = row.adders;
+                    var email = row.email;
+                    return `<button type="button" class="btn" onclick="del('${name}','${id}')" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
+                             <button type="button" class="btn" onclick="edit('${name}','${id}','${phone}','${cz}','${bz}','${adders}','${email}')" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
                 }
             }
         ],
@@ -234,21 +278,41 @@
         },
     });
     $(function () {
+        $('#sel_exportoption').selectpicker({
+            style: 'btn-white',
+            size: 4
+        });
+// 选择导出 all selected basic
+        $('.selecrex').click(function () {
+            var exportoption = $(this).find('option:selected').val();
+            $('#table').bootstrapTable('refreshOptions', {
+                exportDataType: exportoption
+            });
+        });
         $('.addkh').click(function () {
-            var name = $('.khname').val();
-            var phone = $('.khphone').val();
-            var cz = $('.khcz').val();
-            var email = $('.khemail').val();
-            var adders = $('.khadders').val();
-            var bz = $('.khbz').val();
-            var data = {
-                name: name,
-                phone: phone,
-                cz: cz,
-                email: email,
-                adders: adders,
-                bz: bz
-            };
+            updatecrekehu(1);
+        });
+        $('.updatekh').click(function(){
+            updatecrekehu(0);
+        });
+    });
+
+    function updatecrekehu(types) {
+        var name = $('.khname').val();
+        var phone = $('.khphone').val();
+        var cz = $('.khcz').val();
+        var email = $('.khemail').val();
+        var adders = $('.khadders').val();
+        var bz = $('.khbz').val();
+        var data = {
+            name: name,
+            phone: phone,
+            cz: cz,
+            email: email,
+            adders: adders,
+            bz: bz
+        };
+        if (types==1) {
             $.ajax({
                 url: 'http://localhost:3000/dxtypes/addkh',
                 data: data,
@@ -264,8 +328,56 @@
                     $('.modal-body input').val('');
                 }
             })
-        });
+        }else{
+            var url = "http://localhost:3000/dxtypes/updatekefus";
+            var res = $.updateData(url, kehusid, data);
+            if (res.code == 1) {
+                layer.msg(res.msg);
+                return false;
+            }
+            layer.msg(res.msg);
+            $('#myModal3').modal('hide');
+            $('.modal-body input').val('');
+        }
+    }
+
+    function del (name,id) {
+        layer.confirm('你确定删除 ' + name + ' 嘛？', {
+            btn: ['果断删除', '放弃'] //按钮
+        }, function () {
+            var url = "http://localhost:3000/dxtypes/delkehus";
+            var res = $.deletelData(url, id);
+            if (res.code == 1) {
+                layer.msg(res.msg);
+                return false;
+            }
+            layer.msg(res.msg);
+            $table.bootstrapTable('refresh');
+        })
+    }
+
+    function edit (name, id, phone,cz,bz,adders,email) {
+        kehusid = id;
+        $('.khname').val(name);
+        $('.khphone').val(phone);
+        $('.khcz').val(cz);
+        $('.khemail').val(email);
+        $('.khadders').val(adders);
+        $('.khbz').val(bz);
+        $('#myModalLabel3').text("客户资料修改");
+        $('#myModal3  .addkh').css("display","none");
+        $('#myModal3  .updatekh').css("display","inline-block");
+        $('#myModal3').modal('show');
+    }
+
+    //  这里公用一个modal 修改class
+    $('#myModal3').on('hidden.bs.modal', function (e) {
+        $('#myModalLabel3').text("客户添加");
+        $('#myModal3  .addkh').css("display","inline-block");
+        $('#myModal3  .updatekh').css("display","none");
+        $('.modal-body input').val('');
     });
+
 </script>
 </body>
 

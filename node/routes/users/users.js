@@ -105,7 +105,6 @@ router.post('/register', (req, res) => {
 router.post('/updatepwd', (req, res) => {
     let {old, newpwd} = req.body;
     let name = req.cookies.username; // 获取用户名
-    console.log("修改:" + name);
     Users.count({name: name, pwd: md5Pwd(old)}, (err, num) => {
         if (err) {
             return res.json({
@@ -248,6 +247,82 @@ function mm(arr) {
     }
     return kk;
 }
+
+// 删除 修改 项目
+router.post('/delusers',(req,res)=>{
+    let {id} = req.body;
+    Gcxms.count({_id:id},(err,num)=>{
+        if (err) {
+            return res.json({
+                code:1,
+                msg:"系统错误 稍后再尝试"
+            });
+        }
+
+        if (num===0) {
+            return res.json({
+                code:1,
+                msg:"你删除的账户管理不存在"
+            });
+        }
+
+        if (num>=1) {
+            Gcxms.remove({_id:id},(err,doc)=>{
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误 稍后再尝试",
+                        data:[]
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"系统删除成功",
+                        data:doc
+                    });
+                }
+            })
+        }
+
+    })
+});
+// router.post('/updatexms',(req,res)=>{
+//     let {sid, data} = req.body;
+//     let obj = JSON.parse(data);
+//     Gcxms.count({_id:sid}, (err, num) => {
+//         if (err) {
+//             return res.json({
+//                 code: 1,
+//                 msg: '系统错误'
+//             });
+//         }
+//         if (num === 0) {
+//             return res.json({
+//                 code: 1,
+//                 msg: '没找到账户的信息'
+//             });
+//         } else {
+//             Gcxms.update({_id:sid},obj,function (err, doc) {
+//                 if (err) {
+//                     return res.json({
+//                         code:1,
+//                         msg:"系统错误",
+//                         data:err
+//                     });
+//                 }
+//                 if (doc) {
+//                     return res.json({
+//                         code:0,
+//                         msg:"修改成功",
+//                         data:doc
+//                     })
+//                 }
+//             })
+//         }
+//     })
+// });
+
 
 
 module.exports = router;

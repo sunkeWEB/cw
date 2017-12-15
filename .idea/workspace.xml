@@ -2,749 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e98f7f5-83e4-434a-b868-67bf00ac9687" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/Com/MigRegDB.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/Com/comadmin.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/Com/comempty.dat" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/Com/comrepl.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/Com/en-US/comrepl.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/Com/mtsadmin.tlb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/Com/zh-CN/MigRegDB.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/Com/zh-CN/comrepl.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/AppV/AppVStreamingUX.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/AppV/AppVStreamingUX.exe.config" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Boot/winload.efi" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Boot/winload.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Boot/winresume.efi" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Boot/winresume.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Boot/zh-CN/winload.efi.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Boot/zh-CN/winload.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Boot/zh-CN/winresume.efi.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Boot/zh-CN/winresume.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Com/MigRegDB.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Com/comadmin.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Com/comempty.dat" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Com/comrepl.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Com/en-US/comrepl.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Com/mtsadmin.tlb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Com/zh-CN/MigRegDB.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Com/zh-CN/comrepl.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/DDFs/CertificateStore_DDF.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/DDFs/DMClient_DDF.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/DDFs/EnterpriseModernAppManagementDDF.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/DDFs/NGCProDDF_v1.2_final.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/AppxProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/AssocProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/CbsProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/CompatProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/DismCore.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/DismCorePS.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/DismHost.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/DismProv.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/DmiProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/FfuProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/FolderProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/GenericProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/IBSProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/ImagingProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/IntlProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/LogProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/MsiProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/OSProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/OfflineSetupProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/ProvProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/SmiProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/TransmogProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/UnattendProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/VhdProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/WimProvider.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/AppxProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/AssocProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/CbsProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/CompatProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/DismCore.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/DismProv.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/DmiProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/FfuProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/FolderProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/GenericProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/IBSProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/ImagingProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/IntlProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/LogProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/MsiProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/OSProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/OfflineSetupProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/ProvProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/SmiProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/TransmogProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/UnattendProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/VhdProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/en-US/WimProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/AppxProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/AssocProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/CbsProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/CompatProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/DismCore.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/DismProv.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/DmiProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/FfuProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/FolderProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/GenericProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/ImagingProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/IntlProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/LogProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/MsiProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/OSProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/OfflineSetupProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/ProvProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/SmiProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/TransmogProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/UnattendProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/VhdProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Dism/zh-CN/WimProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/DiagnosticsHub.DataWarehouse.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/DiagnosticsHub.ScriptedSandboxPlugin.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/DiagnosticsHub_is.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/DiagnosticsTap.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/DiagnosticsTap2.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/F12App.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/F12App2.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/F12AppFrame.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/F12AppFrame2.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/F12Attach.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/F12Chooser.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/F12Platform.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/F12Platform2.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/F12Script.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/F12Script2.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/F12Tab.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/F12Tab2.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/MemoryAnalyzer.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/Timeline.cpu.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/Timeline.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/Timeline_is.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/msdbg2.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/pdm.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/pdmproxy100.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/perf_nt.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/perfcore.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/zh-CN/F12Attach.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/zh-CN/F12Chooser.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/zh-CN/F12Platform.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/zh-CN/F12Platform2.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/zh-CN/F12Script.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/F12/zh-CN/F12Script2.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/IMEJP/IMJPAPI.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/IMEJP/IMJPCMLD.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/IMEJP/IMJPDAPI.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/IMEJP/IMJPDCT.EXE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/IMEJP/IMJPDCTP.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/IMEJP/IMJPLMP.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/IMEJP/IMJPTIP.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/IMEJP/imjpuexc.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/IMEJP/imjputyc.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/IMEKR/imkrapi.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/IMETC/IMTCCORE.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/IMETC/IMTCTIP.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/IMETC/imtcui.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/IMCCPHR.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/IMEAPIS.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/IMEDICAPICCPS.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/IMEDICTUPDATEUI.EXE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/IMEFILES.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/IMELM.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/IMEPADSM.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/IMEPADSV.EXE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/IMESEARCH.EXE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/IMESEARCHDLL.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/IMESEARCHPS.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/IMETIP.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/IMEWDBLD.EXE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/IMJKAPI.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/ImeBroker.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/ImeBrokerps.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/MSCAND20.DLL" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/imecfm.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/imecfmps.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/imecfmui.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/res/padrs404.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/res/padrs411.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/res/padrs412.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/IME/SHARED/res/padrs804.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/MUI/0409/mscorees.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Nui/FaceAnalysisColor.mdl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/Nui/FaceAnalysisInfrared.mdl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/SMI/Schema/WcmTypes.xsd" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/SMI/Store/Machine/SCHEMA.DAT" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/SMI/Store/Machine/SCHEMA.DAT.LOG1" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/SMI/Store/Machine/SCHEMA.DAT.LOG2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/SMI/Store/Machine/SCHEMA.DAT{4e07467a-0c1c-11e7-a943-e41d2d718a20}.TM.blf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/SMI/Store/Machine/SCHEMA.DAT{4e07467a-0c1c-11e7-a943-e41d2d718a20}.TMContainer00000000000000000001.regtrans-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/SMI/Store/Machine/SCHEMA.DAT{4e07467a-0c1c-11e7-a943-e41d2d718a20}.TMContainer00000000000000000002.regtrans-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/dsc/DscCoreR.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/dsc/PSDSCFileDownloadManagerEvents.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/dsc/zh-CN/DscCoreR.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/dsc/zh-CN/PSDSCFileDownloadManagerEvents.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/AuditShD.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/FirstLogonAnim.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/FirstLogonAnim.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/Setup.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/SetupCleanupTask.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/StrgMDL2.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/UserOOBE.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/UserOOBEBroker.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/W32UIImg.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/W32UIRes.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/WinLGDep.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/audit.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/cmisetup.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/diagER.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/diagnostic.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/en-US/FirstLogonAnim.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/en-US/UserOOBE.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/en-US/msoobe.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/en-US/msoobewirelessplugin.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/msoobe.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/msoobeFirstLogonAnim.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/msoobedui.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/msoobeplugins.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/msoobewirelessplugin.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/oobeldr.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/pnpibs.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/spprgrss.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/unbcl.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/wdsutil.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/win32ui.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/windeploy.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/winsetup.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/OOBE_HELP_Cortana_Learn_More.rtf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/OOBE_HELP_Opt_in_Details.rtf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/SetupCleanupTask.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/W32UIRes.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/WinLGDep.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/audit.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/msoobeFirstLogonAnim.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/msoobedui.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/msoobeplugins.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/oobeldr.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/pnpibs.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/privacy.rtf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/setup.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/vofflps.rtf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/windeploy.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/oobe/zh-CN/winsetup.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/ras/SSTPProxy/ProxyConfig.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/ras/cis.scp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/ras/pad.inf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/ras/pppmenu.scp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/ras/switch.inf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/plugin-manifests-signed/sppobjs-spp-plugin-manifest-signed.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/plugin-manifests-signed/sppwinob-spp-plugin-manifest-signed.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/store/2.0/cache/cache.dat" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/store/2.0/data.dat" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/store/2.0/tokens.dat" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/issuance/client-issuance-stil.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/issuance/client-issuance-ul-oob.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/issuance/client-issuance-ul.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/issuance/client-issuance-wgalic.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/legacy/client-issuance-rac.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/legacy/client-issuance-spc.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/legacy/rac-generic-private.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/legacy/rac-generic-public.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/legacy/spc-generic-private.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/legacy/spc-generic-public.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/pkeyconfig/pkeyconfig-csvlk.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/pkeyconfig/pkeyconfig-downlevel.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/pkeyconfig/pkeyconfig.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/ppdlic/Internet-Browser-License-ppdlic.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/rules/ruleset-filteractions.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/rules/ruleset-platformglobal.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/rules/ruleset-windowsapp.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/DefaultPpd-Enterprise-ppdlic.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-OEM-DM-1-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-OEM-DM-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-OEM-DM-1-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-OEM-DM-1-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-OEM-NONSLP-1-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-OEM-NONSLP-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-OEM-NONSLP-1-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-OEM-NONSLP-1-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-1-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-1-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-1-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-2-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-2-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-2-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-2-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-3-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-3-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-3-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-3-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-4-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-4-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-4-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-CSVLK-4-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-GVLK-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-GVLK-1-ul-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-MAK-1-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-MAK-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-MAK-1-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-Volume-MAK-1-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Enterprise/Enterprise-ppdlic.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/DefaultPpd-Professional-ppdlic.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-1-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-1-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-1-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-2-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-2-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-2-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-2-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-3-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-3-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-3-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-3-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-4-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-4-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-4-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-4-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-5-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-5-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-5-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-5-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-6-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-6-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-6-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-DM-6-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-NONSLP-1-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-NONSLP-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-NONSLP-1-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-OEM-NONSLP-1-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-1-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-1-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-1-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-2-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-2-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-2-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-2-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-3-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-3-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-3-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-3-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-4-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-4-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-4-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-4-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-5-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-5-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-5-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Retail-5-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-1-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-1-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-1-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-2-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-2-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-2-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-2-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-3-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-3-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-3-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-3-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-4-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-4-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-4-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-CSVLK-4-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-GVLK-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-GVLK-1-ul-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-MAK-1-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-MAK-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-MAK-1-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-MAK-1-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-MAK-2-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-MAK-2-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-MAK-2-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-Volume-MAK-2-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/Professional/Professional-ppdlic.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/DefaultPpd-ProfessionalEducation-ppdlic.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-OEM-DM-1-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-OEM-DM-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-OEM-DM-1-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-OEM-DM-1-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-OEM-NONSLP-1-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-OEM-NONSLP-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-OEM-NONSLP-1-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-OEM-NONSLP-1-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-Retail-1-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-Retail-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-Retail-1-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-Retail-1-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-Volume-GVLK-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-Volume-GVLK-1-ul-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-Volume-MAK-1-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-Volume-MAK-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-Volume-MAK-1-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-Volume-MAK-1-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/ProfessionalEducation/ProfessionalEducation-ppdlic.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/DefaultPpd-csvlk-pack-ppdlic.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-1-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-1-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-1-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-1-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-2-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-2-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-2-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-2-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-3-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-3-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-3-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-3-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-4-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-4-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-4-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-4-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-5-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-5-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-5-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-5-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-6-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-6-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-6-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-6-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-7-pl-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-7-ul-oob-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-7-ul-phn-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-Volume-CSVLK-7-ul-store-rtm.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/spp/tokens/skus/csvlk-pack/csvlk-pack-ppdlic.xrm-ms" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/CIWmi.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/Logs/wmiprov.log" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/NCProv.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/Repository/INDEX.BTR" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/Repository/MAPPING1.MAP" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/Repository/MAPPING2.MAP" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/Repository/MAPPING3.MAP" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/Repository/OBJECTS.DATA" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/WFP.MOF" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/WLanHC.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/WMIC.exe" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/WMIsvc.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/WUDFx.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/Winsat.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/aeinv.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/bcd.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/cli.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/ddp.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/dsprov.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/dsprov.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/NCProv.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/NetPeerDistCim.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/NetPeerDistCim.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/NetPeerDistCim_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/WMIC.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/WMIsvc.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/WinMgmt.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/WinMgmtR.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/WmiApRes.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/WmiApRpl.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/WmiApSrv.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/WmiPerfClass.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/WmiPerfInst.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/cimwin32.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/interop.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/mofcomp.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/mofd.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/ncprov.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/scrcons.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/secrcw32.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/system.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/tsallow.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/wmi.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/wmipcima.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/en-US/wmiutils.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/esscli.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/fdSSDP.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/fdWNet.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/fdWSD.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/fwcfg.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/hbaapi.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/irda.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/irmon.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/lltdio.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/lsasrv.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/mblctr.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/mmc.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/mofd.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/mpeval.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/mpsdrv.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/mpssvc.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/msi.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/mstsc.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/msv1_0.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/mswmdm.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/ncprov.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/ncsi.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/newdev.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/nlasvc.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/nlmcim.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/nlmcim.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/nlsvc.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/ntevt.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/ntevt.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/ntfs.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/qmgr.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/qoswmi.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/qoswmi.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/rawxml.xsl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/refs.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/refsv1.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/rsop.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/rspndr.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/samsrv.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/scm.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/sdbus.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/sppwmi.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/sr.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/system.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/tcpip.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/tsmf.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/tspkg.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/umb.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/umbus.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/umpass.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/vds.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/vdswmi.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/vss.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/vsswmi.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/wfs.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/wlan.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/wmi.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/wmp.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/wpd_ci.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/wpdfs.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/wpdmtp.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/wpdsp.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/wsp_fs.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/wsp_sr.mof" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/xml/cim20.dtd" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/xml/wmi20.dtd" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/xml/wmi2xml.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/CIWmi.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/DscCore.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/DscCoreConfProv.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/DscProxy.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/DscTimer.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/EmbeddedLockdownWmi.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/EventTracingManagement.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/EventTracingManagement.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/FolderRedirectionWMIProvider.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/KrnlProv.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/MDMAppProv.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/MDMAppProv.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/MDMAppProv_Uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/MDMSettingsProv.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/MDMSettingsProv.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/MDMSettingsProv_Uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/MMFUtil.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/Microsoft-Windows-OfflineFiles.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/MsDtcWmi.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/MsDtcWmi.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/MsNetImPlatform.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NCProv.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetAdapterCim.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetAdapterCim.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetAdapterCimTrace.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetAdapterCimTraceUninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetAdapterCim_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetEventPacketCapture.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetEventPacketCapture.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetEventPacketCapture_Uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetPeerDistCim.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetPeerDistCim.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetPeerDistCim_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetSwitchTeam.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetTCPIP.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetTCPIP.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/NetTCPIP_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/OfflineFilesConfigurationWmiProvider.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/OfflineFilesConfigurationWmiProvider_Uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/OfflineFilesWmiProvider.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/OfflineFilesWmiProvider_Uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/PS_MMAgent.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/PolicMan.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/PowerWmiProvider.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/PowerWmiProvider_Uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/PrintManagementProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/PrintManagementProvider.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/RacWmiProv.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/RacWmiProv.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/ScrCons.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/ServDeps.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/SmbWitnessWmiv2Provider.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/UserProfileConfigurationWmiProvider.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/UserProfileWmiProvider.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/UserStateWMIProvider.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WEMSAL_WmiProvider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WMIC.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WMIPICMP.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WMIsvc.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WUDFx.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WUDFx02000.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WbemCons.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WdacWmiProv.Dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WdacWmiProv.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WdacWmiProv_Uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WgxInstalledGame.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/Win32_DeviceGuard.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WinMgmt.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WinMgmtR.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WmiApRes.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WmiApRpl.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/WmiApSrv.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/aeinv.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/appbackgroundtask.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/appbackgroundtask.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/appbackgroundtask_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/cimdmtf.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/cimwin32.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/cimwin32.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/cli.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/cliegaliases.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/csv.xsl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/ddp.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/dnsclientcim.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/dnsclientcim.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/dnsclientpsprovider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/dnsclientpsprovider.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/dnsclientpsprovider_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/dsprov.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/embeddedlockdownwmi.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/embeddedlockdownwmi_Uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/filetrace.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/hbaapi.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/hform.xsl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/htable.xsl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/interop.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/ipmiprr.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/ipmiprv.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/irmon.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/iscsidsc.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/iscsiprf.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/iscsiwmiv2.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/iscsiwmiv2_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/krnlprov.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/l2gpstore.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/mispace.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/mispace_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/mof.xsl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/mofcomp.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/mofd.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/mpeval.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/msfeeds.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/msfeedsbs.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/msi.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/mstsc.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/mstscax.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/ncprov.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/ndisimplatcim.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/netdacim.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/netdacim.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/netdacim_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/netnccim.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/netnccim.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/netnccim_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/netswitchteamcim.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/netttcim.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/netttcim.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/netttcim_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/nlmcim.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/nlmcim.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/nlmcim_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/npivwmi.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/ntevt.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/ntevt.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/p2p-mesh.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/p2p-pnrp.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/pcsvDevice.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/pcsvDevice_Uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/polproc.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/polprocl.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/polprou.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/powermeterprovider.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/profileassociationprovider.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/qoswmi.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/qoswmi.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/qoswmi_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/qoswmitrc.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/qoswmitrc_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/rdpcore.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/rdpencom.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/rdpinit.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/rdpshell.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/regevent.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/rsop.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/schedprov.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/schedprov.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/secrcw32.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/smbwmiv2.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/smtpcons.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/sppwmi.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/sr.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/storagewmi.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/storagewmi_passthru.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/storagewmi_passthru_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/storagewmi_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/subscrpt.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/system.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/tsallow.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/tscfgwmi.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/vds.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/vdswmi.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/vpnclientpsprovider.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/vpnclientpsprovider.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/vpnclientpsprovider_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/vss.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/vsswmi.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wbemcntl.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wbemcore.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wbemtest.exe.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wcncsvc.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wfascim.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wfascim.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wfascim_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wfs.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/whqlprov.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/win32_printer.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wininit.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/winlogon.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wmi.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wmipcima.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wmipdfs.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wmipdskq.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wmipicmp.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wmipiprt.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wmipjobj.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wmipsess.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wmitimep.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wmiutils.dll.mui" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wmpnetwk.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wscenter.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wsp_fs.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wsp_fs_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wsp_health.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wsp_health_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wsp_sr.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/wsp_sr_uninstall.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/xml.xsl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-CN/xwizards.mfl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/plugins/bootstrap-table/System32/wbem/zh-HANS/Microsoft.AppV.AppVClientWmi.resources.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/index.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/contacts.html" afterPath="$PROJECT_DIR$/contacts.html" />
       <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="$PROJECT_DIR$/index_v2.html" afterPath="$PROJECT_DIR$/index_v2.html" />
-      <change beforePath="$PROJECT_DIR$/index_v3.html" afterPath="$PROJECT_DIR$/index_v3.html" />
+      <change beforePath="$PROJECT_DIR$/js/content.js" afterPath="$PROJECT_DIR$/js/content.js" />
+      <change beforePath="$PROJECT_DIR$/js/myjquery.js" afterPath="$PROJECT_DIR$/js/myjquery.js" />
       <change beforePath="$PROJECT_DIR$/node/routes/caozuo/caozuo.js" afterPath="$PROJECT_DIR$/node/routes/caozuo/caozuo.js" />
+      <change beforePath="$PROJECT_DIR$/node/routes/caozuo/read.js" afterPath="$PROJECT_DIR$/node/routes/caozuo/read.js" />
+      <change beforePath="$PROJECT_DIR$/node/routes/users/users.js" afterPath="$PROJECT_DIR$/node/routes/users/users.js" />
+      <change beforePath="$PROJECT_DIR$/profile.html" afterPath="$PROJECT_DIR$/profile.html" />
+      <change beforePath="$PROJECT_DIR$/profile1.html" afterPath="$PROJECT_DIR$/profile1.html" />
+      <change beforePath="$PROJECT_DIR$/profile3.html" afterPath="$PROJECT_DIR$/profile3.html" />
+      <change beforePath="$PROJECT_DIR$/profile4.html" afterPath="$PROJECT_DIR$/profile4.html" />
+      <change beforePath="$PROJECT_DIR$/profile5.html" afterPath="$PROJECT_DIR$/profile5.html" />
+      <change beforePath="$PROJECT_DIR$/profile6.html" afterPath="$PROJECT_DIR$/profile6.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -758,119 +29,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index_v3.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/index_v3.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="37" column="17" lean-forward="false" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
-              <folding>
-                <element signature="e#2022#2029#1" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#4;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#4;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#6;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#6;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#6;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#7;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#7;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#7;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#8;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#8;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#8;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#13893#14019#0" expanded="false" />
-                <element signature="e#14138#14201#0" expanded="false" />
-                <element signature="e#14255#14318#0" expanded="false" />
-                <element signature="e#14442#14490#0" expanded="false" />
-                <element signature="e#14558#14655#0" expanded="false" />
-                <element signature="e#14698#14847#0" expanded="false" />
-                <element signature="e#14934#15030#0" expanded="false" />
-                <element signature="e#15065#15128#0" expanded="false" />
-                <element signature="e#15190#16727#0" expanded="false" />
-                <element signature="e#17102#17427#0" expanded="false" />
-                <element signature="e#17456#18227#0" expanded="false" />
-                <element signature="e#18253#21796#0" expanded="false" />
-                <element signature="e#19500#19606#0" expanded="false" />
-                <element signature="e#19812#19876#0" expanded="false" />
-                <element signature="e#20087#20588#0" expanded="false" />
-                <element signature="e#20730#20842#0" expanded="false" />
-                <element signature="e#21853#21962#0" expanded="false" />
-                <marker date="1513243724212" expanded="true" signature="13467:13504" ph="..." />
-                <marker date="1513243724212" expanded="false" signature="13715:13753" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/plugins/iCheck/custom.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tableExport.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/tableExport.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="caozuo.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="caozuo.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/node/routes/caozuo/caozuo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2343">
-              <caret line="425" column="23" lean-forward="false" selection-start-line="425" selection-start-column="23" selection-end-line="425" selection-end-column="23" />
+            <state relative-caret-position="572">
+              <caret line="885" column="36" lean-forward="true" selection-start-line="885" selection-start-column="36" selection-end-line="885" selection-end-column="36" />
               <folding>
-                <element signature="e#563#629#0" expanded="false" />
-                <element signature="e#734#1780#0" expanded="false" />
-                <element signature="e#1832#2610#0" expanded="false" />
-                <element signature="e#2658#3696#0" expanded="false" />
-                <element signature="e#3745#4883#0" expanded="false" />
-                <element signature="e#4986#6099#0" expanded="false" />
-                <element signature="e#5083#5289#0" expanded="false" />
-                <element signature="e#5326#6095#0" expanded="false" />
-                <element signature="e#6150#7151#0" expanded="false" />
-                <element signature="e#7200#8148#0" expanded="false" />
-                <element signature="e#8198#9386#0" expanded="false" />
-                <element signature="e#9554#10414#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node/routes/users/users.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="104" column="23" lean-forward="false" selection-start-line="104" selection-start-column="14" selection-end-line="104" selection-end-column="23" />
-              <folding>
-                <element signature="e#260#330#0" expanded="false" />
-                <element signature="e#377#1017#0" expanded="false" />
-                <element signature="e#1068#2665#0" expanded="false" />
-                <element signature="e#3694#4091#0" expanded="false" />
-                <element signature="n#!!block;n#md5Pwd#0" expanded="false" />
-                <element signature="e#4256#6155#0" expanded="false" />
+                <element signature="e#613#679#0" expanded="false" />
+                <element signature="e#784#1830#0" expanded="false" />
+                <element signature="e#1882#2660#0" expanded="false" />
+                <element signature="e#2708#3746#0" expanded="false" />
+                <element signature="e#3795#4933#0" expanded="false" />
+                <element signature="e#5036#6149#0" expanded="false" />
+                <element signature="e#5133#5339#0" expanded="false" />
+                <element signature="e#5376#6145#0" expanded="false" />
+                <element signature="e#6200#7201#0" expanded="false" />
+                <element signature="e#7250#8197#0" expanded="false" />
+                <element signature="e#8247#9435#0" expanded="false" />
+                <element signature="e#9608#10468#0" expanded="false" />
+                <element signature="e#9671#10465#0" expanded="false" />
+                <element signature="e#10506#11153#0" expanded="false" />
+                <element signature="e#10840#11150#0" expanded="false" />
+                <element signature="e#11210#12082#0" expanded="false" />
+                <element signature="e#11278#12079#0" expanded="false" />
+                <element signature="e#12125#13026#0" expanded="false" />
+                <element signature="e#12237#13023#0" expanded="false" />
+                <element signature="e#13082#13950#0" expanded="false" />
+                <element signature="e#13148#13947#0" expanded="false" />
+                <element signature="e#13989#14886#0" expanded="false" />
+                <element signature="e#14937#15803#0" expanded="false" />
+                <element signature="e#15843#16738#0" expanded="false" />
+                <element signature="e#16789#17651#0" expanded="false" />
+                <element signature="e#17692#18583#0" expanded="false" />
+                <element signature="e#18634#19498#0" expanded="false" />
+                <element signature="e#18698#19495#0" expanded="false" />
+                <element signature="e#19539#20432#0" expanded="false" />
+                <element signature="e#20481#21343#0" expanded="false" />
+                <element signature="e#20544#21340#0" expanded="false" />
+                <element signature="e#21382#22273#0" expanded="false" />
+                <element signature="e#23189#23229#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -879,8 +76,8 @@
       <file leaf-file-name="index_v2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index_v2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3894">
-              <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="113" />
+            <state relative-caret-position="473">
+              <caret line="262" column="40" lean-forward="false" selection-start-line="262" selection-start-column="40" selection-end-line="262" selection-end-column="40" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -888,6 +85,55 @@
                 <element signature="e#6909#6972#0" expanded="false" />
                 <element signature="e#7034#7097#0" expanded="false" />
                 <element signature="e#7151#7214#0" expanded="false" />
+                <element signature="e#10487#11766#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile4.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/profile4.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="268" column="7" lean-forward="false" selection-start-line="268" selection-start-column="7" selection-end-line="278" selection-end-column="11" />
+              <folding>
+                <element signature="e#10496#10559#0" expanded="false" />
+                <element signature="e#10630#10831#0" expanded="false" />
+                <element signature="e#11797#12345#0" expanded="false" />
+                <element signature="e#13240#13723#0" expanded="false" />
+                <marker date="1513326563424" expanded="true" signature="9250:9260" ph="..." />
+                <marker date="1513326563424" expanded="true" signature="9871:9908" ph="..." />
+                <marker date="1513326563424" expanded="false" signature="10116:10154" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile6.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/profile6.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="424" column="61" lean-forward="false" selection-start-line="424" selection-start-column="53" selection-end-line="424" selection-end-column="61" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#table#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#table#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#11443#11615#0" expanded="false" />
+                <element signature="e#11629#11772#0" expanded="false" />
+                <element signature="e#11786#11931#0" expanded="false" />
+                <element signature="e#11945#12097#0" expanded="false" />
+                <element signature="e#12111#12261#0" expanded="false" />
+                <element signature="e#12275#12427#0" expanded="false" />
+                <element signature="e#12441#12590#0" expanded="false" />
+                <element signature="e#12604#12861#0" expanded="false" />
+                <element signature="e#12875#13018#0" expanded="false" />
+                <element signature="e#13032#13175#0" expanded="false" />
+                <element signature="e#13189#13406#0" expanded="false" />
+                <element signature="e#13420#13807#0" expanded="false" />
+                <element signature="e#14743#16342#0" expanded="false" />
+                <element signature="e#16390#16453#0" expanded="false" />
+                <element signature="e#16524#16725#0" expanded="false" />
+                <marker date="1513329724076" expanded="false" signature="14182:14219" ph="..." />
+                <marker date="1513329724076" expanded="true" signature="14365:14403" ph="..." />
               </folding>
             </state>
           </provider>
@@ -905,18 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>账户管理</find>
-      <find>账户类型名称</find>
-      <find>大类名称</find>
-      <find>用户名</find>
-      <find>生意伙伴(客户)名称</find>
-      <find>工具</find>
-      <find>var</find>
-      <find>update</find>
-      <find>$</find>
-      <find>cartList</find>
-      <find>d</find>
-      <find>资金账户</find>
       <find>srzcoption</find>
       <find>addkh</find>
       <find>textar</find>
@@ -934,7 +168,19 @@
       <find>all</find>
       <find>ssdl</find>
       <find>jbpeople</find>
+      <find>账户管理</find>
+      <find>AccountglModel</find>
+      <find>readaccountzh</find>
+      <find>addacountzh</find>
+      <find>updatedata</find>
       <find>sel_exportoption</find>
+      <find>selecrex</find>
+      <find>layer</find>
+      <find>date</find>
+      <find>laydate</find>
+      <find>updatexm</find>
+      <find>myModa12</find>
+      <find>myModal2</find>
     </findStrings>
     <replaceStrings>
       <replace>let</replace>
@@ -952,18 +198,12 @@
         <option value="$PROJECT_DIR$/server/routes/index.js" />
         <option value="D:/nodeboke/routes/picture/index.js" />
         <option value="D:/nodeboke/app.js" />
-        <option value="$PROJECT_DIR$/js/myjquery.js" />
         <option value="$PROJECT_DIR$/index_v4.html" />
         <option value="$PROJECT_DIR$/index_v5.html" />
         <option value="$PROJECT_DIR$/graph_echarts.html" />
         <option value="$PROJECT_DIR$/graph_flot.html" />
         <option value="$PROJECT_DIR$/graph_morris.html" />
-        <option value="$PROJECT_DIR$/contacts.html" />
-        <option value="$PROJECT_DIR$/profile.html" />
-        <option value="$PROJECT_DIR$/profile1.html" />
         <option value="$PROJECT_DIR$/profile2.html" />
-        <option value="$PROJECT_DIR$/profile4.html" />
-        <option value="$PROJECT_DIR$/profile5.html" />
         <option value="$PROJECT_DIR$/updatepwd.html" />
         <option value="$PROJECT_DIR$/server/app.js" />
         <option value="$PROJECT_DIR$/node/database/mongooseConfig.js" />
@@ -987,19 +227,25 @@
         <option value="$PROJECT_DIR$/index_v1.html" />
         <option value="$PROJECT_DIR$/node/model/users.js" />
         <option value="$PROJECT_DIR$/register.html" />
-        <option value="$PROJECT_DIR$/profile3.html" />
-        <option value="$PROJECT_DIR$/js/content.js" />
-        <option value="$PROJECT_DIR$/profile6.html" />
-        <option value="$PROJECT_DIR$/node/routes/users/users.js" />
         <option value="$PROJECT_DIR$/node/routes/caozuo/readsrcz.js" />
-        <option value="$PROJECT_DIR$/node/routes/caozuo/read.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/test/index.html" />
         <option value="$PROJECT_DIR$/index_v2.html" />
-        <option value="$PROJECT_DIR$/node/routes/caozuo/caozuo.js" />
         <option value="$PROJECT_DIR$/js/plugins/bootstrap-table/export/bootstrap-table-export.min.js" />
         <option value="$PROJECT_DIR$/js/plugins/bootstrap-table/tableExport.js" />
+        <option value="$PROJECT_DIR$/node/routes/caozuo/read.js" />
         <option value="$PROJECT_DIR$/index_v3.html" />
+        <option value="$PROJECT_DIR$/js/myjquery.js" />
+        <option value="$PROJECT_DIR$/js/content.js" />
+        <option value="$PROJECT_DIR$/contacts.html" />
+        <option value="$PROJECT_DIR$/profile.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/profile1.html" />
+        <option value="$PROJECT_DIR$/profile3.html" />
+        <option value="$PROJECT_DIR$/profile4.html" />
+        <option value="$PROJECT_DIR$/profile5.html" />
+        <option value="$PROJECT_DIR$/node/routes/users/users.js" />
+        <option value="$PROJECT_DIR$/profile6.html" />
+        <option value="$PROJECT_DIR$/node/routes/caozuo/caozuo.js" />
       </list>
     </option>
   </component>
@@ -1015,13 +261,16 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node/node_modules" />
+  </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="y" value="8" />
-    <option name="width" value="1924" />
-    <option name="height" value="1066" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="52" />
+    <option name="y" value="52" />
+    <option name="width" value="1582" />
+    <option name="height" value="702" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -1038,6 +287,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -1049,13 +299,12 @@
             <path>
               <item name="cw" type="b2602c69:ProjectViewProjectNode" />
               <item name="cw" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="node" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1127,11 +376,13 @@
       <workItem from="1513070692995" duration="346000" />
       <workItem from="1513125711925" duration="26846000" />
       <workItem from="1513215135730" duration="24142000" />
+      <workItem from="1513243879926" duration="77000" />
+      <workItem from="1513297199422" duration="28829000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146682000" />
+    <option name="totallyTimeSpent" value="175588000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1143,40 +394,40 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1654373" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22075869" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55168664" sideWeight="0.5147524" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.48524764" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43103448" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16036718" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43103448" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55168664" sideWeight="0.5147524" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15342765" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.48524764" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16036718" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18809272" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12434141" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1221,17 +472,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="18" />
+      <option name="time" value="25" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/basic_gallery.html" />
-    <entry file="file://$PROJECT_DIR$/carousel.html" />
-    <entry file="file://$PROJECT_DIR$/server/node/package.json" />
-    <entry file="file://D:/boss/t/databaseconfig/mongooseConfig.js" />
-    <entry file="file://D:/boss/t/baseconfig/site/webbase.js" />
-    <entry file="file://D:/boss/t/databaseconfig/model/user.js" />
     <entry file="file://$PROJECT_DIR$/node/routes/users.js" />
     <entry file="file://$PROJECT_DIR$/node/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1296,13 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node/model/kefu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node/model/staff.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1314,13 +552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="10" column="5" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/model/accountypes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="4" column="28" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1352,41 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node/model/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="15" selection-end-line="21" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/profile3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="235" column="19" lean-forward="false" selection-start-line="235" selection-start-column="19" selection-end-line="235" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/content.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="82" column="41" lean-forward="true" selection-start-line="82" selection-start-column="41" selection-end-line="82" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/profile6.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="353" column="53" lean-forward="false" selection-start-line="353" selection-start-column="53" selection-end-line="353" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/model/dxtype.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/plugins/chartJs/Chart.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
@@ -1394,31 +590,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node/routes/caozuo/read.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1353">
-          <caret line="98" column="16" lean-forward="false" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-583">
-          <caret line="508" column="77" lean-forward="true" selection-start-line="508" selection-start-column="77" selection-end-line="508" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="671">
           <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="25" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index_v1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
-          <caret line="671" column="48" lean-forward="true" selection-start-line="671" selection-start-column="48" selection-end-line="671" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -1443,60 +618,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node/routes/caozuo/caozuo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2343">
-          <caret line="425" column="23" lean-forward="false" selection-start-line="425" selection-start-column="23" selection-end-line="425" selection-end-column="23" />
-          <folding>
-            <element signature="e#563#629#0" expanded="false" />
-            <element signature="e#734#1780#0" expanded="false" />
-            <element signature="e#1832#2610#0" expanded="false" />
-            <element signature="e#2658#3696#0" expanded="false" />
-            <element signature="e#3745#4883#0" expanded="false" />
-            <element signature="e#4986#6099#0" expanded="false" />
-            <element signature="e#5083#5289#0" expanded="false" />
-            <element signature="e#5326#6095#0" expanded="false" />
-            <element signature="e#6150#7151#0" expanded="false" />
-            <element signature="e#7200#8148#0" expanded="false" />
-            <element signature="e#8198#9386#0" expanded="false" />
-            <element signature="e#9554#10414#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index_v2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3894">
-          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="113" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#6810#6855#0" expanded="false" />
-            <element signature="e#6909#6972#0" expanded="false" />
-            <element signature="e#7034#7097#0" expanded="false" />
-            <element signature="e#7151#7214#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/plugins/bootstrap-table/tableExport.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-14763">
           <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/routes/users/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="104" column="23" lean-forward="false" selection-start-line="104" selection-start-column="14" selection-end-line="104" selection-end-column="23" />
           <folding>
-            <element signature="e#260#330#0" expanded="false" />
-            <element signature="e#377#1017#0" expanded="false" />
-            <element signature="e#1068#2665#0" expanded="false" />
-            <element signature="e#3694#4091#0" expanded="false" />
-            <element signature="n#!!block;n#md5Pwd#0" expanded="false" />
-            <element signature="e#4256#6155#0" expanded="false" />
+            <element signature="e#307#4362#0" expanded="false" />
+            <element signature="e#5077#6417#0" expanded="false" />
+            <element signature="e#6486#7112#0" expanded="false" />
+            <element signature="e#8616#10411#0" expanded="false" />
+            <element signature="e#9308#9752#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1513,6 +644,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-663">
           <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1524,39 +656,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node/routes/caozuo/read.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="128" column="39" lean-forward="false" selection-start-line="128" selection-start-column="39" selection-end-line="128" selection-end-column="39" />
+          <folding>
+            <element signature="e#864#981#0" expanded="false" />
+            <element signature="e#1015#1079#0" expanded="false" />
+            <element signature="e#1126#1501#0" expanded="false" />
+            <element signature="n#!!block;n#sersch#0" expanded="false" />
+            <element signature="e#2099#2892#0" expanded="false" />
+            <element signature="n#!!block;n#serschzh#0" expanded="false" />
+            <element signature="e#3356#4200#0" expanded="false" />
+            <element signature="e#3680#3750#0" expanded="false" />
+            <element signature="e#3805#3840#0" expanded="false" />
+            <element signature="e#3877#3913#0" expanded="false" />
+            <element signature="e#4066#4196#0" expanded="false" />
+            <element signature="n#!!block;n#serschtype#0" expanded="false" />
+            <element signature="e#4383#5049#0" expanded="false" />
+            <element signature="n#!!block;n#serschdtype#0" expanded="false" />
+            <element signature="e#5289#6071#0" expanded="false" />
+            <element signature="n#!!block;n#serschkefu#0" expanded="false" />
+            <element signature="e#6309#7092#0" expanded="false" />
+            <element signature="n#!!block;n#serschyuangong#0" expanded="false" />
+            <element signature="e#7376#8159#0" expanded="false" />
+            <element signature="n#!!block;n#serschxm#0" expanded="false" />
+            <element signature="e#8220#8334#0" expanded="false" />
+            <element signature="e#8396#9171#0" expanded="false" />
+            <element signature="n#!!block;n#serschusers#0" expanded="false" />
+            <element signature="e#9414#10192#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index_v3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="37" column="17" lean-forward="false" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+        <state relative-caret-position="334">
+          <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="40" selection-end-column="9" />
           <folding>
-            <element signature="e#2022#2029#1" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#4;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#6;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#6;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#6;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#7;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#7;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#7;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#8;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#8;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#8;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#13893#14019#0" expanded="false" />
             <element signature="e#14138#14201#0" expanded="false" />
             <element signature="e#14255#14318#0" expanded="false" />
@@ -1567,15 +704,307 @@
             <element signature="e#15065#15128#0" expanded="false" />
             <element signature="e#15190#16727#0" expanded="false" />
             <element signature="e#17102#17427#0" expanded="false" />
-            <element signature="e#17456#18227#0" expanded="false" />
-            <element signature="e#18253#21796#0" expanded="false" />
+            <element signature="e#17661#17708#0" expanded="false" />
             <element signature="e#19500#19606#0" expanded="false" />
             <element signature="e#19812#19876#0" expanded="false" />
             <element signature="e#20087#20588#0" expanded="false" />
             <element signature="e#20730#20842#0" expanded="false" />
             <element signature="e#21853#21962#0" expanded="false" />
-            <marker date="1513243724212" expanded="true" signature="13467:13504" ph="..." />
-            <marker date="1513243724212" expanded="false" signature="13715:13753" ph="..." />
+            <marker date="1513317602287" expanded="true" signature="13467:13504" ph="..." />
+            <marker date="1513317602287" expanded="false" signature="13715:13753" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/model/accountypes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="803">
+          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/myjquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="e#40#88#0" expanded="false" />
+            <element signature="e#128#636#0" expanded="false" />
+            <element signature="e#643#732#0" expanded="false" />
+            <element signature="e#777#1338#0" expanded="false" />
+            <element signature="e#1345#1410#0" expanded="false" />
+            <element signature="e#1447#1955#0" expanded="false" />
+            <element signature="e#1519#1626#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contacts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="339" column="12" lean-forward="false" selection-start-line="339" selection-start-column="12" selection-end-line="345" selection-end-column="43" />
+          <folding>
+            <element signature="e#1838#1845#1" expanded="false" />
+            <element signature="n#style#0;n#button#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#table#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#botton#0;n#div#0;n#table#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#6497#10321#0" expanded="false" />
+            <element signature="e#10186#10314#0" expanded="false" />
+            <element signature="e#10342#11198#0" expanded="false" />
+            <element signature="e#10641#10704#0" expanded="false" />
+            <element signature="e#12847#13204#0" expanded="false" />
+            <element signature="e#13233#13698#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/model/dxtype.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="656" column="0" lean-forward="false" selection-start-line="656" selection-start-column="0" selection-end-line="656" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="270" column="12" lean-forward="false" selection-start-line="270" selection-start-column="12" selection-end-line="278" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#table#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#table#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#8406#8469#0" expanded="false" />
+            <element signature="e#8758#8959#0" expanded="false" />
+            <element signature="e#9119#9189#0" expanded="false" />
+            <element signature="e#9214#9288#0" expanded="false" />
+            <element signature="e#9308#9366#0" expanded="false" />
+            <element signature="e#9389#9940#0" expanded="false" />
+            <element signature="e#10342#10776#0" expanded="false" />
+            <element signature="e#10813#11129#0" expanded="false" />
+            <element signature="e#11213#11461#0" expanded="false" />
+            <marker date="1513321149975" expanded="true" signature="7819:7856" ph="..." />
+            <marker date="1513321149975" expanded="true" signature="8025:8063" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/model/kefu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index_v1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4177">
+          <caret line="671" column="48" lean-forward="true" selection-start-line="671" selection-start-column="48" selection-end-line="671" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="152" column="58" lean-forward="false" selection-start-line="152" selection-start-column="56" selection-end-line="152" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#button#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#table#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#table#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#9112#9175#0" expanded="false" />
+            <element signature="e#9246#9447#0" expanded="false" />
+            <element signature="e#9759#10274#0" expanded="false" />
+            <element signature="e#11246#11560#0" expanded="false" />
+            <element signature="e#11642#11906#0" expanded="false" />
+            <marker date="1513322850066" expanded="true" signature="8380:8417" ph="..." />
+            <marker date="1513322850066" expanded="false" signature="8584:8622" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6029">
+          <caret line="27" column="51" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="51" />
+          <folding>
+            <element signature="e#8279#8429#0" expanded="false" />
+            <element signature="e#8443#8588#0" expanded="false" />
+            <element signature="e#8602#8742#0" expanded="false" />
+            <element signature="e#8756#8902#0" expanded="false" />
+            <element signature="e#9073#9212#0" expanded="false" />
+            <element signature="e#9226#9619#0" expanded="false" />
+            <element signature="e#10813#10876#0" expanded="false" />
+            <element signature="e#10947#11148#0" expanded="false" />
+            <element signature="e#11614#11768#0" expanded="false" />
+            <element signature="e#12742#13172#0" expanded="false" />
+            <marker date="1513324820162" expanded="false" signature="10187:10224" ph="..." />
+            <marker date="1513324820162" expanded="true" signature="10433:10471" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="286" column="29" lean-forward="true" selection-start-line="286" selection-start-column="29" selection-end-line="286" selection-end-column="29" />
+          <folding>
+            <element signature="e#1799#1806#1" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#table#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#table#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#9013#9076#0" expanded="false" />
+            <element signature="e#9326#9527#0" expanded="false" />
+            <element signature="e#10822#11251#0" expanded="false" />
+            <element signature="e#11283#11640#0" expanded="false" />
+            <marker date="1513328682118" expanded="true" signature="7951:7961" ph="..." />
+            <marker date="1513328682118" expanded="true" signature="8429:8466" ph="..." />
+            <marker date="1513328682118" expanded="false" signature="8633:8671" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/model/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="27" lean-forward="false" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/routes/users/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="641">
+          <caret line="253" column="9" lean-forward="false" selection-start-line="253" selection-start-column="4" selection-end-line="253" selection-end-column="9" />
+          <folding>
+            <element signature="e#260#330#0" expanded="false" />
+            <element signature="e#377#1017#0" expanded="false" />
+            <element signature="e#1068#2665#0" expanded="false" />
+            <element signature="e#2716#3617#0" expanded="false" />
+            <element signature="e#2860#3614#0" expanded="false" />
+            <element signature="e#3663#4060#0" expanded="false" />
+            <element signature="n#!!block;n#md5Pwd#0" expanded="false" />
+            <element signature="e#4225#6124#0" expanded="false" />
+            <element signature="n#!!block;n#mm#0" expanded="false" />
+            <element signature="e#7362#7402#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index_v2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="262" column="40" lean-forward="false" selection-start-line="262" selection-start-column="40" selection-end-line="262" selection-end-column="40" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#6810#6855#0" expanded="false" />
+            <element signature="e#6909#6972#0" expanded="false" />
+            <element signature="e#7034#7097#0" expanded="false" />
+            <element signature="e#7151#7214#0" expanded="false" />
+            <element signature="e#10487#11766#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="268" column="7" lean-forward="false" selection-start-line="268" selection-start-column="7" selection-end-line="278" selection-end-column="11" />
+          <folding>
+            <element signature="e#10496#10559#0" expanded="false" />
+            <element signature="e#10630#10831#0" expanded="false" />
+            <element signature="e#11797#12345#0" expanded="false" />
+            <element signature="e#13240#13723#0" expanded="false" />
+            <marker date="1513326563424" expanded="true" signature="9250:9260" ph="..." />
+            <marker date="1513326563424" expanded="true" signature="9871:9908" ph="..." />
+            <marker date="1513326563424" expanded="false" signature="10116:10154" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile6.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="424" column="61" lean-forward="false" selection-start-line="424" selection-start-column="53" selection-end-line="424" selection-end-column="61" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#table#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#table#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#11443#11615#0" expanded="false" />
+            <element signature="e#11629#11772#0" expanded="false" />
+            <element signature="e#11786#11931#0" expanded="false" />
+            <element signature="e#11945#12097#0" expanded="false" />
+            <element signature="e#12111#12261#0" expanded="false" />
+            <element signature="e#12275#12427#0" expanded="false" />
+            <element signature="e#12441#12590#0" expanded="false" />
+            <element signature="e#12604#12861#0" expanded="false" />
+            <element signature="e#12875#13018#0" expanded="false" />
+            <element signature="e#13032#13175#0" expanded="false" />
+            <element signature="e#13189#13406#0" expanded="false" />
+            <element signature="e#13420#13807#0" expanded="false" />
+            <element signature="e#14743#16342#0" expanded="false" />
+            <element signature="e#16390#16453#0" expanded="false" />
+            <element signature="e#16524#16725#0" expanded="false" />
+            <marker date="1513329724076" expanded="false" signature="14182:14219" ph="..." />
+            <marker date="1513329724076" expanded="true" signature="14365:14403" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/routes/caozuo/caozuo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="885" column="36" lean-forward="true" selection-start-line="885" selection-start-column="36" selection-end-line="885" selection-end-column="36" />
+          <folding>
+            <element signature="e#613#679#0" expanded="false" />
+            <element signature="e#784#1830#0" expanded="false" />
+            <element signature="e#1882#2660#0" expanded="false" />
+            <element signature="e#2708#3746#0" expanded="false" />
+            <element signature="e#3795#4933#0" expanded="false" />
+            <element signature="e#5036#6149#0" expanded="false" />
+            <element signature="e#5133#5339#0" expanded="false" />
+            <element signature="e#5376#6145#0" expanded="false" />
+            <element signature="e#6200#7201#0" expanded="false" />
+            <element signature="e#7250#8197#0" expanded="false" />
+            <element signature="e#8247#9435#0" expanded="false" />
+            <element signature="e#9608#10468#0" expanded="false" />
+            <element signature="e#9671#10465#0" expanded="false" />
+            <element signature="e#10506#11153#0" expanded="false" />
+            <element signature="e#10840#11150#0" expanded="false" />
+            <element signature="e#11210#12082#0" expanded="false" />
+            <element signature="e#11278#12079#0" expanded="false" />
+            <element signature="e#12125#13026#0" expanded="false" />
+            <element signature="e#12237#13023#0" expanded="false" />
+            <element signature="e#13082#13950#0" expanded="false" />
+            <element signature="e#13148#13947#0" expanded="false" />
+            <element signature="e#13989#14886#0" expanded="false" />
+            <element signature="e#14937#15803#0" expanded="false" />
+            <element signature="e#15843#16738#0" expanded="false" />
+            <element signature="e#16789#17651#0" expanded="false" />
+            <element signature="e#17692#18583#0" expanded="false" />
+            <element signature="e#18634#19498#0" expanded="false" />
+            <element signature="e#18698#19495#0" expanded="false" />
+            <element signature="e#19539#20432#0" expanded="false" />
+            <element signature="e#20481#21343#0" expanded="false" />
+            <element signature="e#20544#21340#0" expanded="false" />
+            <element signature="e#21382#22273#0" expanded="false" />
+            <element signature="e#23189#23229#0" expanded="false" />
           </folding>
         </state>
       </provider>

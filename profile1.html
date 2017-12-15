@@ -11,7 +11,8 @@
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
 
     <!-- Morris -->
@@ -25,8 +26,14 @@
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
     <link href="https://cdn.bootcss.com/layer/3.1.0/mobile/need/layer.css" rel="stylesheet">
-
-
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <style>
+        .columns button,.dropup button {
+            background-color: white;
+            color: #000;
+        }
+    </style>
 </head>
 
 <body class="gray-bg">
@@ -37,12 +44,13 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title" id="myModalLabel">添加大类</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
+                    <div class="form-group mmmmmm">
                         <label class="col-sm-10 control-label">类型</label>
                         <div class="">
                             <input type="text" class="form-control type">
@@ -63,6 +71,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary d">保存</button>
+                    <button type="button" class="btn btn-primary ddd" style="display: none">修改</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div>
@@ -71,8 +80,14 @@
     <div class="row">
         <div>
             <table data-toggle="table" id="table">
-                <div id="toolbar">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModa">大类添加</button>
+                <div id="toolbar" style="display: flex">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModa" style="margin-right: 15px">大类添加
+                    </button>
+                    <select id="sel_exportoption" class="form-control selecrex">
+                        <option value="basic">导出当前页面数据</option>
+                        <option value="all">导出全部数据</option>
+                        <option value="selected">导出选中数据</option>
+                    </select>
                 </div>
             </table>
         </div>
@@ -82,7 +97,6 @@
 <!-- 全局js -->
 <script src="js/jquery.min.js?v=2.1.4"></script>
 <script src="js/bootstrap.min.js?v=3.3.6"></script>
-
 
 
 <!-- Flot -->
@@ -120,7 +134,12 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
 <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+<script src="js/plugins/bootstrap-table/tableExport.js"></script>
+<script src="js/plugins/bootstrap-table/export/bootstrap-table-export.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script src="js/myjquery.js"></script>
 <script>
+    var dtypespis;
     var $table = $('#table');
     $table.bootstrapTable({
         url: 'http://localhost:3000/reads/readtype',         //请求后台的URL（*）
@@ -130,7 +149,17 @@
         cache: true,
         showColumns: true,
         striped: true,
-        contentType: "application/x-www-form-urlencoded",/**支持跨域**/
+        showExport: true,//显示导出按钮
+        exportDataType: "basic", //basic', 'all', 'selected'.
+        exportTypes: ['excel'],
+        exportOptions: {
+            ignoreColumn: [0, 4],  //忽略某一列的索引
+            fileName: '账号类型',  //文件名称设置
+            worksheetName: 'sheet1',  //表格工作区名称
+            excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
+            onMsoNumberFormat: $.DoOnMsoNumberFormat
+        },
+        contentType: "application/x-www-form-urlencoded", /**支持跨域**/
         clickToSelect: true,
         showRefresh: true,                  //是否显示刷新按钮
         pageList: [5, 10, 15, 20],
@@ -141,14 +170,24 @@
         sidePagination: "server", //服务端处理分页
         columns: [
             {
+                checkbox: true,
+                title: '选择'
+            }, {
+                title: "单号",
+                field: '_id',
+                align: 'center',
+                valign: 'middle',
+                visible: false
+            },
+            {
                 title: '类型',
                 field: 'dtype',
                 align: 'center',
                 valign: 'middle',
-                formatter:function (v) {
-                    if (v==0) {
+                formatter: function (v) {
+                    if (v == 0) {
                         return "<span>支出</span>"
-                    }else{
+                    } else {
                         return "<span>收入</span>"
                     }
                 }
@@ -164,14 +203,17 @@
                 field: 'sm',
                 align: 'center',
                 valign: 'middle'
-            },{
+            }, {
                 title: '操作',
                 align: 'center',
                 valign: 'middle',
                 sortable: true,
-                formatter: function () {
-                    return `<button type="button" class="btn" onclick="del(this)" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
-                             <button type="button" class="btn" onclick="edit(this)" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
+                formatter: function (value,row) {
+                    var id = row._id;
+                    var name = row.name;
+                    var sm = row.sm;
+                    return `<button type="button" class="btn" onclick="del('${name}','${id}')" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
+                             <button type="button" class="btn" onclick="edit('${name}','${id}','${sm}')" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
                 }
             }
         ],
@@ -184,9 +226,29 @@
     });
     $(function () {
         $('.d').click(function () {
-            var type = $('.type').val();
-            var name = $('.name').val();
-            var sm = $('.sm').val();
+            updatecre(1);
+        });
+        $('.ddd').click(function(){
+            updatecre(0);
+        });
+        $('#sel_exportoption').selectpicker({
+            style: 'btn-white',
+            size: 4
+        });
+// 选择导出 all selected basic
+        $('.selecrex').click(function () {
+            var exportoption = $(this).find('option:selected').val();
+            $('#table').bootstrapTable('refreshOptions', {
+                exportDataType: exportoption
+            });
+        });
+    });
+
+    function updatecre(types) {
+        var type = $('.type').val();
+        var name = $('.name').val();
+        var sm = $('.sm').val();
+        if(types==1) {
             var data = {
                 type: type,
                 name: name,
@@ -198,7 +260,7 @@
                 type: 'post',
                 dataType: 'json',
                 success: function (res) {
-                    if (res.code==1) {
+                    if (res.code == 1) {
                         layer.msg(res.msg);
                         return false;
                     }
@@ -207,8 +269,59 @@
                     $('.modal-body input').val('');
                 }
             });
+        }else{
+            var data = {
+                name: name,
+                sm: sm
+            };
+            var url = "http://localhost:3000/dxtypes/updatetype";
+            var res = $.updateData(url, dtypespis, data);
+            if (res.code == 1) {
+                layer.msg(res.msg);
+                return false;
+            }
+            layer.msg(res.msg);
+            $('#myModa').modal('hide');
+            $('.modal-body input').val('');
+        }
+    }
+
+    function del (name,id) {
+        layer.confirm('你确定删除 ' + name + ' 嘛？', {
+            btn: ['果断删除', '放弃'] //按钮
+        }, function () {
+            var url = "http://localhost:3000/dxtypes/deldtype";
+            var res = $.deletelData(url, id);
+            if (res.code == 1) {
+                layer.msg(res.msg);
+                return false;
+            }
+            layer.msg(res.msg);
+            $table.bootstrapTable('refresh');
         });
+    }
+
+    function edit (name, id, sm) {
+        dtypespis = id;
+        $('.name').val(name);
+        $('.sm').val(sm);
+        $('.mmmmmm').css('display','none');
+        $('#myModalLabel').text("大类修改");
+        $('#myModa  .d').css("display","none");
+        $('#myModa  .ddd').css("display","inline-block");
+        $('#myModa').modal('show');
+    }
+
+    //  这里公用一个modal 修改class
+    $('#myModa').on('hidden.bs.modal', function (e) {
+        $('#myModalLabel').text("大类添加");
+        $('.mmmmmm').css('display','inline-block');
+        $('#myModal5  .d').css("display","inline-block");
+        $('#myModal5  .ddd').css("display","none");
+        $('.name').val('');
+        $('.sm').val('');
     });
+
 </script>
 </body>
 

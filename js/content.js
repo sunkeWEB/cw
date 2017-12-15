@@ -97,3 +97,4 @@ function sendAjax(ajaxUrl, ajaxType, ajaxData) {
     });
     return result;
 }
+

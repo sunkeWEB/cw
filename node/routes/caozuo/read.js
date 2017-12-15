@@ -80,7 +80,6 @@ router.get('/readsrzc',(req,res)=>{
     let k = [];
     let kkk = {};
     let doc1,total=1;
-    console.log(sid);
     if (sid === undefined) {
         let searchValue1 = searchValue ? k=sersch(searchValue) : k ;
         if (k.length>=1) {
@@ -128,24 +127,30 @@ function serschzh(searchValue) {
     return obj;
 }
 router.get('/readaccountzh',(req,res)=>{
-    let {order,offset,limit,sort} = req.query; // 获取查询条件
-    console.log(order,offset,limit,sort);
+    let {order,offset,limit,sort,sid} = req.query; // 获取查询条件  sid 如果有值 就是获取单个的数据  如果是undefined 全部数据
     let searchValue = req.query.search;
     let k = [];
-    let searchValue1 = searchValue ? k=serschzh(searchValue) : k ;
     let kkk = {};
-    if (k.length>=1) {
+    let doc1,total=1;
+
+    if (sid === undefined) {
+        let searchValue1 = searchValue ? k=serschzh(searchValue) : k ;
+        if (k.length>=1) {
+            kkk = {
+                '$or':k
+            };
+        }
+        let query = Accountzh.find(kkk, (err, doc) => {
+            doc1 = doc;
+        });
+        query.count((err, num) => {
+            total = num;
+        });
+    }else{
         kkk = {
-            '$or':k
+            _id:sid
         };
     }
-    let doc1,total;
-    let query = Accountzh.find(kkk, (err, doc) => {
-        doc1 = doc;
-    });
-    query.count((err, num) => {
-        total = num;
-    });
     Accountzh.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).exec((err,doc)=>{
         res.json({
             code:0,

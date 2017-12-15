@@ -25,6 +25,15 @@
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
     <link href="https://cdn.bootcss.com/layer/3.1.0/mobile/need/layer.css" rel="stylesheet">
+    <link rel="stylesheet" href="js/plugins/layDate/laydate/theme/default/laydate.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <style>
+        .columns button,.dropup button {
+            background-color: white;
+            color: #000;
+        }
+    </style>
 </head>
 
 <body class="gray-bg">
@@ -57,7 +66,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">生日</label>
                         <div class="">
-                            <input type="date" class="form-control staffbir">
+                            <input type="date" class="form-control staffbir" id="staffbir">
                         </div>
                     </div>
 
@@ -79,6 +88,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary addstaff">保存</button>
+                    <button type="button" class="btn btn-primary updatestaff" style="display: none;">修改</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div>
@@ -87,10 +97,15 @@
     <div class="row">
         <div>
             <table data-toggle="table" id="table">
-                <div id="toolbar">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4">
+                <div id="toolbar" style="display: flex;">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4" style="margin-right: 15px">
                         员工添加
                     </button>
+                    <select id="sel_exportoption" class="form-control selecrex">
+                        <option value="basic">导出当前页面数据</option>
+                        <option value="all">导出全部数据</option>
+                        <option value="selected">导出选中数据</option>
+                    </select>
                 </div>
             </table>
         </div>
@@ -137,8 +152,14 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
-<script src="https://cdn.bootcss.com/layer/3.1.0/mobile/layer.js"></script>
+<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+<script src="js/plugins/bootstrap-table/tableExport.js"></script>
+<script src="js/plugins/bootstrap-table/export/bootstrap-table-export.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script  src="js/plugins/layDate/laydate/laydate.js"></script>
+<script src="js/myjquery.js"></script>
 <script>
+    var staffpid;
     var $table = $('#table');
     $table.bootstrapTable({
         url: 'http://localhost:3000/reads/readyuangong',         //请求后台的URL（*）
@@ -152,18 +173,32 @@
         clickToSelect: true,
         showRefresh: true,                  //是否显示刷新按钮
         pageList: [5, 10, 15, 20],
+        showExport: true,//显示导出按钮
+        exportDataType: "basic", //basic', 'all', 'selected'.
+        exportTypes: ['excel'],
+        exportOptions: {
+            ignoreColumn: [0, 7],  //忽略某一列的索引
+            fileName: '员工表',  //文件名称设置
+            worksheetName: 'sheet1',  //表格工作区名称
+            excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
+            onMsoNumberFormat: $.DoOnMsoNumberFormat
+        },
 //        showPaginationSwitch: true,       //是否显示选择分页数按钮
         pageNumber: 1,                       //初始化加载第一页，默认第一页
         pageSize: 10, //每页的记录行数（*）
         search: true,
         sidePagination: "server", //服务端处理分页
         columns: [
-            // {
-            //     title: 'ID',
-            //     field: 'dannum',
-            //     align: 'center',
-            //     valign: 'middle',
-            // },
+            {
+                checkbox: true,
+                title: '选择'
+            }, {
+                title: "单号",
+                field: '_id',
+                align: 'center',
+                valign: 'middle',
+                visible: false
+            },
             {
                 title: '员工(经办人)名称',
                 field: 'name',
@@ -211,9 +246,15 @@
                 align: 'center',
                 valign: 'middle',
                 sortable: true,
-                formatter: function () {
-                    return `<button type="button" class="btn" onclick="del(this)" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
-                             <button type="button" class="btn" onclick="edit(this)" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
+                formatter: function (value,row) {
+                    var id = row._id;
+                    var name = row.name;
+                    var phone = row.phone;
+                    var department = row.department;
+                    var bz = row.bz;
+                    var birthday = row.birthday;
+                    return `<button type="button" class="btn" onclick="del('${name}','${id}')" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
+                             <button type="button" class="btn" onclick="edit('${name}','${id}','${phone}','${department}','${bz}','${birthday}')" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
                 }
             }
         ],
@@ -225,33 +266,56 @@
         },
     });
     $(function () {
+        $('#sel_exportoption').selectpicker({
+            style: 'btn-white',
+            size: 4
+        });
+// 选择导出 all selected basic
+        $('.selecrex').click(function () {
+            var exportoption = $(this).find('option:selected').val();
+            $('#table').bootstrapTable('refreshOptions', {
+                exportDataType: exportoption
+            });
+        });
         $('.addstaff').click(function () {
-            var name = $('.staffname').val();
-            var phone = $('.staffphone').val();
-            var bir = $('.staffbir').val();
-            var bz = $('.staffbz').val();
-            var next = $('.staffnext').val();
-            if (name=='') {
-                layer.msg("姓名必须填写");
-                return false;
-            }
-            if (phone=='') {
-                layer.msg("电话必须填写");
-                return false;
-            }
+            updatestaffcre(1);
+        });
+        $('.updatestaff').click(function() {
+            updatestaffcre(0);
+        });
+        laydate.render({
+            elem: '#staffbir' //指定元素
+        });
+    });
 
-            if (next=='') {
-                layer.msg("部门必须填写");
-                return false;
-            }
+    function updatestaffcre (types) {
+        var name = $('.staffname').val();
+        var phone = $('.staffphone').val();
+        var bir = $('.staffbir').val();
+        var bz = $('.staffbz').val();
+        var next = $('.staffnext').val();
+        if (name=='') {
+            layer.msg("姓名必须填写");
+            return false;
+        }
+        if (phone=='') {
+            layer.msg("电话必须填写");
+            return false;
+        }
 
-            var data = {
-                name: name,
-                birthday: bir,
-                phone: phone,
-                bz: bz,
-                department: next
-            };
+        if (next=='') {
+            layer.msg("部门必须填写");
+            return false;
+        }
+
+        var data = {
+            name: name,
+            birthday: bir,
+            phone: phone,
+            bz: bz,
+            department: next
+        };
+        if (types==1) {
             $.ajax({
                 url: 'http://localhost:3000/dxtypes/addstaff',
                 data: data,
@@ -267,8 +331,57 @@
                     $('.modal-body input').val('');
                 }
             });
+        }else{
+            var url = "http://localhost:3000/dxtypes/updatestaff";
+            var res = $.updateData(url, staffpid, data);
+            if (res.code == 1) {
+                layer.msg(res.msg);
+                return false;
+            }
+            layer.msg(res.msg);
+            $('#myModal4').modal('hide');
+            $('.modal-body input').val('');
+        }
+    }
+
+    function del (name,id) {
+        layer.confirm('你确定删除 ' + name + ' 嘛？', {
+            btn: ['果断删除', '放弃'] //按钮
+        }, function () {
+            var url = "http://localhost:3000/dxtypes/delstaff";
+            var res = $.deletelData(url, id);
+            if (res.code == 1) {
+                layer.msg(res.msg);
+                return false;
+            }
+            layer.msg(res.msg);
+            $table.bootstrapTable('refresh');
         });
+    }
+
+    function edit (name,id,phone,department,bz,birthday) {
+        staffpid = id;
+        $('.staffname').val(name);
+        $('.staffphone').val(phone);
+        laydate.render({
+            elem: '#staffbir', //指定元素
+            value:birthday
+        });
+        $('.staffbz').val(bz);
+        $('.staffnext').val(department);
+        $('#myModalLabel4').text("员工信息修改");
+        $('#myModal4  .updatestaff').css("display","inline-block");
+        $('#myModal4  .addstaff').css("display","none");
+        $('#myModal4').modal('show');
+    }
+
+    //  这里公用一个modal 修改class
+    $('#myModal4').on('hidden.bs.modal', function (e) {
+        $('#myModalLabel4').text("员工添加");
+        $('#myModal4  .addstaff').css("display","inline-block");
+        $('#myModal4  .updatestaff').css("display","none");
     });
+
 </script>
 </body>
 

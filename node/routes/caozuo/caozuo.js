@@ -8,6 +8,7 @@ let Srzcs = require('./../../model/srzcs'); // 收入支出表
 let Staffs = require('./../../model/staff'); // 员工表
 let Accounts = require('./../../model/accountypes'); // 账户类型表
 let Accountgls = require('./../../model/accountguanli'); // 账户
+let Users = require('./../../model/users'); // 用户
 // 这里面只做 添加 删除 修改
 
 // 测试
@@ -275,7 +276,6 @@ router.post('/addstaff', (req, res) => {
 //添加账户类型
 router.post('/addacount',(req,res)=>{
     let {sort,name} = req.body;
-
     Accounts.count({name:name},(err,num)=>{
         if (err) {
             return res.json({
@@ -361,7 +361,8 @@ router.post('/addacountzh',(req,res)=>{
 // ------------------------读取------------------------
 
 // ----------------------  删除修改操作 -----------------------------
-// 删除项目
+
+// 删除 修改 项目
 router.post('/delxm', (req, res) => {
     let {id} = req.body;
     Srzcs.count({_id:id},(err,num)=>{
@@ -430,4 +431,530 @@ router.post('/updatexm',(req,res)=>{
         }
     })
 });
+
+// 删除 修改 账户管理
+router.post('/delaccountzh',(req,res)=>{
+    let {id} = req.body;
+    Accountgls.count({_id:id},(err,num)=>{
+        if (err) {
+            return res.json({
+                code:1,
+                msg:"系统错误 稍后再尝试"
+            });
+        }
+
+        if (num===0) {
+            return res.json({
+                code:1,
+                msg:"你删除的账户管理不存在"
+            });
+        }
+
+        if (num>=1) {
+            Accountgls.remove({_id:id},(err,doc)=>{
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误 稍后再尝试",
+                        data:[]
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"系统删除成功",
+                        data:doc
+                    });
+                }
+            })
+        }
+
+    })
+});
+router.post('/updateaccount',(req,res)=>{
+    let {sid, data} = req.body;
+    let obj = JSON.parse(data);
+    Accountgls.count({_id:sid}, (err, num) => {
+        if (err) {
+            return res.json({
+                code: 1,
+                msg: '系统错误'
+            });
+        }
+        if (num === 0) {
+            return res.json({
+                code: 1,
+                msg: '没找到账户的信息'
+            });
+        } else {
+            Accountgls.update({_id:sid},obj,function (err, doc) {
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误",
+                        data:err
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"修改成功",
+                        data:doc
+                    })
+                }
+            })
+        }
+    })
+});
+
+// 删除 修改 账户类型
+router.post('/delaaccount',(req,res)=>{
+    let {id} = req.body;
+    Accounts.count({_id:id},(err,num)=>{
+        if (err) {
+            return res.json({
+                code:1,
+                msg:"系统错误 稍后再尝试"
+            });
+        }
+
+        if (num===0) {
+            return res.json({
+                code:1,
+                msg:"你删除的账户管理不存在"
+            });
+        }
+
+        if (num>=1) {
+            Accounts.remove({_id:id},(err,doc)=>{
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误 稍后再尝试",
+                        data:[]
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"系统删除成功",
+                        data:doc
+                    });
+                }
+            })
+        }
+
+    })
+});
+router.post('/updateacc',(req,res)=>{
+    let {sid, data} = req.body;
+    let obj = JSON.parse(data);
+    Accounts.count({_id:sid}, (err, num) => {
+        if (err) {
+            return res.json({
+                code: 1,
+                msg: '系统错误'
+            });
+        }
+        if (num === 0) {
+            return res.json({
+                code: 1,
+                msg: '没找到账户的信息'
+            });
+        } else {
+            Accounts.update({_id:sid},obj,function (err, doc) {
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误",
+                        data:err
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"修改成功",
+                        data:doc
+                    })
+                }
+            })
+        }
+    })
+});
+
+// 删除 修改 大类
+router.post('/deldtype',(req,res)=>{
+    let {id} = req.body;
+    DxTypes.count({_id:id},(err,num)=>{
+        if (err) {
+            return res.json({
+                code:1,
+                msg:"系统错误 稍后再尝试"
+            });
+        }
+
+        if (num===0) {
+            return res.json({
+                code:1,
+                msg:"你删除的账户管理不存在"
+            });
+        }
+
+        if (num>=1) {
+            DxTypes.remove({_id:id},(err,doc)=>{
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误 稍后再尝试",
+                        data:[]
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"系统删除成功",
+                        data:doc
+                    });
+                }
+            })
+        }
+
+    })
+});
+router.post('/updatetype',(req,res)=>{
+    let {sid, data} = req.body;
+    let obj = JSON.parse(data);
+    DxTypes.count({_id:sid}, (err, num) => {
+        if (err) {
+            return res.json({
+                code: 1,
+                msg: '系统错误'
+            });
+        }
+        if (num === 0) {
+            return res.json({
+                code: 1,
+                msg: '没找到账户的信息'
+            });
+        } else {
+            DxTypes.update({_id:sid},obj,function (err, doc) {
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误",
+                        data:err
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"修改成功",
+                        data:doc
+                    })
+                }
+            })
+        }
+    })
+});
+
+// 删除 修改 客户
+router.post('/delkehus',(req,res)=>{
+    let {id} = req.body;
+    KeHus.count({_id:id},(err,num)=>{
+        if (err) {
+            return res.json({
+                code:1,
+                msg:"系统错误 稍后再尝试"
+            });
+        }
+
+        if (num===0) {
+            return res.json({
+                code:1,
+                msg:"你删除的账户管理不存在"
+            });
+        }
+
+        if (num>=1) {
+            KeHus.remove({_id:id},(err,doc)=>{
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误 稍后再尝试",
+                        data:[]
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"系统删除成功",
+                        data:doc
+                    });
+                }
+            })
+        }
+
+    })
+});
+router.post('/updatekefus',(req,res)=>{
+    let {sid, data} = req.body;
+    let obj = JSON.parse(data);
+    KeHus.count({_id:sid}, (err, num) => {
+        if (err) {
+            return res.json({
+                code: 1,
+                msg: '系统错误'
+            });
+        }
+        if (num === 0) {
+            return res.json({
+                code: 1,
+                msg: '没找到账户的信息'
+            });
+        } else {
+            KeHus.update({_id:sid},obj,function (err, doc) {
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误",
+                        data:err
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"修改成功",
+                        data:doc
+                    })
+                }
+            })
+        }
+    })
+});
+
+// 删除 修改 员工
+router.post('/delstaff',(req,res)=>{
+    let {id} = req.body;
+    Staffs.count({_id:id},(err,num)=>{
+        if (err) {
+            return res.json({
+                code:1,
+                msg:"系统错误 稍后再尝试"
+            });
+        }
+
+        if (num===0) {
+            return res.json({
+                code:1,
+                msg:"你删除的账户管理不存在"
+            });
+        }
+
+        if (num>=1) {
+            Staffs.remove({_id:id},(err,doc)=>{
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误 稍后再尝试",
+                        data:[]
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"系统删除成功",
+                        data:doc
+                    });
+                }
+            })
+        }
+
+    })
+});
+router.post('/updatestaff',(req,res)=>{
+    let {sid, data} = req.body;
+    let obj = JSON.parse(data);
+    Staffs.count({_id:sid}, (err, num) => {
+        if (err) {
+            return res.json({
+                code: 1,
+                msg: '系统错误'
+            });
+        }
+        if (num === 0) {
+            return res.json({
+                code: 1,
+                msg: '没找到账户的信息'
+            });
+        } else {
+            Staffs.update({_id:sid},obj,function (err, doc) {
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误",
+                        data:err
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"修改成功",
+                        data:doc
+                    })
+                }
+            })
+        }
+    })
+});
+
+// 删除 修改 项目
+router.post('/delxms',(req,res)=>{
+    let {id} = req.body;
+    Gcxms.count({_id:id},(err,num)=>{
+        if (err) {
+            return res.json({
+                code:1,
+                msg:"系统错误 稍后再尝试"
+            });
+        }
+
+        if (num===0) {
+            return res.json({
+                code:1,
+                msg:"你删除的账户管理不存在"
+            });
+        }
+
+        if (num>=1) {
+            Gcxms.remove({_id:id},(err,doc)=>{
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误 稍后再尝试",
+                        data:[]
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"系统删除成功",
+                        data:doc
+                    });
+                }
+            })
+        }
+
+    })
+});
+router.post('/updatexms',(req,res)=>{
+    let {sid, data} = req.body;
+    let obj = JSON.parse(data);
+    Gcxms.count({_id:sid}, (err, num) => {
+        if (err) {
+            return res.json({
+                code: 1,
+                msg: '系统错误'
+            });
+        }
+        if (num === 0) {
+            return res.json({
+                code: 1,
+                msg: '没找到账户的信息'
+            });
+        } else {
+            Gcxms.update({_id:sid},obj,function (err, doc) {
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误",
+                        data:err
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"修改成功",
+                        data:doc
+                    })
+                }
+            })
+        }
+    })
+});
+
+// 删除 修改 用户
+router.post('/delusers',(req,res)=>{
+    let {id} = req.body;
+    Users.count({_id:id},(err,num)=>{
+        if (err) {
+            return res.json({
+                code:1,
+                msg:"系统错误 稍后再尝试"
+            });
+        }
+
+        if (num===0) {
+            return res.json({
+                code:1,
+                msg:"你删除的账户管理不存在"
+            });
+        }
+
+        if (num>=1) {
+            Users.remove({_id:id},(err,doc)=>{
+                if (err) {
+                    return res.json({
+                        code:1,
+                        msg:"系统错误 稍后再尝试",
+                        data:[]
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code:0,
+                        msg:"系统删除成功",
+                        data:doc
+                    });
+                }
+            })
+        }
+
+    })
+});
+// router.post('/updatexms',(req,res)=>{
+//     let {sid, data} = req.body;
+//     let obj = JSON.parse(data);
+//     Gcxms.count({_id:sid}, (err, num) => {
+//         if (err) {
+//             return res.json({
+//                 code: 1,
+//                 msg: '系统错误'
+//             });
+//         }
+//         if (num === 0) {
+//             return res.json({
+//                 code: 1,
+//                 msg: '没找到账户的信息'
+//             });
+//         } else {
+//             Gcxms.update({_id:sid},obj,function (err, doc) {
+//                 if (err) {
+//                     return res.json({
+//                         code:1,
+//                         msg:"系统错误",
+//                         data:err
+//                     });
+//                 }
+//                 if (doc) {
+//                     return res.json({
+//                         code:0,
+//                         msg:"修改成功",
+//                         data:doc
+//                     })
+//                 }
+//             })
+//         }
+//     })
+// });
+
 module.exports = router;

@@ -9,6 +9,7 @@ let userSchema = new mongoose.Schema({
     pwd: String, // 密码
     ip: String,  // 最近登录ip
     defaultxm:String, // 默认项目
+    defaultkhs:String, // 默认客户
     status: Number,  // 状态  是否激活 0 是激活
     time: String,  // 最近登录时间
     dengji:String, // 级别  系统管理  普通记账 经理记账

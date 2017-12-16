@@ -16,6 +16,8 @@ router.get('/', function (req, res, next) {
 
 //登录操作
 router.post('/login', (req, res) => {
+    console.log("sadsadsadas");
+    console.log("sadsa----------> "+ req.cookies.username);
     let {name, pwd} = req.body;
     let obj = {
         name: name,
@@ -34,10 +36,6 @@ router.post('/login', (req, res) => {
                 msg: '用户名或者密码错误'
             });
         }
-        res.cookie('username', doc.name, {
-            maxAge: 60000,
-            path: '/'
-        });
         return res.json({
             code: 0,
             msg: '登录成功',
@@ -138,8 +136,7 @@ router.post('/updatepwd', (req, res) => {
 
 // 权限认证
 router.get('/auth', (req, res) => {
-    // let name = req.name;
-    Users.find({name: 'admin'}, {quanxian: 100, _id: 0}, (err, doc) => {
+    Users.find({name: 'admin'}, {quanxian: 100, _id: 0,dengji:100}, (err, doc) => {
         if (err) {
             return res.json({
                 code: 1,
@@ -323,6 +320,27 @@ router.post('/delusers',(req,res)=>{
 //     })
 // });
 
-
+router.post('/checklogin',(req,res)=>{
+    let id = req.cookies.username;
+    Users.count({_id:id},(err,num)=>{
+        if (err) {
+            return res.json({
+                code:1,
+                msg:"系统错误未检查到登陆信息"
+            })
+        }
+        if (num>=1) {
+            return res.json({
+                code:0,
+                msg:"login success"
+            })
+        }else{
+            return res.json({
+                code:1,
+                msg:"未检查到登陆信息"
+            })
+        }
+    });
+});
 
 module.exports = router;

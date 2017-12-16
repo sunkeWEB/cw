@@ -46,7 +46,7 @@
                 url: url,
                 type: 'post',
                 async: false,
-                data: {sid: id,data:JSON.stringify(data)},
+                data: {sid: id, data: JSON.stringify(data)},
                 dataType: 'json',
                 success: function (res) {
                     result = res;
@@ -90,5 +90,15 @@
             result = "\\@";
         return result;
     }
+
+    //  删除导出功能
+    $.delDaochu = function ($table) {
+        $table.bootstrapTable('refreshOptions', {
+            showExport: false
+        });
+        $table = "";  // 防止用户执行可行代码 找回功能
+        $('.selecrex').remove();
+        return "";
+    };
 
 })(jQuery);

@@ -191,6 +191,7 @@
 <script  src="js/plugins/layDate/laydate/laydate.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 <script src="js/plugins/bootstrap-table/xlsx.core.min.js"></script>
+<script src="js/myjquery.js"></script>
 <script>
     function DoOnMsoNumberFormat(cell, row, col) {
         var result = "";
@@ -423,13 +424,16 @@
     });
 
     function kkk() {
-        if (parent.listsrzc.update == 0) {  // 默认没有权限  如果等于0 有权限
+        if (parent.listsrzc.update == 0) {  // 默认没有权限  如果等于0 有权限  修改功能
             $('.update').removeAttr("disabled");
             $('.update').removeAttr("title");
         }
-        if (parent.listsrzc.delete == 0) {
+        if (parent.listsrzc.delete == 0) {  //删除功能
             $('.delete').removeAttr("disabled");
             $('.delete').removeAttr("title");
+        }
+        if (parent.daochu.create != 0) { // 导出功能
+            $.delDaochu($table);
         }
     }
     
@@ -545,7 +549,7 @@
                 $('.ssxl').selectpicker('val',lists.xtype);
                 $('.ssxl').selectpicker({
                     style: 'btn-white',
-                    size: 5,
+                    size: 5
                 });
                 //所属小类下拉
                 $('.ssxl').nextAll().remove();  // bug

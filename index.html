@@ -70,7 +70,7 @@
                         <li class="authszrzcreate">
                             <a class="J_menuItem" href="index_v2.html">收入 / 支出记账</a>
                         </li>
-                        <li>
+                        <li class="readszrzcreate">
                             <a class="J_menuItem" href="index_v3.html">收支流水列表</a>
                         </li>
                         <li>
@@ -144,7 +144,7 @@
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">系统设置</span>
-                        <ul class="nav nav-second-level">
+                        <ul class="nav nav-second-level xtzgqx">
                             <li><a class="J_menuItem" href="contacts.html">账户管理</a>
                             </li>
                             <li><a class="J_menuItem" href="profile.html">账号类型</a>
@@ -163,7 +163,7 @@
                             </li>
                             <li><a class="J_menuItem" href="calendar.html">数据库维护</a>
                             </li>
-                            <li><a class="J_menuItem" href="updatepwd.html">修改密码</a>
+                            <li class="updatepwds"><a class="J_menuItem" href="updatepwd.html">修改密码</a>
                             </li>
                             <li>
                                 <a href="#">登录注册相关 <span class="fa arrow"></span></a>
@@ -656,22 +656,36 @@
 <script src="js/plugins/pace/pace.min.js"></script>
 <script>
     var listsrzc;
+    var daochu;
     $(function () {
         $.ajax({
             url: 'http://127.0.0.1:3000/users/auth',
             type: 'get',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
             dataType: 'json',
             success: function (res) {
+
+                if (res.data[0].dengji == "普通记账") {
+                    // $('.xtzgqx > li:not(".updatepwd")').remove();
+                }
+
                 var arr = res.data[0].quanxian;
+                // console.log(arr);
                 for (item of arr) {
 
-                    if (item.name == "收支入账") {
+                    if (item.name == "收支记账") {
                         listsrzc = item.list;
-                        if (listsrzc.read == 0) {   // 收支流水列表的权限 默认有
-                            if (listsrzc.create != 0) {  // 没有增加 收入支出 的权限
-                                $('.authszrzcreate').remove();
-                            }
+                        if (listsrzc.create != 0) {   // 收支流水列表的 创建
+                            $('.authszrzcreate').remove();
                         }
+                        if (listsrzc.read != 0) {
+                            $('.readszrzcreate').remove();  // 收支流水列表的 阅读
+                        }
+                    } else if (item.name == "表格导出") {
+                        daochu = item.list;
                     }
                 }
             }

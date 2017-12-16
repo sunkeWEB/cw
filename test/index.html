@@ -4,27 +4,26 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <!--<link rel="stylesheet" href="../js/plugins/iCheck/skins/square/square.css">-->
+    <link rel="stylesheet" href="../js/plugins/iCheck/skins/square/red.css">
 </head>
 <body>
 <div>
-    <select class="form-control m-b ssdl" name="account">
-        <option value="A">A</option>
-        <option value="B">B</option>
-        <option value="C">C</option>
-    </select>
+    <input type="checkbox">
+    <input type="checkbox" checked>
+    <input type="radio" name="iCheck">
+    <input type="radio" name="iCheck" checked>
 </div>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script src="../js/plugins/iCheck/icheck.min.js"></script>
 <script>
     $(function () {
-        $('.ssdl').selectpicker('val','B');
-        $('.ssdl').selectpicker({
-            style: 'btn-white',
-            size:5
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square',
+            radioClass: 'iradio_square-red',
+            increaseArea: '20%' // optional
         });
-        // $('.ssdl').selectpicker('render');
     });
 </script>
 </body>

@@ -3,24 +3,9 @@ var router = express.Router();
 let Mock = require('mockjs');
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    return res.json(Mock.mock({
-        "status": 200,
-        "string1|3": "唉",
-        "data|1-9": [{
-            "name|5-8": /[a-zA-Z]/,
-            "id|+1": 1,
-            "value|0-500": 20,
-            "id1|+3": 1,
-            "isStatus|1-10000": false
-        }],
-        "obj": {
-            "name": "sunke",
-            "age": 21,
-            "sex": "男",
-            "email": /\d+6[@]q{2}\.com/,
-            "city": "@image()"
-        }
-    }));
+    res.json({
+        code:1
+    });
 });
 
 //  支出  api

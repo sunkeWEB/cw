@@ -161,7 +161,7 @@ router.post('/addkh', (req, res) => {
                 email: email,
                 adders: adders,
                 bz: bz,
-                status:0
+                status: 0
             };
             let kehuModel = new KeHus(obj);
             kehuModel.save((err, doc) => {
@@ -235,13 +235,13 @@ router.post('/addsrzc', (req, res) => {
 router.post('/addstaff', (req, res) => {
     let {name, phone, birthday, department, bz} = req.body;
     let obj = {
-        name:name,
-        phone:phone,
-        birthday:birthday,
-        department:department,
-        bz:bz
+        name: name,
+        phone: phone,
+        birthday: birthday,
+        department: department,
+        bz: bz
     };
-    Staffs.count(obj,(err,num)=>{
+    Staffs.count(obj, (err, num) => {
         if (err) {
             return res.json({
                 code: 1,
@@ -274,9 +274,9 @@ router.post('/addstaff', (req, res) => {
 });
 
 //添加账户类型
-router.post('/addacount',(req,res)=>{
-    let {sort,name} = req.body;
-    Accounts.count({name:name},(err,num)=>{
+router.post('/addacount', (req, res) => {
+    let {sort, name} = req.body;
+    Accounts.count({name: name}, (err, num) => {
         if (err) {
             return res.json({
                 code: 1,
@@ -290,8 +290,8 @@ router.post('/addacount',(req,res)=>{
             });
         } else {
             let obj = {
-                sort:sort,
-                name:name
+                sort: sort,
+                name: name
             };
             let AccountModel = new Accounts(obj);
             AccountModel.save((err, doc) => {
@@ -313,9 +313,9 @@ router.post('/addacount',(req,res)=>{
 });
 
 // 添加账户
-router.post('/addacountzh',(req,res)=>{
+router.post('/addacountzh', (req, res) => {
     let {name, type, sm, price} = req.body;
-    Accountgls.count({name:name},(err,num)=>{
+    Accountgls.count({name: name}, (err, num) => {
         if (err) {
             return res.json({
                 code: 1,
@@ -329,14 +329,14 @@ router.post('/addacountzh',(req,res)=>{
             });
         } else {
             let obj = {
-                name:name,
-                dtype:type,
-                sm:sm,
-                defaultprice:price, // 添加的金额
-                price:price,  // 当前的金额
-                status:0, // 默认正常 账户
-                createtime:new Date().getTime(),
-                ip:req.ip
+                name: name,
+                dtype: type,
+                sm: sm,
+                defaultprice: price, // 添加的金额
+                price: price,  // 当前的金额
+                status: 0, // 默认正常 账户
+                createtime: new Date().getTime(),
+                ip: req.ip
             };
             let AccountglModel = new Accountgls(obj);
             AccountglModel.save((err, doc) => {
@@ -365,35 +365,35 @@ router.post('/addacountzh',(req,res)=>{
 // 删除 修改 项目
 router.post('/delxm', (req, res) => {
     let {id} = req.body;
-    Srzcs.count({_id:id},(err,num)=>{
+    Srzcs.count({_id: id}, (err, num) => {
         if (err) {
             return res.json({
-                code:1,
-                msg:"系统错误 稍后再尝试"
+                code: 1,
+                msg: "系统错误 稍后再尝试"
             });
         }
 
-        if (num===0) {
+        if (num === 0) {
             return res.json({
-                code:1,
-                msg:"你删除的项目不存在"
+                code: 1,
+                msg: "你删除的项目不存在"
             });
         }
 
-        if (num>=1) {
-            Srzcs.remove({_id:id},(err,doc)=>{
+        if (num >= 1) {
+            Srzcs.remove({_id: id}, (err, doc) => {
                 if (err) {
                     return res.json({
-                        code:1,
-                        msg:"系统错误 稍后再尝试",
-                        data:[]
+                        code: 1,
+                        msg: "系统错误 稍后再尝试",
+                        data: []
                     });
                 }
                 if (doc) {
                     return res.json({
-                        code:0,
-                        msg:"系统删除成功",
-                        data:doc
+                        code: 0,
+                        msg: "系统删除成功",
+                        data: doc
                     });
                 }
             })
@@ -401,8 +401,8 @@ router.post('/delxm', (req, res) => {
 
     })
 });
-router.post('/updatexm',(req,res)=>{
-    let {pid,xtype, price, zjzh, yshb, ywxm, jbr, sm, time, dtype} = req.body;
+router.post('/updatexm', (req, res) => {
+    let {pid, xtype, price, zjzh, yshb, ywxm, jbr, sm, time, dtype} = req.body;
     let obj = {
         xtype: xtype,
         price: price,
@@ -414,56 +414,56 @@ router.post('/updatexm',(req,res)=>{
         sm: sm,
         dtype: dtype
     };
-    Srzcs.update({_id:pid},obj,function (err, doc) {
+    Srzcs.update({_id: pid}, obj, function (err, doc) {
         if (err) {
             return res.json({
-                code:1,
-                msg:"系统错误",
-                data:msg
+                code: 1,
+                msg: "系统错误",
+                data: msg
             });
         }
         if (doc) {
             return res.json({
-                code:0,
-                msg:"修改成功",
-                data:doc
+                code: 0,
+                msg: "修改成功",
+                data: doc
             })
         }
     })
 });
 
 // 删除 修改 账户管理
-router.post('/delaccountzh',(req,res)=>{
+router.post('/delaccountzh', (req, res) => {
     let {id} = req.body;
-    Accountgls.count({_id:id},(err,num)=>{
+    Accountgls.count({_id: id}, (err, num) => {
         if (err) {
             return res.json({
-                code:1,
-                msg:"系统错误 稍后再尝试"
+                code: 1,
+                msg: "系统错误 稍后再尝试"
             });
         }
 
-        if (num===0) {
+        if (num === 0) {
             return res.json({
-                code:1,
-                msg:"你删除的账户管理不存在"
+                code: 1,
+                msg: "你删除的账户管理不存在"
             });
         }
 
-        if (num>=1) {
-            Accountgls.remove({_id:id},(err,doc)=>{
+        if (num >= 1) {
+            Accountgls.remove({_id: id}, (err, doc) => {
                 if (err) {
                     return res.json({
-                        code:1,
-                        msg:"系统错误 稍后再尝试",
-                        data:[]
+                        code: 1,
+                        msg: "系统错误 稍后再尝试",
+                        data: []
                     });
                 }
                 if (doc) {
                     return res.json({
-                        code:0,
-                        msg:"系统删除成功",
-                        data:doc
+                        code: 0,
+                        msg: "系统删除成功",
+                        data: doc
                     });
                 }
             })
@@ -471,10 +471,10 @@ router.post('/delaccountzh',(req,res)=>{
 
     })
 });
-router.post('/updateaccount',(req,res)=>{
+router.post('/updateaccount', (req, res) => {
     let {sid, data} = req.body;
     let obj = JSON.parse(data);
-    Accountgls.count({_id:sid}, (err, num) => {
+    Accountgls.count({_id: sid}, (err, num) => {
         if (err) {
             return res.json({
                 code: 1,
@@ -487,19 +487,19 @@ router.post('/updateaccount',(req,res)=>{
                 msg: '没找到账户的信息'
             });
         } else {
-            Accountgls.update({_id:sid},obj,function (err, doc) {
+            Accountgls.update({_id: sid}, obj, function (err, doc) {
                 if (err) {
                     return res.json({
-                        code:1,
-                        msg:"系统错误",
-                        data:err
+                        code: 1,
+                        msg: "系统错误",
+                        data: err
                     });
                 }
                 if (doc) {
                     return res.json({
-                        code:0,
-                        msg:"修改成功",
-                        data:doc
+                        code: 0,
+                        msg: "修改成功",
+                        data: doc
                     })
                 }
             })
@@ -508,37 +508,37 @@ router.post('/updateaccount',(req,res)=>{
 });
 
 // 删除 修改 账户类型
-router.post('/delaaccount',(req,res)=>{
+router.post('/delaaccount', (req, res) => {
     let {id} = req.body;
-    Accounts.count({_id:id},(err,num)=>{
+    Accounts.count({_id: id}, (err, num) => {
         if (err) {
             return res.json({
-                code:1,
-                msg:"系统错误 稍后再尝试"
+                code: 1,
+                msg: "系统错误 稍后再尝试"
             });
         }
 
-        if (num===0) {
+        if (num === 0) {
             return res.json({
-                code:1,
-                msg:"你删除的账户管理不存在"
+                code: 1,
+                msg: "你删除的账户管理不存在"
             });
         }
 
-        if (num>=1) {
-            Accounts.remove({_id:id},(err,doc)=>{
+        if (num >= 1) {
+            Accounts.remove({_id: id}, (err, doc) => {
                 if (err) {
                     return res.json({
-                        code:1,
-                        msg:"系统错误 稍后再尝试",
-                        data:[]
+                        code: 1,
+                        msg: "系统错误 稍后再尝试",
+                        data: []
                     });
                 }
                 if (doc) {
                     return res.json({
-                        code:0,
-                        msg:"系统删除成功",
-                        data:doc
+                        code: 0,
+                        msg: "系统删除成功",
+                        data: doc
                     });
                 }
             })
@@ -546,10 +546,10 @@ router.post('/delaaccount',(req,res)=>{
 
     })
 });
-router.post('/updateacc',(req,res)=>{
+router.post('/updateacc', (req, res) => {
     let {sid, data} = req.body;
     let obj = JSON.parse(data);
-    Accounts.count({_id:sid}, (err, num) => {
+    Accounts.count({_id: sid}, (err, num) => {
         if (err) {
             return res.json({
                 code: 1,
@@ -562,19 +562,19 @@ router.post('/updateacc',(req,res)=>{
                 msg: '没找到账户的信息'
             });
         } else {
-            Accounts.update({_id:sid},obj,function (err, doc) {
+            Accounts.update({_id: sid}, obj, function (err, doc) {
                 if (err) {
                     return res.json({
-                        code:1,
-                        msg:"系统错误",
-                        data:err
+                        code: 1,
+                        msg: "系统错误",
+                        data: err
                     });
                 }
                 if (doc) {
                     return res.json({
-                        code:0,
-                        msg:"修改成功",
-                        data:doc
+                        code: 0,
+                        msg: "修改成功",
+                        data: doc
                     })
                 }
             })
@@ -583,37 +583,37 @@ router.post('/updateacc',(req,res)=>{
 });
 
 // 删除 修改 大类
-router.post('/deldtype',(req,res)=>{
+router.post('/deldtype', (req, res) => {
     let {id} = req.body;
-    DxTypes.count({_id:id},(err,num)=>{
+    DxTypes.count({_id: id}, (err, num) => {
         if (err) {
             return res.json({
-                code:1,
-                msg:"系统错误 稍后再尝试"
+                code: 1,
+                msg: "系统错误 稍后再尝试"
             });
         }
 
-        if (num===0) {
+        if (num === 0) {
             return res.json({
-                code:1,
-                msg:"你删除的账户管理不存在"
+                code: 1,
+                msg: "你删除的账户管理不存在"
             });
         }
 
-        if (num>=1) {
-            DxTypes.remove({_id:id},(err,doc)=>{
+        if (num >= 1) {
+            DxTypes.remove({_id: id}, (err, doc) => {
                 if (err) {
                     return res.json({
-                        code:1,
-                        msg:"系统错误 稍后再尝试",
-                        data:[]
+                        code: 1,
+                        msg: "系统错误 稍后再尝试",
+                        data: []
                     });
                 }
                 if (doc) {
                     return res.json({
-                        code:0,
-                        msg:"系统删除成功",
-                        data:doc
+                        code: 0,
+                        msg: "系统删除成功",
+                        data: doc
                     });
                 }
             })
@@ -621,10 +621,10 @@ router.post('/deldtype',(req,res)=>{
 
     })
 });
-router.post('/updatetype',(req,res)=>{
+router.post('/updatetype', (req, res) => {
     let {sid, data} = req.body;
     let obj = JSON.parse(data);
-    DxTypes.count({_id:sid}, (err, num) => {
+    DxTypes.count({_id: sid}, (err, num) => {
         if (err) {
             return res.json({
                 code: 1,
@@ -637,19 +637,19 @@ router.post('/updatetype',(req,res)=>{
                 msg: '没找到账户的信息'
             });
         } else {
-            DxTypes.update({_id:sid},obj,function (err, doc) {
+            DxTypes.update({_id: sid}, obj, function (err, doc) {
                 if (err) {
                     return res.json({
-                        code:1,
-                        msg:"系统错误",
-                        data:err
+                        code: 1,
+                        msg: "系统错误",
+                        data: err
                     });
                 }
                 if (doc) {
                     return res.json({
-                        code:0,
-                        msg:"修改成功",
-                        data:doc
+                        code: 0,
+                        msg: "修改成功",
+                        data: doc
                     })
                 }
             })
@@ -658,37 +658,37 @@ router.post('/updatetype',(req,res)=>{
 });
 
 // 删除 修改 客户
-router.post('/delkehus',(req,res)=>{
+router.post('/delkehus', (req, res) => {
     let {id} = req.body;
-    KeHus.count({_id:id},(err,num)=>{
+    KeHus.count({_id: id}, (err, num) => {
         if (err) {
             return res.json({
-                code:1,
-                msg:"系统错误 稍后再尝试"
+                code: 1,
+                msg: "系统错误 稍后再尝试"
             });
         }
 
-        if (num===0) {
+        if (num === 0) {
             return res.json({
-                code:1,
-                msg:"你删除的账户管理不存在"
+                code: 1,
+                msg: "你删除的账户管理不存在"
             });
         }
 
-        if (num>=1) {
-            KeHus.remove({_id:id},(err,doc)=>{
+        if (num >= 1) {
+            KeHus.remove({_id: id}, (err, doc) => {
                 if (err) {
                     return res.json({
-                        code:1,
-                        msg:"系统错误 稍后再尝试",
-                        data:[]
+                        code: 1,
+                        msg: "系统错误 稍后再尝试",
+                        data: []
                     });
                 }
                 if (doc) {
                     return res.json({
-                        code:0,
-                        msg:"系统删除成功",
-                        data:doc
+                        code: 0,
+                        msg: "系统删除成功",
+                        data: doc
                     });
                 }
             })
@@ -696,10 +696,10 @@ router.post('/delkehus',(req,res)=>{
 
     })
 });
-router.post('/updatekefus',(req,res)=>{
+router.post('/updatekefus', (req, res) => {
     let {sid, data} = req.body;
     let obj = JSON.parse(data);
-    KeHus.count({_id:sid}, (err, num) => {
+    KeHus.count({_id: sid}, (err, num) => {
         if (err) {
             return res.json({
                 code: 1,
@@ -712,19 +712,19 @@ router.post('/updatekefus',(req,res)=>{
                 msg: '没找到账户的信息'
             });
         } else {
-            KeHus.update({_id:sid},obj,function (err, doc) {
+            KeHus.update({_id: sid}, obj, function (err, doc) {
                 if (err) {
                     return res.json({
-                        code:1,
-                        msg:"系统错误",
-                        data:err
+                        code: 1,
+                        msg: "系统错误",
+                        data: err
                     });
                 }
                 if (doc) {
                     return res.json({
-                        code:0,
-                        msg:"修改成功",
-                        data:doc
+                        code: 0,
+                        msg: "修改成功",
+                        data: doc
                     })
                 }
             })
@@ -733,37 +733,37 @@ router.post('/updatekefus',(req,res)=>{
 });
 
 // 删除 修改 员工
-router.post('/delstaff',(req,res)=>{
+router.post('/delstaff', (req, res) => {
     let {id} = req.body;
-    Staffs.count({_id:id},(err,num)=>{
+    Staffs.count({_id: id}, (err, num) => {
         if (err) {
             return res.json({
-                code:1,
-                msg:"系统错误 稍后再尝试"
+                code: 1,
+                msg: "系统错误 稍后再尝试"
             });
         }
 
-        if (num===0) {
+        if (num === 0) {
             return res.json({
-                code:1,
-                msg:"你删除的账户管理不存在"
+                code: 1,
+                msg: "你删除的账户管理不存在"
             });
         }
 
-        if (num>=1) {
-            Staffs.remove({_id:id},(err,doc)=>{
+        if (num >= 1) {
+            Staffs.remove({_id: id}, (err, doc) => {
                 if (err) {
                     return res.json({
-                        code:1,
-                        msg:"系统错误 稍后再尝试",
-                        data:[]
+                        code: 1,
+                        msg: "系统错误 稍后再尝试",
+                        data: []
                     });
                 }
                 if (doc) {
                     return res.json({
-                        code:0,
-                        msg:"系统删除成功",
-                        data:doc
+                        code: 0,
+                        msg: "系统删除成功",
+                        data: doc
                     });
                 }
             })
@@ -771,10 +771,10 @@ router.post('/delstaff',(req,res)=>{
 
     })
 });
-router.post('/updatestaff',(req,res)=>{
+router.post('/updatestaff', (req, res) => {
     let {sid, data} = req.body;
     let obj = JSON.parse(data);
-    Staffs.count({_id:sid}, (err, num) => {
+    Staffs.count({_id: sid}, (err, num) => {
         if (err) {
             return res.json({
                 code: 1,
@@ -787,19 +787,19 @@ router.post('/updatestaff',(req,res)=>{
                 msg: '没找到账户的信息'
             });
         } else {
-            Staffs.update({_id:sid},obj,function (err, doc) {
+            Staffs.update({_id: sid}, obj, function (err, doc) {
                 if (err) {
                     return res.json({
-                        code:1,
-                        msg:"系统错误",
-                        data:err
+                        code: 1,
+                        msg: "系统错误",
+                        data: err
                     });
                 }
                 if (doc) {
                     return res.json({
-                        code:0,
-                        msg:"修改成功",
-                        data:doc
+                        code: 0,
+                        msg: "修改成功",
+                        data: doc
                     })
                 }
             })
@@ -808,37 +808,37 @@ router.post('/updatestaff',(req,res)=>{
 });
 
 // 删除 修改 项目
-router.post('/delxms',(req,res)=>{
+router.post('/delxms', (req, res) => {
     let {id} = req.body;
-    Gcxms.count({_id:id},(err,num)=>{
+    Gcxms.count({_id: id}, (err, num) => {
         if (err) {
             return res.json({
-                code:1,
-                msg:"系统错误 稍后再尝试"
+                code: 1,
+                msg: "系统错误 稍后再尝试"
             });
         }
 
-        if (num===0) {
+        if (num === 0) {
             return res.json({
-                code:1,
-                msg:"你删除的账户管理不存在"
+                code: 1,
+                msg: "你删除的账户管理不存在"
             });
         }
 
-        if (num>=1) {
-            Gcxms.remove({_id:id},(err,doc)=>{
+        if (num >= 1) {
+            Gcxms.remove({_id: id}, (err, doc) => {
                 if (err) {
                     return res.json({
-                        code:1,
-                        msg:"系统错误 稍后再尝试",
-                        data:[]
+                        code: 1,
+                        msg: "系统错误 稍后再尝试",
+                        data: []
                     });
                 }
                 if (doc) {
                     return res.json({
-                        code:0,
-                        msg:"系统删除成功",
-                        data:doc
+                        code: 0,
+                        msg: "系统删除成功",
+                        data: doc
                     });
                 }
             })
@@ -846,10 +846,10 @@ router.post('/delxms',(req,res)=>{
 
     })
 });
-router.post('/updatexms',(req,res)=>{
+router.post('/updatexms', (req, res) => {
     let {sid, data} = req.body;
     let obj = JSON.parse(data);
-    Gcxms.count({_id:sid}, (err, num) => {
+    Gcxms.count({_id: sid}, (err, num) => {
         if (err) {
             return res.json({
                 code: 1,
@@ -862,19 +862,19 @@ router.post('/updatexms',(req,res)=>{
                 msg: '没找到账户的信息'
             });
         } else {
-            Gcxms.update({_id:sid},obj,function (err, doc) {
+            Gcxms.update({_id: sid}, obj, function (err, doc) {
                 if (err) {
                     return res.json({
-                        code:1,
-                        msg:"系统错误",
-                        data:err
+                        code: 1,
+                        msg: "系统错误",
+                        data: err
                     });
                 }
                 if (doc) {
                     return res.json({
-                        code:0,
-                        msg:"修改成功",
-                        data:doc
+                        code: 0,
+                        msg: "修改成功",
+                        data: doc
                     })
                 }
             })
@@ -883,37 +883,37 @@ router.post('/updatexms',(req,res)=>{
 });
 
 // 删除 修改 用户
-router.post('/delusers',(req,res)=>{
+router.post('/delusers', (req, res) => {
     let {id} = req.body;
-    Users.count({_id:id},(err,num)=>{
+    Users.count({_id: id}, (err, num) => {
         if (err) {
             return res.json({
-                code:1,
-                msg:"系统错误 稍后再尝试"
+                code: 1,
+                msg: "系统错误 稍后再尝试"
             });
         }
 
-        if (num===0) {
+        if (num === 0) {
             return res.json({
-                code:1,
-                msg:"你删除的账户管理不存在"
+                code: 1,
+                msg: "你删除的账户管理不存在"
             });
         }
 
-        if (num>=1) {
-            Users.remove({_id:id},(err,doc)=>{
+        if (num >= 1) {
+            Users.remove({_id: id}, (err, doc) => {
                 if (err) {
                     return res.json({
-                        code:1,
-                        msg:"系统错误 稍后再尝试",
-                        data:[]
+                        code: 1,
+                        msg: "系统错误 稍后再尝试",
+                        data: []
                     });
                 }
                 if (doc) {
                     return res.json({
-                        code:0,
-                        msg:"系统删除成功",
-                        data:doc
+                        code: 0,
+                        msg: "系统删除成功",
+                        data: doc
                     });
                 }
             })
@@ -921,40 +921,48 @@ router.post('/delusers',(req,res)=>{
 
     })
 });
-// router.post('/updatexms',(req,res)=>{
-//     let {sid, data} = req.body;
-//     let obj = JSON.parse(data);
-//     Gcxms.count({_id:sid}, (err, num) => {
-//         if (err) {
-//             return res.json({
-//                 code: 1,
-//                 msg: '系统错误'
-//             });
-//         }
-//         if (num === 0) {
-//             return res.json({
-//                 code: 1,
-//                 msg: '没找到账户的信息'
-//             });
-//         } else {
-//             Gcxms.update({_id:sid},obj,function (err, doc) {
-//                 if (err) {
-//                     return res.json({
-//                         code:1,
-//                         msg:"系统错误",
-//                         data:err
-//                     });
-//                 }
-//                 if (doc) {
-//                     return res.json({
-//                         code:0,
-//                         msg:"修改成功",
-//                         data:doc
-//                     })
-//                 }
-//             })
-//         }
-//     })
-// });
+router.post('/updateusers', (req, res) => {
+    let {name, zsname, defaultyhk, defaultxm, dengji, sid} = req.body;
+    let quanxian = req.body.quanxian.split(' ');
+    quanxian.splice(quanxian.length - 1, 1); // 删掉最后一项空格
+    let ip = req.ip;  // 注册ip
+    let time = new Date().getTime();  // 注册时间
+    let kkk = [];
+    for (let m = 0; m < quanxian.length; m++) {
+        let obj1 = {
+            name: quanxian[m],
+            list: {
+                read: 0,    // 0表示具有权限 增删改 浏览 权限
+                update: 0,
+                create: 0,
+                delete: 0
+            }
+        };
+        kkk.push(obj1);
+    }
+    // console.log(kkk);
+    let obj = {
+        name: name, // 用户名
+        zsname: zsname, //真实姓名
+        defaultyhk: defaultyhk, //默认资金账户
+        defaultxm: defaultxm, // 默认项目
+        dengji: dengji, // 级别  系统管理  普通记账 经理记账
+        quanxian: kkk // 权限数组
+    };
+    Users.update({_id: sid}, obj, (err, doc) => {
+        if (err) {
+            return res.json({
+                code: 1,
+                msg: "系统错误 修改失败" + err
+            });
+        } else {
+            return res.json({
+                code: 0,
+                msg: "添加成功",
+                data: doc
+            });
+        }
+    });
+});
 
 module.exports = router;

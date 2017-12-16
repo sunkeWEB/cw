@@ -98,3 +98,21 @@ function sendAjax(ajaxUrl, ajaxType, ajaxData) {
     return result;
 }
 
+function auth () {
+    $.ajax({
+        url:"http://localhost:3000/users/checklogin",
+        type:'post',
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        dataType:'json',
+        success:function (data) {
+            if (data.code==1) {
+                location.href = "login.html";
+            }
+        }
+    });
+}
+
+auth();

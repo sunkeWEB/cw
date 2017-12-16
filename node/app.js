@@ -15,26 +15,40 @@ let read = require('./routes/caozuo/read');
 
 let app = express();
 
-// app.use((req, res, next) => {
-//     if(req.cookies.userid) {  //当前用户已经登录状态
-//         next();
-//     }else {
-//         if (req.originalUrl === "/users/register"|| req.originalUrl === "/users/login") {
-//             next();
-//         }else{
-//             res.redirect('/users/login');
-//         }
-//     }
+
+// app.all('*', function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//     res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+//     res.header("X-Powered-By", ' 3.2.1');
+//     res.header("Content-Type", "application/json;charset=utf-8");
+//     next();
 // });
 
 app.all('*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Origin", req.headers.origin); //需要显示设置来源
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Credentials",true); //带cookies
     res.header("X-Powered-By", ' 3.2.1');
     res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
+
+
+// app.use((req, res, next) => {
+//     console.log(req.cookies.username);
+//     // if(req.cookies.userid) {  //当前用户已经登录状态
+//     //     next();
+//     // }else {
+//     //     if (req.originalUrl === "/users/register"|| req.originalUrl === "/users/login") {
+//     //         next();
+//     //     }else{
+//     //         res.redirect('/users/login');
+//     //     }
+//     // }
+//     next();
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

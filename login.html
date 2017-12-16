@@ -51,6 +51,7 @@
     <script src="js/jquery.min.js?v=2.1.4"></script>
     <script src="js/bootstrap.min.js?v=3.3.6"></script>
     <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+    <script src="js/plugins/cookies/jquery.cookie.js"></script>
     <script>
         $(function () {
             $('.login').click(function () {
@@ -61,22 +62,28 @@
                     pwd:pwd
                 };
                 $.ajax({
-                    url:'http://localhost:3000/users/login',
-                    data:data,
-                    type:'post',
-                    dataType:'json',
-                    success:function (res) {
-                        if (res.code!=0) {
+                    url: 'http://localhost:3000/users/login',
+                    data: data,
+                    type: 'post',
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    crossDomain: true,
+                    dataType: 'json',
+                    success: function (res) {
+                        console.log(res);
+                        if (res.code != 0) {
                             layer.msg(res.msg);
                             return false;
                         }
+                        $.cookie('username', res.data._id,{
+                            path:'/'
+                        });
                         location.href = "index.html";
                     }
-                })
+                });
             });
         });
     </script>
-
 </body>
-
 </html>

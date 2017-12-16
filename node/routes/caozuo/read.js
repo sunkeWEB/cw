@@ -380,28 +380,34 @@ function serschusers(searchValue) {
     return obj;
 }
 router.get('/readusers',(req,res)=>{
-    let {order,offset,limit,sort} = req.query; // 获取查询条件
+    let {order,offset,limit,sort,sid} = req.query; // 获取查询条件
     let searchValue = req.query.search;
     let k = [];
+    let kkk = {};
+    let doc1,total=1;
     if (searchValue === "正常") {
         searchValue = 0;
     }else if (searchValue === "锁定"){
         searchValue = 1;
     }
-    let searchValue1 = searchValue ? k=serschusers(searchValue) : k ;
-    let kkk = {};
-    if (k.length>=1) {
+    if (sid===undefined) {
+        let searchValue1 = searchValue ? k=serschusers(searchValue) : k ;
+        if (k.length>=1) {
+            kkk = {
+                '$or':k
+            };
+        }
+        let query = Users.find(kkk, (err, doc) => {
+            doc1 = doc;
+        });
+        query.count((err, num) => {
+            total = num;
+        });
+    }else{
         kkk = {
-            '$or':k
+            _id:sid
         };
     }
-    let doc1,total;
-    let query = Users.find(kkk, (err, doc) => {
-        doc1 = doc;
-    });
-    query.count((err, num) => {
-        total = num;
-    });
     Users.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).exec((err,doc)=>{
         res.json({
             code:0,

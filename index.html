@@ -110,17 +110,17 @@
                 <li>
                     <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">报表统计 </span>
                         <ul class="nav nav-second-level">
-                            <li class="asa"><a class="J_menuItem" href="mailbox.html">年度收支统计表</a>
+                            <li class="niandutj"><a class="J_menuItem" href="mailbox.html">年度收支统计表</a>
                             </li>
-                            <li><a class="J_menuItem" href="mail_detail.html">月收支统计图</a>
+                            <li class="mouththtj"><a class="J_menuItem" href="mail_detail.html">月收支统计图</a>
                             </li>
-                            <li><a class="J_menuItem" href="mail_compose.html">年度收支柱状图</a>
+                            <li class="yeartjzzt"><a class="J_menuItem" href="mail_compose1.html">年度收支柱状图</a>
                             </li>
-                            <li><a class="J_menuItem" href="mail_compose.html">成员收支柱状图</a>
+                            <li class="accountzzttj"><a class="J_menuItem" href="mail_compose.html">成员收支柱状图</a>
                             </li>
-                            <li><a class="J_menuItem" href="mail_compose.html">输入购表</a>
+                            <li  class="szgbtjt"><a class="J_menuItem" href="mail_compose.html">输入购表</a>
                             </li>
-                            <li><a class="J_menuItem" href="mail_compose.html">支出</a>
+                            <li class="szgbtjt"><a class="J_menuItem" href="mail_compose.html">支出购表</a>
                             </li>
                             <li><a class="J_menuItem" href="mail_compose.html">支出汇总饼状图</a>
                             </li>
@@ -667,16 +667,13 @@
             crossDomain: true,
             dataType: 'json',
             success: function (res) {
-
-                if (res.data[0].dengji == "普通记账") {
-                    // $('.xtzgqx > li:not(".updatepwd")').remove();
+                if (res.data[0].dengji == "普通记账" || res.data[0].dengji == "经理记账") {
+                    $('.xtzgqx > li').not('.updatepwds').remove();
                 }
-
                 var arr = res.data[0].quanxian;
-                // console.log(arr);
                 for (item of arr) {
-
-                    if (item.name == "收支记账") {
+                    if (item.name == "收支记账")
+                    {
                         listsrzc = item.list;
                         if (listsrzc.create != 0) {   // 收支流水列表的 创建
                             $('.authszrzcreate').remove();
@@ -684,8 +681,31 @@
                         if (listsrzc.read != 0) {
                             $('.readszrzcreate').remove();  // 收支流水列表的 阅读
                         }
-                    } else if (item.name == "表格导出") {
+                    }
+                    else if (item.name == "表格导出") {
                         daochu = item.list;
+                    }
+                    else if (item.name == "年度统计") {
+                        if (item.list.read != 0) {
+                            $('.niandutj').remove();
+                        }
+                    }else if (item.name == "收支曲线") {
+                        if (item.list.read !=0) {
+                            $('.mouththtj').remove();
+                        }
+                    }else if (item.name == "年度收支柱状图") {
+                        console.log("月收支统计图");
+                        if (item.list.read !=0) {
+                            $('.yeartjzzt').remove();
+                        }
+                    }else if (item.name == "成员收支柱状图") {
+                        if (item.list.read !=0) {
+                            $('.accountzzttj').remove();
+                        }
+                    }else if (item.name == "收支构表") {
+                        if (item.list.read !=0) {
+                            $('.szgbtjt').remove();
+                        }
                     }
                 }
             }

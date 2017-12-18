@@ -187,6 +187,9 @@ router.post('/addkh', (req, res) => {
 // time: String,
 router.post('/addsrzc', (req, res) => {
     let {type, xtype, price, zjzh, yshb, ywxm, jbr, sm, time, dtype} = req.body;
+    let stringTime = "2014-07-10 10:21:12";
+    let timestamp = Date.parse(new Date(`${time} 10:21:12`)) / 1000;
+    console.log(timestamp);
     let obj = {
         type: type,
         xtype: xtype,
@@ -194,7 +197,7 @@ router.post('/addsrzc', (req, res) => {
         zjzh: zjzh,
         yshb: yshb,
         ywxm: ywxm,
-        time: time,
+        time: timestamp,
         jbr: jbr,
         sm: sm,
         dtype: dtype

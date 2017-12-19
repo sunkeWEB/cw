@@ -16,8 +16,6 @@ router.get('/', function (req, res, next) {
 
 //登录操作
 router.post('/login', (req, res) => {
-    console.log("sadsadsadas");
-    console.log("sadsa----------> "+ req.cookies.username);
     let {name, pwd} = req.body;
     let obj = {
         name: name,
@@ -135,8 +133,10 @@ router.post('/updatepwd', (req, res) => {
 });
 
 // 权限认证
-router.get('/auth', (req, res) => {
-    Users.find({name: 'admin'}, {quanxian: 100, _id: 0,dengji:100}, (err, doc) => {
+router.post('/auth', (req, res) => {
+    let id = req.cookies.username;
+    console.log(" auth " + id);
+    Users.find({_id: id}, {quanxian: 100, _id: 0,dengji:100,zsname:100}, (err, doc) => {
         if (err) {
             return res.json({
                 code: 1,

@@ -186,7 +186,7 @@ router.post('/addkh', (req, res) => {
 // type: Number, // 0 是支出  1是收入
 // time: String,
 router.post('/addsrzc', (req, res) => {
-    let {type, xtype, price, zjzh, yshb, ywxm, jbr, sm, time, dtype} = req.body;
+    let {type, xtype, price, zjzh, yshb, ywxm, jbr, sm, time, dtype,jzr} = req.body;
     let stringTime = "2014-07-10 10:21:12";
     let timestamp = Date.parse(new Date(`${time} 10:21:12`)) / 1000;
     console.log(timestamp);
@@ -200,7 +200,8 @@ router.post('/addsrzc', (req, res) => {
         time: timestamp,
         jbr: jbr,
         sm: sm,
-        dtype: dtype
+        dtype: dtype,
+        jzr:jzr
     };
     Srzcs.count(obj, (err, num) => {
         if (err) {

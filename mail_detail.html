@@ -7,219 +7,207 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>H+ 后台主题UI框架 - 查看邮件</title>
+    <title>H+ 后台主题UI框架 - 写信</title>
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
-
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
     <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
-
+    <link href="https://cdn.bootcss.com/layer/3.1.0/mobile/need/layer.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
 </head>
 
 <body class="gray-bg">
-    <div class="wrapper wrapper-content">
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-content mailbox-content">
-                        <div class="file-manager">
-                            <a class="btn btn-block btn-primary compose-mail" href="mail_compose.html">写信</a>
-                            <div class="space-25"></div>
-                            <h5>文件夹</h5>
-                            <ul class="folder-list m-b-md" style="padding: 0">
-                                <li>
-                                    <a href="mailbox.html"> <i class="fa fa-inbox "></i> 收件箱 <span class="label label-warning pull-right">16</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="mailbox.html"> <i class="fa fa-envelope-o"></i> 发信</a>
-                                </li>
-                                <li>
-                                    <a href="mailbox.html"> <i class="fa fa-certificate"></i> 重要</a>
-                                </li>
-                                <li>
-                                    <a href="mailbox.html"> <i class="fa fa-file-text-o"></i> 草稿 <span class="label label-danger pull-right">2</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="mailbox.html"> <i class="fa fa-trash-o"></i> 垃圾箱</a>
-                                </li>
-                            </ul>
-                            <h5>分类</h5>
-                            <ul class="category-list" style="padding: 0">
-                                <li>
-                                    <a href="mail_compose.html#"> <i class="fa fa-circle text-navy"></i> 工作</a>
-                                </li>
-                                <li>
-                                    <a href="mail_compose.html#"> <i class="fa fa-circle text-danger"></i> 文档</a>
-                                </li>
-                                <li>
-                                    <a href="mail_compose.html#"> <i class="fa fa-circle text-primary"></i> 社交</a>
-                                </li>
-                                <li>
-                                    <a href="mail_compose.html#"> <i class="fa fa-circle text-info"></i> 广告</a>
-                                </li>
-                                <li>
-                                    <a href="mail_compose.html#"> <i class="fa fa-circle text-warning"></i> 客户端</a>
-                                </li>
-                            </ul>
-
-                            <h5 class="tag-title">标签</h5>
-                            <ul class="tag-list" style="padding: 0">
-                                <li><a href="mail_compose.html"><i class="fa fa-tag"></i> 朋友</a>
-                                </li>
-                                <li><a href="mail_compose.html"><i class="fa fa-tag"></i> 工作</a>
-                                </li>
-                                <li><a href="mail_compose.html"><i class="fa fa-tag"></i> 家庭</a>
-                                </li>
-                                <li><a href="mail_compose.html"><i class="fa fa-tag"></i> 孩子</a>
-                                </li>
-                                <li><a href="mail_compose.html"><i class="fa fa-tag"></i> 假期</a>
-                                </li>
-                                <li><a href="mail_compose.html"><i class="fa fa-tag"></i> 音乐</a>
-                                </li>
-                                <li><a href="mail_compose.html"><i class="fa fa-tag"></i> 照片</a>
-                                </li>
-                                <li><a href="mail_compose.html"><i class="fa fa-tag"></i> 电影</a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-9 animated fadeInRight">
-                <div class="mail-box-header">
-                    <div class="pull-right tooltip-demo">
-                        <a href="mail_compose.html" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="回复"><i class="fa fa-reply"></i> 回复</a>
-                        <a href="mail_detail.html#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="打印邮件"><i class="fa fa-print"></i> </a>
-                        <a href="mailbox.html" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="标为垃圾邮件"><i class="fa fa-trash-o"></i> </a>
-                    </div>
-                    <h2>
-                    查看邮件
-                </h2>
-                    <div class="mail-tools tooltip-demo m-t-md">
-
-
-                        <h3>
-                        <span class="font-noraml">主题： </span>幼儿园亲子班（园中园）项目方案
-                    </h3>
-                        <h5>
-                        <span class="pull-right font-noraml">2014年10月28日(星期二) 晚上8:20</span>
-                        <span class="font-noraml">发件人： </span>i@zi-han.net
-                    </h5>
-                    </div>
-                </div>
-                <div class="mail-box">
-
-
-                    <div class="mail-body">
-                        <h4>尊敬的幼儿园园长朋友：</h4>
-                        <p>
-                            贝贝聪教育，因您而精彩！由于婴幼教育一体化更符合婴幼儿成长需求，是全球早教专家、心理学家普遍推崇的一种办园模式。在美国、日本、英国、意大利、新加坡等国家及我国香港、台湾等地区，幼儿园普遍开设了亲子班，美国幼儿园开亲子班的比率为87%，意大利比率为83%。香港、台湾地区分别为74%、76%。2003年3月4日，国务院办公厅转发了教育部等10部门（单位）《关于幼儿教育改革与发展的指导意见》，强调发展0－6岁婴幼儿教育。在《幼儿园教育指导纲要（试行）》中已明确指出幼儿园教育要与0-3岁教育做好衔接。北京、上海等地要求在2013年，65%的公立一级幼儿园开设亲子班或园中园。
-                        </p>
-
-                        <p class="text-right">
-                            贝贝聪教育科技发展有限公司
-                        </p>
-                    </div>
-                    <div class="mail-attachment">
-                        <p>
-                            <span><i class="fa fa-paperclip"></i> 2 个附件 - </span>
-                            <a href="mail_detail.html#">下载全部</a> |
-                            <a href="mail_detail.html#">预览全部图片</a>
-                        </p>
-
-                        <div class="attachment">
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="mail_detail.html#">
-                                        <span class="corner"></span>
-
-                                        <div class="icon">
-                                            <i class="fa fa-file"></i>
-                                        </div>
-                                        <div class="file-name">
-                                            Document_2014.doc
-                                        </div>
-                                    </a>
-                                </div>
-
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="mail_detail.html#">
-                                        <span class="corner"></span>
-
-                                        <div class="image">
-                                            <img alt="image" class="img-responsive" src="img/p1.jpg">
-                                        </div>
-                                        <div class="file-name">
-                                            Italy street.jpg
-                                        </div>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="mail_detail.html#">
-                                        <span class="corner"></span>
-
-                                        <div class="image">
-                                            <img alt="image" class="img-responsive" src="img/p2.jpg">
-                                        </div>
-                                        <div class="file-name">
-                                            My feel.png
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="mail-body text-right tooltip-demo">
-                        <a class="btn btn-sm btn-white" href="mail_compose.html"><i class="fa fa-reply"></i> 回复</a>
-                        <a class="btn btn-sm btn-white" href="mail_compose.html"><i class="fa fa-arrow-right"></i> 下一封</a>
-                        <button title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="打印这封邮件" class="btn btn-sm btn-white"><i class="fa fa-print"></i> 打印</button>
-                        <button title="" data-placement="top" data-toggle="tooltip" data-original-title="删除邮件" class="btn btn-sm btn-white"><i class="fa fa-trash-o"></i> 删除</button>
-                    </div>
-                    <div class="clearfix"></div>
-
-
-                </div>
-            </div>
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div>
+            <select class="years tjtselect" name="">
+            </select>
+            <select class="mouths tjtselect" name="">
+            </select>
         </div>
     </div>
-
-
-    <!-- 全局js -->
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.6"></script>
-
-
-
-    <!-- 自定义js -->
-    <script src="js/content.js?v=1.0.0"></script>
-
-
-    <!-- iCheck -->
-    <script src="js/plugins/iCheck/icheck.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.i-checks').iCheck({
-                checkboxClass: 'icheckbox_square-green',
-                radioClass: 'iradio_square-green',
-            });
+    <div class="row">
+        <div>
+            <div id="text" style="width:100%;height: 500px;margin: 0 auto"></div>
+        </div>
+    </div>
+</div>
+<!-- 全局js -->
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<!-- 自定义js -->
+<script src="js/content.js?v=1.0.0"></script>
+<script src="https://cdn.bootcss.com/echarts/3.8.5/echarts.min.js"></script>
+<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script>
+    var zcdataitem = [];  // 支出数组
+    var srdataitem = []; // 收入数组
+    var myChart = echarts.init(document.getElementById('text'));
+    var getDay = []; // 保存当前的月份的日期
+    var years = 2017;
+    var mouths = 12;
+    $(function () {
+        var date = new Date();
+        var yearoption = date.getFullYear(); // 获取当前年
+        years = yearoption;
+        var mouthiii = date.getMonth() + 1;
+        mouths = mouthiii;
+        for (var m = 0; m < 3; m++) {
+            $('.years').append(`<option value='${yearoption}'>${yearoption}年</option>`);
+            yearoption--;
+        }
+        for (var mm = 1; mm <= 12; mm++) {
+            $('.mouths').append(`<option value='${mm}'>${mm}月</option>`);
+        }
+        $('.years').selectpicker({
+            style: 'btn-white',
+            size: 4
         });
-    </script>
+        $('.mouths').selectpicker('val',mouths);//  默认 选择 当前月份
+        $('.mouths').selectpicker({
+            style: 'btn-white',
+            size: 6
+        });
+        $('.mouths').selectpicker('refresh');
+        $('.tjtselect').change(function (e) {
+            e.stopPropagation();
+            var yearsss = $('.years').find('option:selected').val();
+            var mouthsss = $('.mouths').find('option:selected').val();
+            years = yearsss;
+            mouths = mouthsss;
+            getDayDate();
+            getDate();
+        });
+        getDayDate();
+        getDate();
+    });
 
-    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
-    <!--统计代码，可删除-->
+    function getDate() {
+        $.ajax({
+            url: 'http://127.0.0.1:3000/reads/readmouthtjt',
+            dataType: 'json',
+            data: {year: years, mouth: mouths, num: getDay.length},
+            async: false,
+            type: 'get',
+            success: function (res) {
+                if (res.code != 0) {
+                    layer.msg(res.msg);
+                    return false;
+                }
+                zcdataitem.splice(0, zcdataitem.length);
+                srdataitem.splice(0, srdataitem.length);
+                res.data.forEach(function (item) {
+                    if (item.length == 0) { // 收入支出都是空的  向数组里面添加空的数据
+                        zcdataitem.push(0);
+                        srdataitem.push(0);
+                    } else if (item.length > 0) {
+                        item.forEach(function (items) {
+                            if (items._id == 1) {  // 收入
+                                srdataitem.push(items.total);
+                                if (item.length == 1) {
+                                    zcdataitem.push(0);
+                                }
+                            } else {
+                                zcdataitem.push(items.total);
+                                if (item.length == 1) {
+                                    srdataitem.push(0);
+                                }
+                            }
+                        })
+                    }
+                });
+                option = {
+                    title: {
+                        text: '收入/支出'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['收入', '支出']
+                    },
+                    toolbox: {
+                        show: true,
+                        feature: {
+                            dataZoom: {
+                                yAxisIndex: 'none'
+                            },
+                            dataView: {readOnly: false},
+                            magicType: {type: ['line', 'bar']},
+                            restore: {},
+                            saveAsImage: {}
+                        }
+                    },
+                    calculable: true,
+                    xAxis: [
+                        {
+                            type: 'category',
+                            data: getDay
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value'
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '收入',
+                            type: 'bar',
+                            data: srdataitem,
+                        },
+                        {
+                            name: '支出',
+                            type: 'bar',
+                            data: zcdataitem,
+                        }
+                    ]
+                };
+                myChart.setOption(option, true);
+            }
+        });
+    }
 
+    function getDayDate() {
+        var num = getMouthNum();
+        getDay.splice(0, getDay.length);
+        for (var k = 1; k <= num; k++) {
+            getDay.push(k);
+        }
+    }
+
+    function getMouthNum() {
+        //构造当前日期对象
+        var date = new Date(years + '-' + mouths);
+        //获取年份
+        var year = date.getFullYear();
+        //获取当前月份
+        var mouth = date.getMonth() + 1;
+        //定义当月的天数；
+        var days;
+        //当月份为二月时，根据闰年还是非闰年判断天数
+        if (mouths == 2) {
+            days = year % 4 == 0 ? 29 : 28;
+        }
+        else if (mouths == 1 || mouths == 3 || mouths == 5 || mouths == 7 || mouths == 8 || mouths == 10 || mouths == 12) {
+            //月份为：1,3,5,7,8,10,12 时，为大月.则天数为31；
+            days = 31;
+        }
+        else {
+            //其他月份，天数为：30.
+            days = 30;
+        }
+        return days;
+    }
+
+</script>
 </body>
-
 </html>

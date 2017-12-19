@@ -15,7 +15,7 @@ let Staffs = require('./../../model/staff'); // 员工
 let Gcxms = require('./../../model/gcxm'); // 工程项目
 let Users = require('./../../model/users'); // 用户
 let moment = require('moment'); // 时间处理
-let SS = require('./mmmmm');
+// let SS = require('./mmmmm');
 router.get('/sort', (req, res) => {
     Dxtypes.find({}).limit(2).skip(0).exec((err, doc) => {
         res.json({
@@ -450,39 +450,12 @@ router.get('/readsrzctjt', (req, res) => {
 
 // 年度支出汇总统计图
 router.get('/readyearzctjt', (req, res) => {
-
-    // let num = async function () {
-    //     let data;
-    //      return await Srzcs.aggregate([{$match: {$and: [{time: {$lte: 1513612800}}, {time: {$gt: 1483200000}}]}}, {
-    //         $group: {
-    //             _id: '$type',
-    //             total: {
-    //                 $sum: '$price'
-    //             }
-    //         }
-    //     }], (err, num) => {
-    //         // return num;
-    //          data = num;
-    //          return data;
-    //     });
-    // };
-    // let total;
-    // num().then(res => {
-    //     console.log(res);
-    //     total = res;
-    // });
-    // console.log(total);
-    // res.json({
-    //     code: 0,
-    //     msg: "success",
-    //     data: mmm
-    // });
-    let year = 2017;
-    let yearStar = 1483200000;
+    let {years} = req.query;
+    let stringTime = `${years}-01-1 00:00:00`;
+    let yearStar = Date.parse(new Date(stringTime)) / 1000;
+    // let yearStar = 1483200000;
     let endTime, startTime = 0;
     let arr = [];
-    let mmm = [];
-
     for (let i = 1; i <= 12; i++) {
         startTime = startTime === 0 ? yearStar : startTime;
         if (i % 2 !== 0) {
@@ -490,7 +463,7 @@ router.get('/readyearzctjt', (req, res) => {
         } else {
             if (i === 2) {
                 // 判断是否是润年
-                if ((year % 4 === 0) && (year % 100 !== 0 || year % 400 === 0)) {
+                if ((years % 4 === 0) && (years % 100 !== 0 || years % 400 === 0)) {
                     endTime = 86400 * 29 + startTime;
                 } else {
                     endTime = 86400 * 28 + startTime;
@@ -503,23 +476,129 @@ router.get('/readyearzctjt', (req, res) => {
         startTime = endTime;
     }
 
-
-    for (let a = 0; a < arr.length; a++) {
-        SS.aggregate([{$match: {$and: [{time: {$lte: arr[a][1]}}, {time: {$gt: arr[a][0]}}]}}, {
-            $group: {
-                _id: '$type',
-                total: {$sum: '$price'}
-            }
-        }], (err, num1) => {
-            console.log("sdada" + num1);
-            return num1;
+    let sleep = function (start, end) {
+        return new Promise(function (resolve, reject) {
+            Srzcs.aggregate([{$match: {$and: [{time: {$lte: start}}, {time: {$gt: end}}]}}, {
+                $group: {
+                    _id: '$type',
+                    total: {$sum: '$price'}
+                }
+            }], (err, num1) => {
+                resolve(num1);
+            });
+        })
+    };
+    let start = async function () {
+        let result = [];
+        for (let a = 0; a < 12; a++) {
+            result.push(await sleep(arr[a][1], arr[a][0]));
+        }
+        res.json({
+            code: 0,
+            msg: "数据获取成功",
+            data: result
         });
-    }
-
-
-    // SS(arr[0][1],arr[0][0]).then(res=>{
-    //     console.log(res);
-    // })
-
+    };
+    start();
 });
+
+// 月统计图
+router.get('/readmouthtjt',(req,res)=>{
+    let {year, mouth, num} = req.query;
+    let sleep = function (start, end) {
+        return new Promise(function (resolve, reject) {
+            Srzcs.aggregate([{$match: {$and: [{time: {$lte: start}}, {time: {$gt: end}}]}}, {
+                $group: {
+                    _id: '$type',
+                    total: {$sum: '$price'}
+                }
+            }], (err, num1) => {
+                resolve(num1);
+            });
+        })
+    };
+    let start = async function () {
+        let result = [];
+        for (let a = 1; a <= num; a++) {
+            let stringTime = `${year}-${mouth}-${a} 00:00:00`;
+            let mouthStar = Date.parse(new Date(stringTime)) / 1000;
+            let endTime = `${year}-${mouth}-${a} 23:59:59`;
+            let mouthend = Date.parse(new Date(endTime)) / 1000;
+            result.push(await sleep(mouthend,mouthStar));
+        }
+        res.json({
+            code: 0,
+            msg: "数据获取成功",
+            data: result
+        });
+    };
+    start();
+});
+
+// 购表
+router.get('/readsrgb',(req,res)=>{
+    let {type} = req.query; // 收入
+    let sleep = function () {
+        return new Promise(function (resolve, reject) {
+            Srzcs.aggregate([{$match: {$and:[{type:parseInt(type)}]}}, {
+                $group: {
+                    _id: '$jzr',
+                    total: {$sum: '$price'}
+                }
+            }], (err, num1) => {
+                resolve(num1);
+            });
+        })
+    };
+    let start = async function () {
+        let result = [];
+        result.push(await sleep());
+        res.json({
+            code: 0,
+            msg: "数据获取成功",
+            data: result
+        });
+    };
+    start();
+});
+
+// 读取大类
+router.get('/readdalei',(req,res)=>{
+    let {type} = req.query;
+    DxTypes.find({type:type},{type:0,_id:0,sm:0,__v:0},(err,doc)=>{
+        if (err) {
+            return res.json({
+                code:1,
+                msg:"读取错误大类"
+            });
+        }else{
+            res.json({
+                code:0,
+                data:doc
+            });
+        }
+    });
+});
+
+// 读取生意伙伴
+router.get('/readyshb',(req,res)=>{
+    readKeHu.find({},{_id:0,status:0},(err,doc)=>{
+        if (err) {
+            return res.json({
+                code:1,
+                msg:"读取生意伙伴失败"
+            });
+        }else{
+            Gcxms.find({},{_id:0,__v:0,ip:0,status:0,time:0},(err,doc1)=>{
+                return res.json({
+                    code:0,
+                    msg:"读取项目success",
+                    yshb:doc,
+                    gcxm:doc1
+                });
+            });
+        }
+    });
+});
+
 module.exports = router;

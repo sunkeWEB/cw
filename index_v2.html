@@ -131,9 +131,7 @@
 <script src="js/myjquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 <script>
-
     $(function () {
-
         laydate.render({
             elem: '#test1' //指定元素
         });
@@ -280,7 +278,8 @@
                 ywxm:ywxm,
                 jbr:jbpeople,
                 sm:sm,
-                time:time
+                time:time,
+                jzr:parent.jzrzcname
             };
             $.ajax({
                 url: 'http://localhost:3000/dxtypes/addsrzc',

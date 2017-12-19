@@ -5,16 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
-
     <title>H+ 后台主题UI框架 - 主页</title>
-
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
-
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html"/>
     <![endif]-->
-
     <link rel="shortcut icon" href="favicon.ico">
     <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
@@ -25,6 +21,8 @@
 
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
 <div id="wrapper">
+    <!--当前登录账号的真实姓名  记账出需要用到-->
+    <input type="hidden" class="jzrzcname">
     <!--左侧导航开始-->
     <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="nav-close"><i class="fa fa-times-circle"></i>
@@ -110,17 +108,17 @@
                 <li>
                     <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">报表统计 </span>
                         <ul class="nav nav-second-level">
-                            <li class="niandutj"><a class="J_menuItem" href="mailbox.html">年度收支统计表</a>
+                            <!--<li class="niandutj"><a class="J_menuItem" href="mailbox.html">年度收支统计表</a>-->
+                            <!--</li>-->
+                            <li class="yeartjzzt"><a class="J_menuItem" href="mail_compose1.html">年度收支柱状图</a>
                             </li>
                             <li class="mouththtj"><a class="J_menuItem" href="mail_detail.html">月收支统计图</a>
                             </li>
-                            <li class="yeartjzzt"><a class="J_menuItem" href="mail_compose1.html">年度收支柱状图</a>
+                            <!--<li class="accountzzttj"><a class="J_menuItem" href="mail_compose.html">成员收支柱状图</a>-->
+                            <!--</li>-->
+                            <li  class="szgbtjt"><a class="J_menuItem" href="mail_compose2.html">收入购表</a>
                             </li>
-                            <li class="accountzzttj"><a class="J_menuItem" href="mail_compose.html">成员收支柱状图</a>
-                            </li>
-                            <li  class="szgbtjt"><a class="J_menuItem" href="mail_compose.html">输入购表</a>
-                            </li>
-                            <li class="szgbtjt"><a class="J_menuItem" href="mail_compose.html">支出购表</a>
+                            <li class="szgbtjt"><a class="J_menuItem" href="mail_compose3.html">支出购表</a>
                             </li>
                             <li><a class="J_menuItem" href="mail_compose.html">支出汇总饼状图</a>
                             </li>
@@ -314,10 +312,10 @@
             <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index_v1.html?v=4.0" frameborder="0"
                     data-id="index_v1.html" seamless></iframe>
         </div>
-        <div class="footer">
-            <div class="pull-right">&copy; 2014-2015 <a href="http://www.zi-han.net/" target="_blank">zihan's blog</a>
-            </div>
-        </div>
+        <!--<div class="footer">-->
+            <!--<div class="pull-right">&copy; 2014-2015 <a href="http://www.zi-han.net/" target="_blank">zihan's blog</a>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
     <!--右侧部分结束-->
     <!--右侧边栏开始-->
@@ -657,16 +655,19 @@
 <script>
     var listsrzc;
     var daochu;
+    var jzrzcname;
     $(function () {
         $.ajax({
-            url: 'http://127.0.0.1:3000/users/auth',
-            type: 'get',
+            url: 'http://localhost:3000/users/auth',
+            type: 'post',
             xhrFields: {
                 withCredentials: true
             },
             crossDomain: true,
             dataType: 'json',
             success: function (res) {
+                jzrzcname = res.data[0].zsname;
+                $('.jzrzcname').val(jzrzcname);
                 if (res.data[0].dengji == "普通记账" || res.data[0].dengji == "经理记账") {
                     $('.xtzgqx > li').not('.updatepwds').remove();
                 }

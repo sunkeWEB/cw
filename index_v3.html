@@ -253,6 +253,9 @@
                 align: 'center',
                 valign: 'middle',
                 sortable: true,
+                formatter:function (value) {
+                     return new Date(parseInt(value) * 1000).toLocaleDateString();
+                }
             },
             {
                 title: '[类型]大类->小类',
@@ -338,6 +341,7 @@
 
 
     $(function () {
+        console.log(parent.jzrzcname);
         setTimeout(kkk, 27);  // 等dom 渲染完毕
         $('#sel_exportoption').selectpicker({
             style: 'btn-white',
@@ -424,6 +428,7 @@
     });
 
     function kkk() {
+        console.log(parent.listsrzc.update);
         if (parent.listsrzc.update == 0) {  // 默认没有权限  如果等于0 有权限  修改功能
             $('.update').removeAttr("disabled");
             $('.update').removeAttr("title");

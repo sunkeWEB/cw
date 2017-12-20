@@ -87,7 +87,7 @@
                             <div class="" style="flex: 1">
                                 <select class="form-control  yinhan" name="account">
                                     <option>中国银行</option>
-                                    <option>电子钱包</option>
+                                    <option value="交通银行">交通银行</option>
                                     <option>光大银行</option>
                                     <option>民生银行</option>
                                     <option>工商银行</option>
@@ -341,7 +341,6 @@
 
 
     $(function () {
-        console.log(parent.jzrzcname);
         setTimeout(kkk, 27);  // 等dom 渲染完毕
         $('#sel_exportoption').selectpicker({
             style: 'btn-white',
@@ -412,6 +411,7 @@
                         }
                         layer.msg(res.msg);
                         $('#myModal78').modal('hide');
+                        $table.bootstrapTable('refresh');
                     }
                 });
             });
@@ -428,7 +428,6 @@
     });
 
     function kkk() {
-        console.log(parent.listsrzc.update);
         if (parent.listsrzc.update == 0) {  // 默认没有权限  如果等于0 有权限  修改功能
             $('.update').removeAttr("disabled");
             $('.update').removeAttr("title");

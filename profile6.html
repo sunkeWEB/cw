@@ -261,7 +261,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 <script src="js/plugins/iCheck/icheck.min.js"></script>
 <script src="js/plugins/layDate/laydate/laydate.js"></script>
-<script src="js/plugins/iCheck/icheck.min.js"></script>
 <script src="js/myjquery.js"></script>
 <script>
     var usersid;
@@ -542,6 +541,7 @@
                 }
             });
         }
+        $table.bootstrapTable('refresh');
     }
 
     function del(name, id) {

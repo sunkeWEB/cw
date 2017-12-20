@@ -15,6 +15,8 @@ let Staffs = require('./../../model/staff'); // 员工
 let Gcxms = require('./../../model/gcxm'); // 工程项目
 let Users = require('./../../model/users'); // 用户
 let moment = require('moment'); // 时间处理
+let Ysyf = require('./../../model/ysyf');
+
 // let SS = require('./mmmmm');
 router.get('/sort', (req, res) => {
     Dxtypes.find({}).limit(2).skip(0).exec((err, doc) => {
@@ -429,6 +431,55 @@ router.get('/readusers', (req, res) => {
 
 });
 
+//应收应付
+function serschysyf(searchValue) {
+    let obj = [{
+        name: {$regex: searchValue},
+        sm: {$regex: searchValue},
+        status: {$regex: searchValue},
+    }]; // 查询的条件
+    return obj;
+}
+
+router.get('/readysyf', (req, res) => {
+    let {order, offset, limit, sort, sid} = req.query; // 获取查询条件
+    let searchValue = req.query.search;
+    let k = [];
+    let kkk = {};
+    let doc1, total = 1;
+    if (searchValue === "正常") {
+        searchValue = 0;
+    } else if (searchValue === "锁定") {
+        searchValue = 1;
+    }
+    if (sid === undefined) {
+        let searchValue1 = searchValue ? k = serschysyf(searchValue) : k;
+        if (k.length >= 1) {
+            kkk = {
+                '$or': k
+            };
+        }
+        let query = Ysyf.find(kkk, (err, doc) => {
+            doc1 = doc;
+        });
+        query.count((err, num) => {
+            total = num;
+        });
+    } else {
+        kkk = {
+            _id: sid
+        };
+    }
+    Ysyf.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).exec((err, doc) => {
+        res.json({
+            code: 0,
+            msg: "数据获取成功",
+            data: doc,
+            total: total
+        });
+    });
+});
+
 // 支出汇总统计图
 router.get('/readsrzctjt', (req, res) => {
     Srzcs.aggregate({$group: {_id: '$type', total: {$sum: '$price'}}}, (err, doc) => {
@@ -503,7 +554,7 @@ router.get('/readyearzctjt', (req, res) => {
 });
 
 // 月统计图
-router.get('/readmouthtjt',(req,res)=>{
+router.get('/readmouthtjt', (req, res) => {
     let {year, mouth, num} = req.query;
     let sleep = function (start, end) {
         return new Promise(function (resolve, reject) {
@@ -524,7 +575,7 @@ router.get('/readmouthtjt',(req,res)=>{
             let mouthStar = Date.parse(new Date(stringTime)) / 1000;
             let endTime = `${year}-${mouth}-${a} 23:59:59`;
             let mouthend = Date.parse(new Date(endTime)) / 1000;
-            result.push(await sleep(mouthend,mouthStar));
+            result.push(await sleep(mouthend, mouthStar));
         }
         res.json({
             code: 0,
@@ -536,11 +587,11 @@ router.get('/readmouthtjt',(req,res)=>{
 });
 
 // 购表
-router.get('/readsrgb',(req,res)=>{
+router.get('/readsrgb', (req, res) => {
     let {type} = req.query; // 收入
     let sleep = function () {
         return new Promise(function (resolve, reject) {
-            Srzcs.aggregate([{$match: {$and:[{type:parseInt(type)}]}}, {
+            Srzcs.aggregate([{$match: {$and: [{type: parseInt(type)}]}}, {
                 $group: {
                     _id: '$jzr',
                     total: {$sum: '$price'}
@@ -563,38 +614,41 @@ router.get('/readsrgb',(req,res)=>{
 });
 
 // 读取大类
-router.get('/readdalei',(req,res)=>{
+router.get('/readdalei', (req, res) => {
     let {type} = req.query;
-    DxTypes.find({type:type},{type:0,_id:0,sm:0,__v:0},(err,doc)=>{
+    DxTypes.find({type: type}, {type: 0, _id: 0, sm: 0, __v: 0}, (err, doc) => {
         if (err) {
             return res.json({
-                code:1,
-                msg:"读取错误大类"
+                code: 1,
+                msg: "读取错误大类"
             });
-        }else{
+        } else {
             res.json({
-                code:0,
-                data:doc
+                code: 0,
+                data: doc
             });
         }
     });
 });
 
 // 读取生意伙伴
-router.get('/readyshb',(req,res)=>{
-    readKeHu.find({},{_id:0,status:0},(err,doc)=>{
+router.get('/readyshb', (req, res) => {
+    readKeHu.find({}, {_id: 0, status: 0}, (err, doc) => {
         if (err) {
             return res.json({
-                code:1,
-                msg:"读取生意伙伴失败"
+                code: 1,
+                msg: "读取生意伙伴失败"
             });
-        }else{
-            Gcxms.find({},{_id:0,__v:0,ip:0,status:0,time:0},(err,doc1)=>{
-                return res.json({
-                    code:0,
-                    msg:"读取项目success",
-                    yshb:doc,
-                    gcxm:doc1
+        } else {
+            Gcxms.find({}, {_id: 0, __v: 0, ip: 0, status: 0, time: 0}, (err, doc1) => {
+                Accountzh.find({}, {__v: 0, ip: 0, status: 0, createtime: 0,zzdz:0,szdz:0,defaultprice:0}, (err, doc2) => {
+                    return res.json({
+                        code:0,
+                        msg:"读取项目success",
+                        yshb:doc,
+                        gcxm:doc1,
+                        yhzh:doc2
+                    });
                 });
             });
         }

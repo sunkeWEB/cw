@@ -214,7 +214,10 @@
                 field: 'createtime',
                 align: 'center',
                 valign: 'middle',
-                sortable: true
+                sortable: true,
+                formatter:function (value) {
+                    return new Date(parseInt(value) / 1000).toLocaleDateString();
+                }
             }, {
                 title: '期初（创建时）金额',
                 field: 'defaultprice',
@@ -317,7 +320,6 @@
             sm: sm
         };
         if (types == 1) {
-            console.log(typeof types + types);
             $.ajax({
                 url: "http://localhost:3000/dxtypes/addacountzh",
                 data: data,
@@ -344,6 +346,7 @@
             $('#myModal6').modal('hide');
             $('.modal-body input').val('');
         }
+        $table.bootstrapTable('refresh');
     }
 
     function formatDate(nows) {
@@ -390,6 +393,7 @@
         $('#myModal6  .addaccountgl').css("display","none");
         $('#myModal6  .updatedata').css("display","inline-block");
         $('#myModal6').modal('show');
+        $table.bootstrapTable('refresh');
     }
 
     //  这里公用一个modal 修改class

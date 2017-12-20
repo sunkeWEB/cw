@@ -24,13 +24,44 @@
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
-
-
-
+    <link href="https://cdn.bootcss.com/layer/3.1.0/mobile/need/layer.css" rel="stylesheet">
+    <link rel="stylesheet" href="js/plugins/iCheck/skins/square/blue.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <style>
+        .columns button, .dropup button {
+            background-color: white;
+            color: #000;
+        }
+    </style>
 </head>
 
 <body class="gray-bg">
 <div class="wrapper wrapper-content">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal181">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal181" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel181">信息详情</h4>
+                </div>
+                <div class="modal-body">
+                    <table data-toggle="table" id="kkkkkk">
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div>
             <table data-toggle="table" id="table">
@@ -76,59 +107,118 @@
 
 <!-- Sparkline demo data  -->
 <script src="js/demo/sparkline-demo.js"></script>
-
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
-
+<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+<script src="js/plugins/bootstrap-table/tableExport.js"></script>
+<script src="js/plugins/bootstrap-table/export/bootstrap-table-export.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script src="js/myjquery.js"></script>
 <script>
     var $table = $('#table');
-    $table.bootstrapTable({
-        url: 'http://localhost:3000/picture/read',         //请求后台的URL（*）
+    var $table1 = $('#kkkkkk');
+    $table1.bootstrapTable({
+        url: 'http://localhost:3000/reads/readaccountzh',         //请求后台的URL（*）
         method: 'get',             //请求方式（*）
         toolbar: '#toolbar',        //工具按钮用哪个容器
         pagination: true,                   //是否显示分页（*）
         cache: true,
         showColumns: true,
         striped: true,
+        contentType: "application/x-www-form-urlencoded", /**支持跨域**/
         clickToSelect: true,
         showRefresh: true,                  //是否显示刷新按钮
         pageList: [5, 10, 15, 20],
 //        showPaginationSwitch: true,       //是否显示选择分页数按钮
         pageNumber: 1,                       //初始化加载第一页，默认第一页
         pageSize: 10, //每页的记录行数（*）
+        showExport: true,//显示导出按钮
+        exportDataType: "basic", //basic', 'all', 'selected'.
+        exportTypes: ['excel'],
+        exportOptions: {
+            ignoreColumn: [0],  //忽略某一列的索引
+            fileName: '账户资产流水表',  //文件名称设置
+            worksheetName: 'sheet1',  //表格工作区名称
+            excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
+            onMsoNumberFormat: $.DoOnMsoNumberFormat
+        },
         search: true,
         sidePagination: "server", //服务端处理分页
         columns: [
             {
-                title: 'ID',
-                field: 'dannum',
+                title: "单号",
+                field: '_id',
                 align: 'center',
                 valign: 'middle',
+                visible: false
             },
             {
-                title: '账号',
-                field: 'create_time',
+                title: '账户名称',
+                field: 'name',
                 align: 'center',
                 valign: 'middle',
-            },
-            {
-                title: '余额',
-                field: 'create_time',
-                align: 'center',
-                valign: 'middle',
-                sortable: true
-            },
-            {
-                title: '对账/明细',
-                field: 'create_time',
-                align: 'center',
-                valign: 'middle',
-                sortable: true
             }, {
-                title: '导出EXCEL',
-                field: 'inflow',
+                title: '当前余额',
+                field: 'price',
+                align: 'center',
+                sortable: true,
+            }
+        ],
+        responseHandler: function (res) {
+            return {
+                "total": res.total,//总页数
+                "rows": res.data   //数据
+            };
+        },
+    });
+    $table.bootstrapTable({
+        url: 'http://localhost:3000/reads/readaccountzh',         //请求后台的URL（*）
+        method: 'get',             //请求方式（*）
+        toolbar: '#toolbar',        //工具按钮用哪个容器
+        pagination: true,                   //是否显示分页（*）
+        cache: true,
+        showColumns: true,
+        striped: true,
+        contentType: "application/x-www-form-urlencoded", /**支持跨域**/
+        clickToSelect: true,
+        showRefresh: true,                  //是否显示刷新按钮
+        pageList: [5, 10, 15, 20],
+        pageNumber: 1,                       //初始化加载第一页，默认第一页
+        pageSize: 10, //每页的记录行数（*）
+        search: true,
+        sidePagination: "server", //服务端处理分页
+        columns: [
+            {
+                checkbox: true,
+                title: '选择'
+            },
+            {
+                title: "单号",
+                field: '_id',
                 align: 'center',
                 valign: 'middle',
+                visible: false
+            },
+            {
+                title: '账户名称',
+                field: 'name',
+                align: 'center',
+                valign: 'middle',
+                sortable: true,
+            }, {
+                title: '当前余额',
+                field: 'price',
+                align: 'center',
+                sortable: true,
+            }, {
+                title: '对账/明细',
+                align: 'center',
+                valign: 'middle',
+                sortable: true,
+                formatter: function (value, row) {
+                    var xmpid = row._id;
+                    return `<button type="button" class="btn" onclick="exportszls('${xmpid}')" style="color: white">查看详情</button>`
+                }
             }
         ],
         responseHandler: function (res) {
@@ -139,7 +229,13 @@
         },
     });
     $(function () {
+        $('.exportszls').click(function(){
+        });
     });
+    function exportszls(x) {
+        console.log(x);
+        $('#myModal181').modal('show');
+    }
 </script>
 </body>
 

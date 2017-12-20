@@ -9,6 +9,7 @@ let Staffs = require('./../../model/staff'); // 员工表
 let Accounts = require('./../../model/accountypes'); // 账户类型表
 let Accountgls = require('./../../model/accountguanli'); // 账户
 let Users = require('./../../model/users'); // 用户
+let Ysyf = require('./../../model/ysyf'); // 应收应付
 // 这里面只做 添加 删除 修改
 
 // 测试
@@ -186,10 +187,8 @@ router.post('/addkh', (req, res) => {
 // type: Number, // 0 是支出  1是收入
 // time: String,
 router.post('/addsrzc', (req, res) => {
-    let {type, xtype, price, zjzh, yshb, ywxm, jbr, sm, time, dtype,jzr} = req.body;
-    let stringTime = "2014-07-10 10:21:12";
+    let {type, xtype, price, zjzh, yshb, ywxm, jbr, sm, time, dtype, jzr} = req.body;
     let timestamp = Date.parse(new Date(`${time} 10:21:12`)) / 1000;
-    console.log(timestamp);
     let obj = {
         type: type,
         xtype: xtype,
@@ -201,7 +200,7 @@ router.post('/addsrzc', (req, res) => {
         jbr: jbr,
         sm: sm,
         dtype: dtype,
-        jzr:jzr
+        jzr: jzr
     };
     Srzcs.count(obj, (err, num) => {
         if (err) {
@@ -210,28 +209,60 @@ router.post('/addsrzc', (req, res) => {
                 msg: err
             });
         }
-        if (num >= 1) {
-            return res.json({
-                code: 1,
-                msg: "你添加信息可能已经存在"
-            });
-        } else {
-            let SrzcsModel = new Srzcs(obj);
-            SrzcsModel.save((err, doc) => {
+        let prices = 0; // 保存账户的余额
+        Accountgls.find({name: zjzh}, {
+            dtype: 0,
+            __v: 0,
+            defaultprice: 0,
+            sm: 0,
+            szdz: 0,
+            zzdz: 0,
+            ip: 0
+        }, (err, doc) => {
+            prices = type === '1' ? parseInt(doc[0].price) + parseInt(price) : parseInt(doc[0].price) - parseInt(price);
+            Accountgls.update({name: zjzh}, {price: prices}, (err, doc1) => {
                 if (err) {
-                    return res.json({
-                        code: 1,
-                        msg: "系统错误 添加失败"
-                    });
                 } else {
-                    return res.json({
-                        code: 0,
-                        msg: "信息添加成功1",
-                        data: doc
-                    });
+                    if (num >= 1) {
+                        pricesm = type === '1' ? parseInt(doc[0].price) - parseInt(price) : parseInt(doc[0].price) + parseInt(price);
+                        Accountgls.update({name: zjzh}, {price: pricesm}, (err, doc1) => {
+                            return res.json({
+                                code: 1,
+                                msg: "你添加信息可能已经存在"
+                            });
+                        });
+                    } else {
+                        let SrzcsModel = new Srzcs(obj);
+                        SrzcsModel.save((err, doc) => {
+                            if (err) {
+                                return res.json({
+                                    code: 1,
+                                    msg: "系统错误 添加失败"
+                                });
+                            } else {
+                                // 添加收支对账信息
+                                Accountgls.update({name: zjzh}, {$addToSet: {'szdz': {time:timestamp,sm: sm,type:parseInt(dtype),pid:parseInt(type),form:zjzh,price:parseInt(prices),czy:jzr}}}, (err, doc8) => {
+                                    console.log("添加收支对账信息----------------");
+                                    if (err) {
+                                        return res.json({
+                                            code: 0,
+                                            msg: "信息添加成功1",
+                                            data: err
+                                        });
+                                    }else{
+                                        return res.json({
+                                            code: 0,
+                                            msg: "信息添加成功1",
+                                            data: doc8
+                                        });
+                                    }
+                                });
+                            }
+                        });
+                    }
                 }
-            });
-        }
+            })
+        });
     });
 });
 
@@ -360,7 +391,38 @@ router.post('/addacountzh', (req, res) => {
         }
     });
 });
-
+// 应收应付 添加
+router.post('/addysyf', (req, res) => {
+    let {dtype, ssdtype, ssxtype, price, yshb, ywxm, jbr, sm, time, time1, jzr} = req.body;
+    let obj = {
+        dtype: dtype, // 1是应收 0是应付
+        ssdtype: ssdtype, // 所属大类
+        ssxtype: ssxtype, // 所属小类
+        price: price, // 应收金额
+        jztime: time, // 记账时间
+        sktime: time1, // 收款时间
+        yshb: yshb, // 生意伙伴
+        ywxm: ywxm, // 业务项目
+        jbr: jbr, // 经办人
+        sm: sm, // 说明
+        jzr: jzr // 记账人
+    };
+    let YsyfModel = new Ysyf(obj);
+    YsyfModel.save((err, doc) => {
+        if (err) {
+            return res.json({
+                code: 1,
+                msg: "系统错误 添加失败"
+            });
+        } else {
+            return res.json({
+                code: 0,
+                msg: "信息添加成功",
+                data: doc
+            });
+        }
+    });
+});
 
 // ------------------------读取------------------------
 
@@ -385,31 +447,52 @@ router.post('/delxm', (req, res) => {
         }
 
         if (num >= 1) {
-            Srzcs.remove({_id: id}, (err, doc) => {
-                if (err) {
-                    return res.json({
-                        code: 1,
-                        msg: "系统错误 稍后再尝试",
-                        data: []
-                    });
-                }
-                if (doc) {
-                    return res.json({
-                        code: 0,
-                        msg: "系统删除成功",
-                        data: doc
-                    });
-                }
-            })
+            Srzcs.find({_id: id}, (err, doc1)=>{
+                let oldprice = parseInt(doc1[0].price); // 获取项目的金额
+                let yzname = doc1[0].zjzh;  // 获取项目的名字
+                let typess = doc1[0].type; // 获取项目的收入 还是支出
+                Accountgls.find({name:yzname},(err1,doc2)=>{
+                    console.log(doc2);
+                    let newPrice = typess === 1 ? parseInt(doc2[0].price) - oldprice : parseInt(doc2[0].price) + oldprice; // 获取新的价格
+                    Accountgls.update({name:yzname},{price:newPrice},(err,doc3)=>{
+                        if (err) {
+                            return res.json({
+                                code: 1,
+                                msg: "系统错误 稍后再尝试",
+                                data: []
+                            });
+                        }else{
+                            Srzcs.remove({_id: id}, (err, doc) => {
+                                if (err) {
+                                    return res.json({
+                                        code: 1,
+                                        msg: "系统错误 稍后再尝试",
+                                        data: []
+                                    });
+                                }
+                                if (doc) {
+                                    return res.json({
+                                        code: 0,
+                                        msg: "系统删除成功",
+                                        data: doc
+                                    });
+                                }
+                            })
+                        }
+                    })
+                })
+            });
         }
 
     })
 });
 router.post('/updatexm', (req, res) => {
     let {pid, xtype, price, zjzh, yshb, ywxm, jbr, sm, time, dtype} = req.body;
+    let price1 = parseInt(price);
+    let newPrice = 0;
     let obj = {
         xtype: xtype,
-        price: price,
+        price: price1,
         zjzh: zjzh,
         yshb: yshb,
         ywxm: ywxm,
@@ -418,22 +501,65 @@ router.post('/updatexm', (req, res) => {
         sm: sm,
         dtype: dtype
     };
-    Srzcs.update({_id: pid}, obj, function (err, doc) {
-        if (err) {
-            return res.json({
-                code: 1,
-                msg: "系统错误",
-                data: msg
-            });
-        }
-        if (doc) {
-            return res.json({
-                code: 0,
-                msg: "修改成功",
-                data: doc
+    Srzcs.find({_id:pid},(err,doc)=>{
+        let xmprice = doc[0].price; // 获取修改项目原来的价格  price1 修改之后的价格
+        let xmyhk = doc[0].zjzh; // 获取修改项目原来的 银行账户
+        let typess = doc[0].type; // 获取修改项目 是 收入还是支出 zjzh 是未修改的银行账户
+        if (xmyhk === zjzh) {  // 如果修改的银行账户和 原来的相同只是金额的加减
+            Accountgls.find({name:xmyhk},(err1,doc2)=>{
+                let newPrice = typess === 1 ? parseInt(doc2[0].price) - xmprice + price1 : parseInt(doc2[0].price) + xmprice -price1; // 获取新的价格
+                Accountgls.update({name:xmyhk},{price:newPrice},(err2,doc3)=>{
+                    if (err1) {
+                        return res.json({
+                            code:1,
+                            msg:"数据修改失败"
+                        });
+                    }else{
+                        return res.json({
+                            code:0,
+                            msg:"数据修改成功"
+                        });
+                    }
+                })
             })
         }
-    })
+        else{
+            Accountgls.find({name:xmyhk},(err1,doc2)=>{
+                newPrice = typess === 1 ? parseInt(doc2[0].price) - xmprice  : parseInt(doc2[0].price) + xmprice; // 恢复之前的价格
+                Accountgls.update({name:xmyhk},{price:newPrice},(err2,doc3)=>{
+                    if (err2) {
+                        return res.json({
+                            code:1,
+                            msg:"数据修改失败"
+                        });
+                    }else{
+                        Accountgls.find({name: zjzh}, (err5, doc5) => {  // 获取到从新银行卡的当前余额
+                            let mmm = parseInt(doc5[0].price);  // 获取到从新银行卡的当前余额
+                            newPrice = typess === 1 ? mmm + xmprice  : mmm - xmprice; // 修改银行卡收入或支出
+                            Accountgls.update({name:zjzh},{price:newPrice},(err6,doc6)=>{
+                                Srzcs.update({_id: pid}, obj, function (err, doc) {
+                                    if (err) {
+                                        return res.json({
+                                            code: 1,
+                                            msg: "系统错误",
+                                            data: msg
+                                        });
+                                    }
+                                    if (doc) {
+                                        return res.json({
+                                            code: 0,
+                                            msg: "修改成功",
+                                            data: doc
+                                        })
+                                    }
+                                })
+                            })
+                        });
+                    }
+                })
+            })
+        }
+    });
 });
 
 // 删除 修改 账户管理
@@ -967,6 +1093,81 @@ router.post('/updateusers', (req, res) => {
             });
         }
     });
+});
+
+// 删除 修改 应收应付
+router.post('/delysyf', (req, res) => {
+    let {id} = req.body;
+    Ysyf.count({_id: id}, (err, num) => {
+        if (err) {
+            return res.json({
+                code: 1,
+                msg: "系统错误 稍后再尝试"
+            });
+        }
+
+        if (num === 0) {
+            return res.json({
+                code: 1,
+                msg: "你删除的记录不存在"
+            });
+        }
+
+        if (num >= 1) {
+            Ysyf.remove({_id: id}, (err, doc) => {
+                if (err) {
+                    return res.json({
+                        code: 1,
+                        msg: "系统错误 稍后再尝试",
+                        data: []
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code: 0,
+                        msg: "删除成功",
+                        data: doc
+                    });
+                }
+            })
+        }
+
+    })
+});
+router.post('/updateysyf', (req, res) => {
+    let {sid, data} = req.body;
+    let obj = JSON.parse(data);
+    Ysyf.count({_id: sid}, (err, num) => {
+        if (err) {
+            return res.json({
+                code: 1,
+                msg: '系统错误'
+            });
+        }
+        if (num === 0) {
+            return res.json({
+                code: 1,
+                msg: '没找到账户的信息'
+            });
+        } else {
+            Ysyf.update({_id: sid}, obj, function (err, doc) {
+                if (err) {
+                    return res.json({
+                        code: 1,
+                        msg: "系统错误",
+                        data: err
+                    });
+                }
+                if (doc) {
+                    return res.json({
+                        code: 0,
+                        msg: "修改成功",
+                        data: doc
+                    })
+                }
+            })
+        }
+    })
 });
 
 module.exports = router;

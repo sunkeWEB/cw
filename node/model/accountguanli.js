@@ -12,16 +12,24 @@ let accountGuanliSchema = new mongoose.Schema({
     ip: String, // 添加的ip
     "szdz": [   // 这里还需做扩展  收支转账
         {
-            time: Number
+            time: Number, // 时间
+            sm: String, // 备注
+            dddtype:String, // 收支名称大类
+            pid:Number, // 收支类型 1是收入 0是支出
+            form:String, // 银行名称
+            price:Number, // 价格
+            czy:String // 操作者名字
         }
     ],
     zzdz: [  //转账对账
         {
-            time: Number,
-            type: String,
-            price:Number,   // 金额
-            czy:String,
-            sm:String // 备注
+            pid:Number, // 转账类型 1是收入 0是支出
+            form:String,
+            to:String,
+            time:Number,
+            zcprice:Number,
+            zcsm:Number,
+            jzr:String
         }
     ]
 

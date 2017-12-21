@@ -11,7 +11,8 @@
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
 
     <!-- Morris -->
@@ -28,6 +29,7 @@
     <link rel="stylesheet" href="js/plugins/iCheck/skins/square/blue.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="js/plugins/layDate/laydate/theme/default/laydate.css">
     <style>
         .columns button, .dropup button {
             background-color: white;
@@ -38,17 +40,13 @@
 
 <body class="gray-bg">
 <div class="wrapper wrapper-content">
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal181">
-        Launch demo modal
-    </button>
-
-    <!-- Modal -->
+    <!-- Modal 收支流水导出 -->
     <div class="modal fade" id="myModal181" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel181">信息详情</h4>
                 </div>
                 <div class="modal-body">
@@ -57,11 +55,80 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Modal 转账 -->
+    <div class="modal fade" id="myModal189" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel189">转账</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" style="display: flex">
+                        <label class="control-label" style="width: 100px">装出账户</label>
+                        <label class="control-label czzh" style="width: 122px;color:red">装出账户</label>
+                    </div>
+                    <div class="form-group" style="display: flex">
+                        <label class="control-label" style="width: 122px">转账时间</label>
+                        <div class="" style="width: 100%">
+                            <input type="text" class="form-control time" placeholder="请选择日期" id="test3">
+                        </div>
+                    </div>
+                    <div class="form-group" style="display: flex">
+                        <label class="control-label" style="width: 122px">转入账户</label>
+                        <div class="" style="width: 100%">
+                            <select class="form-control  zhuanruzh" name="account">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display: flex">
+                        <label class="control-label" style="width: 122px">转出金额</label>
+                        <div class="" style="width: 100%">
+                            <input type="number" class="form-control zcprice">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="display: flex">
+                        <label class="control-label" style="width: 122px">转账备注</label>
+                        <div class="" style="width: 100%">
+                            <input type="text" class="form-control zcsm">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn addzhuanzhang">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 转账流水导出 -->
+    <div class="modal fade" id="myModal190" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel190">信息详情</h4>
+                </div>
+                <div class="modal-body">
+                    <table data-toggle="table" id="ppppp">
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div>
             <table data-toggle="table" id="table">
@@ -73,8 +140,7 @@
 <!-- 全局js -->
 <script src="js/jquery.min.js?v=2.1.4"></script>
 <script src="js/bootstrap.min.js?v=3.3.6"></script>
-
-
+<script src="js/plugins/layDate/laydate/laydate.js"></script>
 
 <!-- Flot -->
 <script src="js/plugins/flot/jquery.flot.js"></script>
@@ -117,14 +183,19 @@
 <script>
     var $table = $('#table');
     var $table1 = $('#kkkkkk');
+    var $table2 = $('#ppppp');
     $table1.bootstrapTable({
-        url: 'http://localhost:3000/reads/readaccountzh',         //请求后台的URL（*）
+        url: '',         //请求后台的URL（*）
         method: 'get',             //请求方式（*）
         toolbar: '#toolbar',        //工具按钮用哪个容器
         pagination: true,                   //是否显示分页（*）
         cache: true,
         showColumns: true,
         striped: true,
+        queryParams: function () {
+            return {}
+        },
+        ajaxOptions: {},
         contentType: "application/x-www-form-urlencoded", /**支持跨域**/
         clickToSelect: true,
         showRefresh: true,                  //是否显示刷新按钮
@@ -133,35 +204,174 @@
         pageNumber: 1,                       //初始化加载第一页，默认第一页
         pageSize: 10, //每页的记录行数（*）
         showExport: true,//显示导出按钮
-        exportDataType: "basic", //basic', 'all', 'selected'.
-        exportTypes: ['excel'],
+        exportDataType: "all", //basic', 'all', 'selected'.
+        exportTypes: ['excel', 'PDF', 'PNG'],
         exportOptions: {
-            ignoreColumn: [0],  //忽略某一列的索引
-            fileName: '账户资产流水表',  //文件名称设置
+            // ignoreColumn: [0],  //忽略某一列的索引
+            fileName: '收支流水',  //文件名称设置
             worksheetName: 'sheet1',  //表格工作区名称
             excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
             onMsoNumberFormat: $.DoOnMsoNumberFormat
         },
-        search: true,
         sidePagination: "server", //服务端处理分页
         columns: [
             {
-                title: "单号",
-                field: '_id',
+                title: 'pid',
+                field: 'pid',
                 align: 'center',
                 valign: 'middle',
                 visible: false
             },
             {
-                title: '账户名称',
-                field: 'name',
+                title: '时间',
+                field: 'time',
                 align: 'center',
                 valign: 'middle',
+                formatter: function (value) {
+                    return new Date(parseInt(value) * 1000).toLocaleDateString();
+                }
             }, {
-                title: '当前余额',
+                title: '类型',
+                field: 'dddtype',
+                align: 'center',
+            }, {
+                title: '成员',
+                field: 'czy',
+                align: 'center',
+            }, {
+                title: '帐户',
+                field: 'form',
+                align: 'center',
+            }, {
+                title: '流入',
                 field: 'price',
                 align: 'center',
-                sortable: true,
+                formatter: function (value, row) {
+                    if (row.pid == 1) {
+                        return value
+                    }
+                }
+            }, {
+                title: '流出',
+                field: 'price',
+                align: 'center',
+                formatter: function (value, row) {
+                    if (row.pid == 0) {
+                        return value
+                    }
+                }
+            }, {
+                title: '备注',
+                field: 'sm',
+                align: 'center',
+            }
+        ],
+        responseHandler: function (res) {
+            return {
+                "total": res.total,//总页数
+                "rows": res.data   //数据
+            };
+        },
+    });
+    $table2.bootstrapTable({
+        url: '',         //请求后台的URL（*）
+        method: 'get',             //请求方式（*）
+        toolbar: '#toolbar',        //工具按钮用哪个容器
+        pagination: true,                   //是否显示分页（*）
+        cache: true,
+        showColumns: true,
+        striped: true,
+        queryParams: function () {
+            return {}
+        },
+        ajaxOptions: {},
+        contentType: "application/x-www-form-urlencoded", /**支持跨域**/
+        clickToSelect: true,
+        showRefresh: true,                  //是否显示刷新按钮
+        pageList: [5, 10, 15, 20],
+//        showPaginationSwitch: true,       //是否显示选择分页数按钮
+        pageNumber: 1,                       //初始化加载第一页，默认第一页
+        pageSize: 10, //每页的记录行数（*）
+        showExport: true,//显示导出按钮
+        exportDataType: "all", //basic', 'all', 'selected'.
+        exportTypes: ['excel', 'PDF', 'PNG'],
+        exportOptions: {
+            // ignoreColumn: [0],  //忽略某一列的索引
+            fileName: '转账流水',  //文件名称设置
+            worksheetName: 'sheet1',  //表格工作区名称
+            excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
+            onMsoNumberFormat: $.DoOnMsoNumberFormat
+        },
+        sidePagination: "server", //服务端处理分页
+        columns: [
+            {
+                title: '时间',
+                field: 'time',
+                align: 'center',
+                valign: 'middle',
+                formatter: function (value) {
+                    return new Date(parseInt(value) * 1000).toLocaleDateString();
+                }
+            },
+            {
+                title: 'pid',
+                field: 'pid',
+                align: 'center',
+                valign: 'middle',
+                visible: false
+            },
+            {
+                title: 'to',
+                field: 'to',
+                align: 'center',
+                valign: 'middle',
+                visible: false
+            },{
+                title: '类型',
+                align: 'center',
+                valign: 'middle',
+                formatter:function (value,row) {
+
+                    if (row.pid==1) {
+                        return "<span>转入</span>"
+                    }else{
+                        return "<span>转出</span>"
+                    }
+                }
+            },{
+                title: '成员',
+                field: 'jzr',
+                align: 'center',
+            }, {
+                title: '帐户',
+                field: 'form',
+                align: 'center',
+                formatter:function (value,row) {
+                    var to = row.to;
+                    return "<span>"+value +"->"+ to+"</span>"
+                }
+            }, {
+                title: '流入',
+                field: 'zcprice',
+                align: 'center',
+                formatter: function (value, row) {
+                    if (row.pid == 1) {
+                        return value
+                    }
+                }
+            }, {
+                title: '流出',
+                field: 'zcprice',
+                align: 'center',
+                formatter: function (value, row) {
+                    if (row.pid == 0) {
+                        return value
+                    }
+                }
+            }, {
+                title: '备注',
+                field: 'zcsm',
+                align: 'center',
             }
         ],
         responseHandler: function (res) {
@@ -217,7 +427,10 @@
                 sortable: true,
                 formatter: function (value, row) {
                     var xmpid = row._id;
-                    return `<button type="button" class="btn" onclick="exportszls('${xmpid}')" style="color: white">查看详情</button>`
+                    var names = row.name;
+                    return `<button type="button" class="btn" onclick="exportszls('${xmpid}')" style="color: white">收支流水详情</button>
+                              <button type="button" class="btn" onclick="yhzzzzls('${xmpid}')" style="color: white">转账流水详情</button>
+                             <button type="button" class="btn" onclick="zhuanzhang('${xmpid}','${names}')" style="color: white">转账</button>`
                 }
             }
         ],
@@ -229,13 +442,88 @@
         },
     });
     $(function () {
-        $('.exportszls').click(function(){
+        // 时间
+        laydate.render({
+            elem: '#test3', //指定元素mmmlkas
+        });
+        $('.addzhuanzhang').click(function () {
+            var form = $('.czzh').text();
+            var to = $('.zhuanruzh').find('option:selected').val();
+            var time = $('#test3').val();
+            var zcprice = $('.zcprice').val();
+            var zcsm = $('.zcsm').val();
+            var jzr = parent.jzrzcname; // 转账人
+            var data = {
+                form: form,
+                to: to,
+                time: time,
+                zcprice: zcprice,
+                zcsm: zcsm,
+                jzr: jzr
+            };
+            $.ajax({
+                url: 'http://localhost:3000/dxtypes//addzc',
+                data: data,
+                dataType: 'json',
+                type: 'post',
+                success: function (res) {
+                    if (res.code == 1) {
+                        layer.msg(res.msg);
+                        return false;
+                    }
+                    console.log(res);
+                }
+            })
         });
     });
+
     function exportszls(x) {
-        console.log(x);
+        $table1.bootstrapTable('refreshOptions', {
+            url: 'http://127.0.0.1:3000/reads/readyhzhszls',
+            queryParams: function () {
+                return {
+                    id: x
+                }
+            }
+        });
         $('#myModal181').modal('show');
     }
+    function zhuanzhang(x, name) {
+        $('.czzh').text(name);
+        var res1 = sendAjax('http://127.0.0.1:3000/reads/readyshb', 'get');
+        if (res1.code != 0) {
+            layer.msg("初始化数据失败");
+            return false;
+        }
+        $('.zhuanruzh  option').remove();
+        res1.yhzh.forEach(function (items) {
+            console.log(items.name,name);
+            if (items.name != name) {
+                $('.zhuanruzh').append(`<option value="${items.name}">${items.name}</option>`);
+            }
+        });
+        $('.zhuanruzh').nextAll().remove();  // bug
+        // 银行下拉框
+        $('.zhuanruzh').selectpicker({
+            style: 'btn-white',
+            size: 5,
+        });
+        $('.zhuanruzh').selectpicker('refresh');
+        $('#myModal189').modal('show');
+    }
+
+    function yhzzzzls(x) {
+        $table2.bootstrapTable('refreshOptions', {
+            url: 'http://127.0.0.1:3000/reads/readyhzzzzls',
+            queryParams: function () {
+                return {
+                    id: x
+                }
+            }
+        });
+        $('#myModal190').modal('show');
+    }
+
 </script>
 </body>
 

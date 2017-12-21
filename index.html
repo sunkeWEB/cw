@@ -16,7 +16,6 @@
     <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
-
 </head>
 
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
@@ -78,10 +77,10 @@
                             <a class="J_menuItem" href="index_v5.html" target="_blank">应收应付流水列表</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="index_v5.html" target="_blank">借出报销</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="index_v5.html" target="_blank">借入归还</a>
+                            <!--<a class="J_menuItem" href="index_v5.html" target="_blank">借出报销</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                            <!--<a class="J_menuItem" href="index_v5.html" target="_blank">借入归还</a>-->
                         </li>
                     </ul>
 
@@ -93,12 +92,12 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="graph_echarts.html">应收款</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="graph_flot.html">应付款</a>
-                        </li>
+                        <!--<li>-->
+                        <!--<a class="J_menuItem" href="graph_echarts.html">应收款</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                        <!--<a class="J_menuItem" href="graph_flot.html">应付款</a>-->
+                        <!--</li>-->
                         <li>
                             <a class="J_menuItem" href="graph_morris.html">资金账户余额</a>
                         </li>
@@ -116,30 +115,13 @@
                             </li>
                             <!--<li class="accountzzttj"><a class="J_menuItem" href="mail_compose.html">成员收支柱状图</a>-->
                             <!--</li>-->
-                            <li  class="szgbtjt"><a class="J_menuItem" href="mail_compose2.html">收入购表</a>
+                            <li class="szgbtjt"><a class="J_menuItem" href="mail_compose2.html">收入购表</a>
                             </li>
                             <li class="szgbtjt"><a class="J_menuItem" href="mail_compose3.html">支出购表</a>
                             </li>
                             <li><a class="J_menuItem" href="mail_compose.html">支出汇总饼状图</a>
                             </li>
                         </ul>
-                <li>
-                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">表单</span><span
-                            class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li><a class="J_menuItem" href="form_basic.html">基本表单</a>
-                        </li>
-                        <li><a class="J_menuItem" href="form_validate.html">表单验证</a>
-                        </li>
-                        <li>
-                            <a href="#">文件上传 <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li><a class="J_menuItem" href="form_avatar.html">头像裁剪上传</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
                 <li>
                     <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">系统设置</span>
                         <ul class="nav nav-second-level xtzgqx">
@@ -313,8 +295,8 @@
                     data-id="index_v1.html" seamless></iframe>
         </div>
         <!--<div class="footer">-->
-            <!--<div class="pull-right">&copy; 2014-2015 <a href="http://www.zi-han.net/" target="_blank">zihan's blog</a>-->
-            <!--</div>-->
+        <!--<div class="pull-right">&copy; 2014-2015 <a href="http://www.zi-han.net/" target="_blank">zihan's blog</a>-->
+        <!--</div>-->
         <!--</div>-->
     </div>
     <!--右侧部分结束-->
@@ -673,8 +655,7 @@
                 }
                 var arr = res.data[0].quanxian;
                 for (item of arr) {
-                    if (item.name == "收支记账")
-                    {
+                    if (item.name == "收支记账") {
                         listsrzc = item.list;
                         if (listsrzc.create != 0) {   // 收支流水列表的 创建
                             $('.authszrzcreate').remove();
@@ -690,21 +671,21 @@
                         if (item.list.read != 0) {
                             $('.niandutj').remove();
                         }
-                    }else if (item.name == "收支曲线") {
-                        if (item.list.read !=0) {
+                    } else if (item.name == "收支曲线") {
+                        if (item.list.read != 0) {
                             $('.mouththtj').remove();
                         }
-                    }else if (item.name == "年度收支柱状图") {
+                    } else if (item.name == "年度收支柱状图") {
                         console.log("月收支统计图");
-                        if (item.list.read !=0) {
+                        if (item.list.read != 0) {
                             $('.yeartjzzt').remove();
                         }
-                    }else if (item.name == "成员收支柱状图") {
-                        if (item.list.read !=0) {
+                    } else if (item.name == "成员收支柱状图") {
+                        if (item.list.read != 0) {
                             $('.accountzzttj').remove();
                         }
-                    }else if (item.name == "收支构表") {
-                        if (item.list.read !=0) {
+                    } else if (item.name == "收支构表") {
+                        if (item.list.read != 0) {
                             $('.szgbtjt').remove();
                         }
                     }

@@ -7,6 +7,7 @@ let dxtypeSchema = new mongoose.Schema({
     "sm": String, // 说明
     "sunlist":[  // 小类
         {
+            "sname":String, // 大类的名称
             "dtype":Number,
             "name":String,
             "sm":String

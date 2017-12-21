@@ -641,15 +641,111 @@ router.get('/readyshb', (req, res) => {
             });
         } else {
             Gcxms.find({}, {_id: 0, __v: 0, ip: 0, status: 0, time: 0}, (err, doc1) => {
-                Accountzh.find({}, {__v: 0, ip: 0, status: 0, createtime: 0,zzdz:0,szdz:0,defaultprice:0}, (err, doc2) => {
+                Accountzh.find({}, {
+                    __v: 0,
+                    ip: 0,
+                    status: 0,
+                    createtime: 0,
+                    zzdz: 0,
+                    szdz: 0,
+                    defaultprice: 0
+                }, (err, doc2) => {
                     return res.json({
-                        code:0,
-                        msg:"读取项目success",
-                        yshb:doc,
-                        gcxm:doc1,
-                        yhzh:doc2
+                        code: 0,
+                        msg: "读取项目success",
+                        yshb: doc,
+                        gcxm: doc1,
+                        yhzh: doc2
                     });
                 });
+            });
+        }
+    });
+});
+
+//读取银行账户收支流水详情
+router.get('/readyhzhszls', (req, res) => {
+    let {offset, limit, id} = req.query; // 获取查询条件
+    Accountzh.find({_id: id}).limit(parseInt(limit)).skip(parseInt(offset)).exec((err, doc1) => {
+        if (err) {
+            res.json({
+                code: 1,
+                msg: "系统错误"
+            });
+        } else {
+            if (doc1.length >= 1) {
+                Accountzh.find({_id: id}, (err, doc) => {
+                    res.json({
+                        code: 0,
+                        msg: "数据获取成功",
+                        data: doc1[0].szdz,
+                        total: doc[0].szdz.length
+                    });
+                });
+            } else {
+                return res.json({
+                    code: 2,
+                    msg: "没有相关的数据",
+                    data: [],
+                    total: 0
+                });
+            }
+        }
+    });
+});
+
+//读取银行账户转账流水详情
+router.get('/readyhzzzzls', (req, res) => {
+    let {offset, limit, id} = req.query; // 获取查询条件
+    Accountzh.find({_id: id}).limit(parseInt(limit)).skip(parseInt(offset)).exec((err, doc1) => {
+        if (err) {
+            res.json({
+                code: 1,
+                msg: "系统错误"
+            });
+        } else {
+            if (doc1.length >= 1) {
+                Accountzh.find({_id: id}, (err, doc) => {
+                    res.json({
+                        code: 0,
+                        msg: "数据获取成功",
+                        data: doc1[0].zzdz,
+                        total: doc[0].zzdz.length
+                    });
+                });
+            } else {
+                return res.json({
+                    code: 2,
+                    msg: "没有相关的数据",
+                    data: [],
+                    total: 0
+                });
+            }
+        }
+    });
+});
+
+// 读取小类
+router.get('/readxtypes', (req, res) => {
+    DxTypes.find({}, (err, doc) => {
+        if (err) {
+            return res.json({
+                code: 1,
+                msg: "小类获取失败"
+            });
+        } else {
+            let data = [];
+            for (item of doc) {
+                if (item.sunlist.length >= 1) {
+                    for (items of item.sunlist) {
+                        data.push(items);
+                    }
+                }
+            }
+            return res.json({
+                code: 0,
+                msg: "小类获取成功",
+                data: data
             });
         }
     });

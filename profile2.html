@@ -11,7 +11,8 @@
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
 
     <!-- Morris -->
@@ -24,16 +25,80 @@
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="js/plugins/layDate/laydate/theme/default/laydate.css">
+    <style>
+        .columns button, .dropup button {
+            background-color: white;
+            color: #000;
+        }
 
-
-
+        .form-group label {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body class="gray-bg">
 <div class="wrapper wrapper-content">
+    <!-- Modal       -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel1">添加小类</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group typesss" style="display: flex">
+                        <label class="control-label" style="width: 122px">类型</label>
+                        <div class="" style="width: 100%">
+                            <select class="form-control m-b srzcoptions" name="account">
+                                <option value="1">收入</option>
+                                <option value="0">支出</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group sdsss" style="display: flex">
+                        <label class="control-label" style="width: 122px">所属大类</label>
+                        <div class="" style="width: 100%">
+                            <select class="form-control m-b ssdl" name="account">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display: flex">
+                        <label class="control-label" style="width: 122px">小类名称</label>
+                        <div class="" style="width: 100%">
+                            <input type="text" class="form-control slname">
+                        </div>
+                    </div>
+                    <div class="form-group" style="display: flex">
+                        <label class="control-label" style="width: 122px">小类说明</label>
+                        <div class="" style="width: 100%">
+                            <input type="text" class="form-control slsm">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary addxtype">添加</button>
+                    <button type="button" class="btn btn-primary updatextype" style="display: none">修改</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div>
             <table data-toggle="table" id="table">
+                <div id="toolbar">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
+                        添加小类
+                    </button>
+                </div>
             </table>
         </div>
     </div>
@@ -42,7 +107,6 @@
 <!-- 全局js -->
 <script src="js/jquery.min.js?v=2.1.4"></script>
 <script src="js/bootstrap.min.js?v=3.3.6"></script>
-
 
 
 <!-- Flot -->
@@ -79,57 +143,75 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
-
+<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+<script src="js/myjquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 <script>
+    var pid, psname;
     var $table = $('#table');
     $table.bootstrapTable({
-        url: 'http://localhost:3000/picture/read',         //请求后台的URL（*）
+        url: 'http://localhost:3000/reads/readxtypes',         //请求后台的URL（*）
         method: 'get',             //请求方式（*）
         toolbar: '#toolbar',        //工具按钮用哪个容器
-        pagination: true,                   //是否显示分页（*）
+        // pagination: true,                   //是否显示分页（*）
         cache: true,
         showColumns: true,
         striped: true,
+        contentType: "application/x-www-form-urlencoded", /**支持跨域**/
         clickToSelect: true,
         showRefresh: true,                  //是否显示刷新按钮
-        pageList: [5, 10, 15, 20],
-//        showPaginationSwitch: true,       //是否显示选择分页数按钮
-        pageNumber: 1,                       //初始化加载第一页，默认第一页
-        pageSize: 10, //每页的记录行数（*）
         search: true,
         sidePagination: "server", //服务端处理分页
         columns: [
             {
-                title: '类型',
-                field: 'dannum',
+                title: 'id',
+                field: '_id',
                 align: 'center',
                 valign: 'middle',
+                visible: false
+            },
+            {
+                title: '类型',
+                field: 'dtype',
+                align: 'center',
+                valign: 'middle',
+                formatter: function (value) {
+                    if (value == 1) {
+                        return "<span>收入</span>";
+                    } else {
+                        return "<span>支出</span>";
+                    }
+                }
             },
             {
                 title: '所属大类',
-                field: 'create_time',
+                field: 'sname',
                 align: 'center',
                 valign: 'middle',
             },
             {
                 title: '小类名称',
-                field: 'create_time',
+                field: 'name',
                 align: 'center',
                 valign: 'middle'
             },
             {
                 title: '说明',
-                field: 'create_time',
+                field: 'sm',
                 align: 'center',
                 valign: 'middle'
-            },{
+            }, {
                 title: '操作',
                 align: 'center',
                 valign: 'middle',
                 sortable: true,
-                formatter: function () {
-                    return `<button type="button" class="btn" onclick="del(this)" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
-                             <button type="button" class="btn" onclick="edit(this)" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
+                formatter: function (value, row) {
+                    var sname = row.sname;
+                    var id = row._id;
+                    var name = row.name;
+                    var sm = row.sm;
+                    return `<button type="button" class="btn" onclick="del('${name}','${id}','${sname}')" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
+                             <button type="button" class="btn" onclick="edit('${name}','${id}','${sname}','${sm}')" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
                 }
             }
         ],
@@ -141,8 +223,148 @@
         },
     });
     $(function () {
+        getDxtype("1");
+        // 类型改变  大类联动
+        $('.srzcoptions').change(function (e) {
+            e.stopPropagation();
+            var typess = $(this).find('option:selected').val();
+            getDxtype(typess.toString());
+        });
+        // 添加小类
+        $('.addxtype').click(function () {
+            var dtype = $('.srzcoptions').find('option:selected').val();
+            var type = $('.ssdl').find('option:selected').val();
+            var name = $('.slname').val();
+            var sm = $('.slsm').val();
+            var data = {
+                stype: dtype,
+                sname: type,
+                name: name,
+                sm: sm
+            };
+            $.ajax({
+                url: 'http://localhost:3000/dxtypes/addxtypes',
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function (res) {
+                    if (res.code == 1) {
+                        layer.msg(res.msg);
+                        return false;
+                    }
+                    layer.msg(res.msg);
+                    $('#myModal1').modal('hide');
+                    $('.modal-body input').val('');
+                    $table.bootstrapTable('refresh');
+                }
+            });
+        });
+        $('.updatextype').click(function(){
+            var name = $('.slname').val();
+            var sm = $('.slsm').val();
+            var data = {
+                name: name,
+                sm: sm,
+                sname:psname,
+                id:pid
+            };
+            $.ajax({
+                url:'http://localhost:3000/dxtypes/updatextype',
+                data:data,
+                dataType:'json',
+                type:'post',
+                success:function(res) {
+                    console.log(res);
+                }
+            })
+        });
     });
+
+    function getDxtype(type) {
+        var res = sendAjax('http://127.0.0.1:3000/reads/readdalei', 'get', {type: type});
+        if (!res.code == 0) {
+            layer.msg("系统错误  获取失败");
+            return false;
+        }
+        $('.ssxl option').remove();
+        $('.ssdl option').remove();
+
+        data = res.data;
+        xtype = [];
+        data.forEach(function (item, index) {
+            $('.ssdl').append(`<option value="${item.name}" data-num="${index}">${item.name}</option>`);
+            var items = item.sunlist;
+            if (items.length > 0) {
+                var xx = [];
+                items.forEach(function (xxx) {
+                    xx.push([xxx.name]);
+                });
+                xtype.push(xx);
+            } else {
+                xtype.push([]);
+            }
+        });
+
+        //所属大类下拉 初始化
+        $('.ssdl').selectpicker({
+            style: 'btn-white',
+            size: 5,
+        });
+
+        $('.srzcoptions').selectpicker({
+            style: 'btn-white',
+            size: 5,
+        });
+        $('.ssdl').nextAll().remove();  // bug
+        $('.ssdl').selectpicker('refresh');
+    }
+
+    function del(name, id, sname) {
+        layer.confirm('你确定删除 ' + name + ' 嘛？', {
+            btn: ['果断删除', '放弃'] //按钮
+        }, function () {
+            var url = "http://localhost:3000/dxtypes/delxtype";
+            $.ajax({
+                url: url,
+                data: {id: id, sname: sname},
+                dataType: 'json',
+                type: 'post',
+                success: function (res) {
+                    if (res.code == 1) {
+                        layer.msg(res.msg);
+                        return false;
+                    }
+                    layer.msg(res.msg);
+                    $table.bootstrapTable('refresh');
+                }
+            });
+        });
+    }
+
+    function edit(name, id, sname,sm) {
+        pid = id;
+        psname = sname;
+        $('.typesss').css('display', 'none');
+        $('.sdsss').css('display', 'none');
+        $('#myModalLabel1').text("修改信息");
+        $('.slname').val(name);
+        $('.slsm').val(sm);
+        $('.addxtype').css('display', 'none');
+        $('.updatextype').css('display', 'inline-block');
+        $('#myModal1').modal('show');
+    }
+
+    //  这里公用一个modal 修改class
+    $('#myModal1').on('hidden.bs.modal', function (e) {
+        $('.typesss').css('display', 'inline-block');
+        $('.sdsss').css('display', 'inline-block');
+        $('.addxtype').css('display', 'inline-block');
+        $('.updatextype').css('display', 'none');
+        $('#myModalLabel1').text("添加信息");
+        $('.slname').val('');
+        $('.slsm').val('');
+    });
+
 </script>
 </body>
-
 </html>

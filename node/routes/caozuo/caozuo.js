@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 router.post('/addTypes', (req, res) => {
     let {type, name, sm} = req.body;
     console.log({type, name, sm});
-    DxTypes.count({name: name, type: type}, (err, count) => {
+    DxTypes.count({name: name, type: parseInt(type)}, (err, count) => {
         if (err) {
             return res.json({
                 code: 1,
@@ -65,7 +65,7 @@ router.post('/addTypes', (req, res) => {
 
 // 添加小类
 router.post('/addxtypes', (req, res) => {
-    let {sname, name, sm} = req.body;
+    let {sname, name, sm, stype} = req.body;
     DxTypes.count({name: sname}, (err, num) => {  // 先检查大类是否存在
         if (err) {
             return res.json({
@@ -74,13 +74,26 @@ router.post('/addxtypes', (req, res) => {
             });
         }
         if (num >= 1) {
-            DxTypes.update({name: sname}, {$addToSet: {'sunlist': {name: name, dtype: 1, sm: sm}}}, (err, doc) => {
+            DxTypes.update({name: sname}, {
+                $addToSet: {
+                    'sunlist': {
+                        sname: sname,
+                        name: name,
+                        dtype: parseInt(stype),
+                        sm: sm
+                    }
+                }
+            }, (err, doc) => {
                 if (err) {
                     res.json({
+                        code: 1,
+                        msg: "添加失败",
                         err: err
                     });
                 } else {
                     res.json({
+                        code: 0,
+                        msg: "添加成功",
                         data: doc
                     });
                 }
@@ -241,18 +254,39 @@ router.post('/addsrzc', (req, res) => {
                                 });
                             } else {
                                 // 添加收支对账信息
-                                Accountgls.update({name: zjzh}, {$addToSet: {'szdz': {time:timestamp,sm: sm,type:parseInt(dtype),pid:parseInt(type),form:zjzh,price:parseInt(prices),czy:jzr}}}, (err, doc8) => {
+                                Accountgls.update({name: zjzh}, {
+                                    $addToSet: {
+                                        'szdz': {
+                                            time: timestamp,
+                                            sm: sm,
+                                            dddtype: dtype,
+                                            form: zjzh,
+                                            price: parseInt(price),
+                                            czy: jzr,
+                                            pid: parseInt(type)
+                                        }
+                                    }
+                                }, (err, doc8) => {
                                     console.log("添加收支对账信息----------------");
+                                    console.log({
+                                        time: timestamp,
+                                        sm: sm,
+                                        type: dtype,
+                                        pid: parseInt(type),
+                                        form: zjzh,
+                                        price: parseInt(prices),
+                                        czy: jzr
+                                    });
                                     if (err) {
                                         return res.json({
-                                            code: 0,
-                                            msg: "信息添加成功1",
+                                            code: 1,
+                                            msg: "信息添加失败",
                                             data: err
                                         });
-                                    }else{
+                                    } else {
                                         return res.json({
                                             code: 0,
-                                            msg: "信息添加成功1",
+                                            msg: "信息添加成功",
                                             data: doc8
                                         });
                                     }
@@ -391,6 +425,7 @@ router.post('/addacountzh', (req, res) => {
         }
     });
 });
+
 // 应收应付 添加
 router.post('/addysyf', (req, res) => {
     let {dtype, ssdtype, ssxtype, price, yshb, ywxm, jbr, sm, time, time1, jzr} = req.body;
@@ -424,6 +459,107 @@ router.post('/addysyf', (req, res) => {
     });
 });
 
+// 转账入库
+router.post('/addzc', (req, res) => {
+    let {form, to, time, zcprice, zcsm, jzr} = req.body;
+    let obja = {
+        form: form,
+        to: to,
+        time: Date.parse(new Date(`${time} 10:21:12`)) / 1000,
+        zcprice: parseInt(zcprice),
+        zcsm: zcsm,
+        jzr: jzr
+    };
+    Accountgls.count({name: form}, (err, num) => {
+        if (err) {
+            return res.json({
+                code: 1,
+                msg: "系统错误1",
+                data: err
+            });
+        }
+        if (num >= 1) {
+            Accountgls.count({name: to}, (err, num) => {
+                if (err) {
+                    return res.json({
+                        code: 1,
+                        msg: "系统错误"
+                    });
+                }
+                if (num >= 1) {
+                    // 获取转入账户的净额
+                    Accountgls.update({name: to}, {$inc: {price: +parseInt(zcprice)}}, (err10, doc10) => {
+                        if (err) {
+                            res.json({
+                                code: 1,
+                                msg: "系统错误10",
+                                data: err10
+                            });
+                        } else {
+                            //  转出账户减
+                            Accountgls.update({name: form}, {$inc: {price: -parseInt(zcprice)}}, (err11, doc11) => {
+                                if (err) {
+                                    res.json({
+                                        code: 1,
+                                        msg: "系统错误11",
+                                        data: err11
+                                    });
+                                } else {
+                                    obja['pid'] = 0;
+                                    Accountgls.update({name: form}, {
+                                        $addToSet: {
+                                            'zzdz': obja
+                                        }
+                                    }, (err4, doc8) => {
+                                        if (err4) {
+                                            return res.json({
+                                                code: 1,
+                                                msg: "系统错误2",
+                                                data: err4
+                                            });
+                                        } else {
+                                            obja['pid'] = 1;
+                                            Accountgls.update({name: to}, {
+                                                $addToSet: {
+                                                    'zzdz': obja
+                                                }
+                                            }, (err5, doc9) => {
+                                                if (err5) {
+                                                    return res.json({
+                                                        code: 1,
+                                                        msg: "系统错误3",
+                                                        data: err5
+                                                    });
+                                                } else {
+                                                    return res.json({
+                                                        code: 0,
+                                                        msg: "转账成功",
+                                                        data: doc9
+                                                    });
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                            })
+                        }
+                    })
+                } else {
+                    return res.json({
+                        code: 1,
+                        msg: "转入账户不存在"
+                    });
+                }
+            });
+        } else {
+            return res.json({
+                code: 1,
+                msg: "转出账户不存在"
+            });
+        }
+    });
+});
+
 // ------------------------读取------------------------
 
 // ----------------------  删除修改操作 -----------------------------
@@ -447,21 +583,21 @@ router.post('/delxm', (req, res) => {
         }
 
         if (num >= 1) {
-            Srzcs.find({_id: id}, (err, doc1)=>{
+            Srzcs.find({_id: id}, (err, doc1) => {
                 let oldprice = parseInt(doc1[0].price); // 获取项目的金额
                 let yzname = doc1[0].zjzh;  // 获取项目的名字
                 let typess = doc1[0].type; // 获取项目的收入 还是支出
-                Accountgls.find({name:yzname},(err1,doc2)=>{
+                Accountgls.find({name: yzname}, (err1, doc2) => {
                     console.log(doc2);
                     let newPrice = typess === 1 ? parseInt(doc2[0].price) - oldprice : parseInt(doc2[0].price) + oldprice; // 获取新的价格
-                    Accountgls.update({name:yzname},{price:newPrice},(err,doc3)=>{
+                    Accountgls.update({name: yzname}, {price: newPrice}, (err, doc3) => {
                         if (err) {
                             return res.json({
                                 code: 1,
                                 msg: "系统错误 稍后再尝试",
                                 data: []
                             });
-                        }else{
+                        } else {
                             Srzcs.remove({_id: id}, (err, doc) => {
                                 if (err) {
                                     return res.json({
@@ -501,42 +637,42 @@ router.post('/updatexm', (req, res) => {
         sm: sm,
         dtype: dtype
     };
-    Srzcs.find({_id:pid},(err,doc)=>{
+    Srzcs.find({_id: pid}, (err, doc) => {
         let xmprice = doc[0].price; // 获取修改项目原来的价格  price1 修改之后的价格
         let xmyhk = doc[0].zjzh; // 获取修改项目原来的 银行账户
         let typess = doc[0].type; // 获取修改项目 是 收入还是支出 zjzh 是未修改的银行账户
         if (xmyhk === zjzh) {  // 如果修改的银行账户和 原来的相同只是金额的加减
-            Accountgls.find({name:xmyhk},(err1,doc2)=>{
-                let newPrice = typess === 1 ? parseInt(doc2[0].price) - xmprice + price1 : parseInt(doc2[0].price) + xmprice -price1; // 获取新的价格
-                Accountgls.update({name:xmyhk},{price:newPrice},(err2,doc3)=>{
+            Accountgls.find({name: xmyhk}, (err1, doc2) => {
+                let newPrice = typess === 1 ? parseInt(doc2[0].price) - xmprice + price1 : parseInt(doc2[0].price) + xmprice - price1; // 获取新的价格
+                Accountgls.update({name: xmyhk}, {price: newPrice}, (err2, doc3) => {
                     if (err1) {
                         return res.json({
-                            code:1,
-                            msg:"数据修改失败"
+                            code: 1,
+                            msg: "数据修改失败"
                         });
-                    }else{
+                    } else {
                         return res.json({
-                            code:0,
-                            msg:"数据修改成功"
+                            code: 0,
+                            msg: "数据修改成功"
                         });
                     }
                 })
             })
         }
-        else{
-            Accountgls.find({name:xmyhk},(err1,doc2)=>{
-                newPrice = typess === 1 ? parseInt(doc2[0].price) - xmprice  : parseInt(doc2[0].price) + xmprice; // 恢复之前的价格
-                Accountgls.update({name:xmyhk},{price:newPrice},(err2,doc3)=>{
+        else {
+            Accountgls.find({name: xmyhk}, (err1, doc2) => {
+                newPrice = typess === 1 ? parseInt(doc2[0].price) - xmprice : parseInt(doc2[0].price) + xmprice; // 恢复之前的价格
+                Accountgls.update({name: xmyhk}, {price: newPrice}, (err2, doc3) => {
                     if (err2) {
                         return res.json({
-                            code:1,
-                            msg:"数据修改失败"
+                            code: 1,
+                            msg: "数据修改失败"
                         });
-                    }else{
+                    } else {
                         Accountgls.find({name: zjzh}, (err5, doc5) => {  // 获取到从新银行卡的当前余额
                             let mmm = parseInt(doc5[0].price);  // 获取到从新银行卡的当前余额
-                            newPrice = typess === 1 ? mmm + xmprice  : mmm - xmprice; // 修改银行卡收入或支出
-                            Accountgls.update({name:zjzh},{price:newPrice},(err6,doc6)=>{
+                            newPrice = typess === 1 ? mmm + xmprice : mmm - xmprice; // 修改银行卡收入或支出
+                            Accountgls.update({name: zjzh}, {price: newPrice}, (err6, doc6) => {
                                 Srzcs.update({_id: pid}, obj, function (err, doc) {
                                     if (err) {
                                         return res.json({
@@ -1166,6 +1302,48 @@ router.post('/updateysyf', (req, res) => {
                     })
                 }
             })
+        }
+    })
+});
+
+// 删除 修改 小类
+router.post('/delxtype', (req, res) => {
+    let {id,sname} = req.body;
+    DxTypes.update({name:sname}, {$pull: {sunlist: {_id: id}}}, (err, doc) => {
+        if (err) {
+            return res.json({
+                code: 1,
+                msg: "系统错误",
+                data: err
+            });
+        } else {
+            return res.json({
+                code: 0,
+                msg: "删除成功",
+                data: doc
+            });
+        }
+    })
+});
+router.post('/updatextype',(req,res)=>{
+    let {id,sname,name,sm} = req.body;
+    console.log({id,sname,name,sm});
+    DxTypes.update({name:sname,'sunlist._id':id},{
+        "sunlist.$.name":name,
+        "sunlist.$.sm":sm
+    }, (err, doc) => {
+        if (err) {
+            return res.json({
+                code: 1,
+                msg: "系统错误",
+                data: err
+            });
+        } else {
+            return res.json({
+                code: 0,
+                msg: "修改成功",
+                data: doc
+            });
         }
     })
 });

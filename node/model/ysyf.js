@@ -12,7 +12,8 @@ let ysyfSchema = new mongoose.Schema({
     ywxm:String, // 业务项目
     jbr:String, // 经办人
     sm:String, // 说明
-    jzr:String // 记账人
+    jzr:String, // 记账人
+    jzrid:String
 });
 
 module.exports = mongoose.model('ysyf', ysyfSchema);

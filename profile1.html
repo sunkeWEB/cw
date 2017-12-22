@@ -220,7 +220,6 @@
                 title: '操作',
                 align: 'center',
                 valign: 'middle',
-                sortable: true,
                 formatter: function (value,row) {
                     var id = row._id;
                     var name = row.name;
@@ -265,6 +264,14 @@
         var type = $('.srzcoptions').find('option:selected').val();
         var name = $('.name').val();
         var sm = $('.sm').val();
+        if (type == '') {
+            layer.msg("收入支出不能为空");
+            return false;
+        }
+        if (name == '') {
+            layer.msg("大类名称不能为空");
+            return false;
+        }
         if(types==1) {
             var data = {
                 type: type,
@@ -301,6 +308,7 @@
             layer.msg(res.msg);
             $('#myModa').modal('hide');
             $('.modal-body input').val('');
+            $table.bootstrapTable('refresh');
         }
     }
 
@@ -333,7 +341,7 @@
     //  这里公用一个modal 修改class
     $('#myModa').on('hidden.bs.modal', function (e) {
         $('#myModalLabel').text("大类添加");
-        $('.mmmmmm').css('display','inline-block');
+        $('.mmmmmm').css('display','flex');
         $('#myModal5  .d').css("display","inline-block");
         $('#myModal5  .ddd').css("display","none");
         $('.name').val('');

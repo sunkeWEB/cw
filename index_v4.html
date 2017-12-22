@@ -78,7 +78,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">生意伙伴(客户)</label>
+                            <label class="col-sm-2 control-label">生意伙伴</label>
                             <div class="col-sm-10 col-md-4 col-lg-4">
                                 <select class="form-control  syhb" name="account" data-live-search="true">
                                 </select>
@@ -231,7 +231,8 @@
                 sm:sm1,
                 time:new Date(time) / 1000,
                 time1:new Date(time1) / 1000,
-                jzr:parent.jzrzcname
+                jzr:parent.jzrzcname,
+                jzrid:parent.jzrid
             };
             $.ajax({
                 url:'http://localhost:3000/dxtypes/addysyf',
@@ -243,7 +244,8 @@
                         layer.msg(res.msg);
                         return false;
                     }
-                    console.log(res);
+                    layer.msg(res.msg);
+                    $('input').val('');
                 }
             });
         });

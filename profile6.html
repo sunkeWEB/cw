@@ -141,7 +141,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" style="width: 100px">用户级别</label>
+                        <label class="col-sm-2 control-label" style="width: 112px">用户级别</label>
                         <div class="km">
                             <input class="yhdj" name="kk" id="xtgls" value="系统管理" type="radio"
                                    title="拥有全部用户数据管理和系统设置"><label for="xtgls">系统管理</label>
@@ -153,7 +153,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label quanxianlabel" style="width: 100px">权限</label>
+                        <label class="col-sm-2 control-label quanxianlabel" style="width: 112px">权限</label>
                         <div class="quanxian km">
                             <input checked="checked" value="收支记账" id="szjz" type="checkbox"><label
                                 for="ptjzs">收支记账</label>
@@ -322,6 +322,7 @@
                 field: 'defaultyhk',
                 align: 'center',
                 valign: 'middle',
+                sortable: true,
             },
             {
                 title: '默认客户',
@@ -346,6 +347,7 @@
                 field: 'time',
                 align: 'center',
                 valign: 'middle',
+                sortable: true,
                 formatter: function (v) {
                     return formatDate(parseInt(v))
                 }
@@ -387,7 +389,6 @@
                 title: '操作',
                 align: 'center',
                 valign: 'middle',
-                sortable: true,
                 formatter: function (value, row) {
                     var id = row._id;
                     var name = row.name;
@@ -404,7 +405,7 @@
         },
     });
 
-    var arrquanx = ['szjz', 'slxg', 'slsc', 'ysyf', 'jcbx', 'jrgh', 'zjzh', 'zhzz', 'zhdz', 'daochu', 'yeartj', 'szqx', 'cyzz', 'szgb', 'szgb'];
+    var arrquanx = ['szjz', 'slxg', 'slsc', 'ysyf', 'jcbx', 'jrgh', 'zjzh', 'zhzz', 'zhdz', 'daochu', 'yeartj', 'nzzt','szqx', 'cyzz', 'szgb', 'szgb'];
 
     $(function () {
 
@@ -484,12 +485,40 @@
         var repwd = $('.userreqpwd').val(); // 登录确认密码
         var dengji = $('input[name="kk"]:checked').val(); // 用户级别
         var quanxian = '';
+        if (name=='') {
+            layer.msg("登录名必须填写");
+            return false;
+        }
+        if (zsname=='') {
+            layer.msg("真实姓名必须填写");
+            return false;
+        }
+        if (zjzh=='') {
+            layer.msg("资金账户必须填写");
+            return false;
+        }
+        if (account=='') {
+            layer.msg("默认客户必须填写");
+            return false;
+        }
+        if (xm=='') {
+            layer.msg("默认项目必须填写");
+            return false;
+        }
         for (var i = 0; i < arrquanx.length - 1; i++) {
             if ($("#" + arrquanx[i]).is(':checked')) {
                 quanxian += $("#" + arrquanx[i]).val() + " ";
             }
         }
         if(types==1) {
+            if (pwd != repwd) {
+                layer.msg("密码和确认密码不相等");
+                return false;
+            }
+            if (avatar == '') {
+                layer.msg("用户头像不能为空");
+                return false;
+            }
             var data = {
                 name: name,
                 zsname: zsname,
@@ -660,6 +689,7 @@
         $('.pwdkk').css('display','flex');
         $('#myModal7  #addusers').css("display","inline-block");
         $('#myModal7  .updateusers').css("display","none");
+        $('.modal-body input').val('');
     });
 
 </script>

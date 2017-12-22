@@ -12,7 +12,8 @@ let szSchema = new mongoose.Schema({
     ywxm:String,
     jbr: String, // 进班人
     sm: String,
-    jzr:String // 记账人的名字
+    jzr:String, // 记账人的名字
+    jzrid:String, // 记账人的id
 });
 
 module.exports = mongoose.model('srzcs', szSchema);

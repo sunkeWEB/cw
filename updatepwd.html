@@ -5,22 +5,12 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <title>H+ 后台主题UI框架 - 基本表单</title>
-    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
-    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+    <title>密码修改</title>
     <link rel="shortcut icon" href="favicon.ico">
     <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
-    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="js/plugins/layDate/laydate/theme/default/laydate.css">
-
 </head>
 
 <body class="gray-bg">
@@ -56,7 +46,7 @@
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
                                 <button class="btn btn-primary update" type="button">修改</button>
-                                <button class="btn btn-white" type="button">重置</button>
+                                <button class="btn btn-white resurt" type="button">重置</button>
                             </div>
                         </div>
                     </div>
@@ -79,9 +69,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
 <link href="https://cdn.bootcss.com/layer/3.1.0/mobile/need/layer.css" rel="stylesheet">
+<script src="./js/plugins/cookies/jquery.cookie.js"></script>
 <script>
     $(function () {
-
         $('.update').click(function () {
             var oldpwd = $('.oldpwd').val();
             var newpwd = $('.newpwd').val();
@@ -102,15 +92,25 @@
                 url:'http://localhost:3000/users/updatepwd',
                 type:'post',
                 dataType:'json',
-                data:{newpwd:newpwd,old:oldpwd},
+                data:{newpwd:newpwd,old:oldpwd,id:parent.jzrid},
                 success:function (res) {
                     if (res.code==1) {
                         layer.msg(res.msg);
                         return false;
                     }
-                    layer.msg(res.msg+"请重新登录");
+                    layer.msg(res.msg + "请重新登录");
+                    $.cookie('username', null,{
+                        path:'/'
+                    });
+
+                    setTimeout(function() {
+                        window.parent.jsMethod();
+                    },1000)
                 }
             });
+        });
+        $('.resurt').click(function(){
+            $('input').val('')
         });
     });
 

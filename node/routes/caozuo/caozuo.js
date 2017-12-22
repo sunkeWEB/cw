@@ -200,7 +200,7 @@ router.post('/addkh', (req, res) => {
 // type: Number, // 0 是支出  1是收入
 // time: String,
 router.post('/addsrzc', (req, res) => {
-    let {type, xtype, price, zjzh, yshb, ywxm, jbr, sm, time, dtype, jzr} = req.body;
+    let {type, xtype, price, zjzh, yshb, ywxm, jbr, sm, time, dtype, jzr,jzrid} = req.body;
     let timestamp = Date.parse(new Date(`${time} 10:21:12`)) / 1000;
     let obj = {
         type: type,
@@ -213,7 +213,8 @@ router.post('/addsrzc', (req, res) => {
         jbr: jbr,
         sm: sm,
         dtype: dtype,
-        jzr: jzr
+        jzr: jzr,
+        jzrid:jzrid
     };
     Srzcs.count(obj, (err, num) => {
         if (err) {
@@ -428,7 +429,7 @@ router.post('/addacountzh', (req, res) => {
 
 // 应收应付 添加
 router.post('/addysyf', (req, res) => {
-    let {dtype, ssdtype, ssxtype, price, yshb, ywxm, jbr, sm, time, time1, jzr} = req.body;
+    let {dtype, ssdtype, ssxtype, price, yshb, ywxm, jbr, sm, time, time1, jzr,jzrid} = req.body;
     let obj = {
         dtype: dtype, // 1是应收 0是应付
         ssdtype: ssdtype, // 所属大类
@@ -440,7 +441,8 @@ router.post('/addysyf', (req, res) => {
         ywxm: ywxm, // 业务项目
         jbr: jbr, // 经办人
         sm: sm, // 说明
-        jzr: jzr // 记账人
+        jzr: jzr, // 记账人
+        jzrid:jzrid
     };
     let YsyfModel = new Ysyf(obj);
     YsyfModel.save((err, doc) => {
@@ -1327,7 +1329,6 @@ router.post('/delxtype', (req, res) => {
 });
 router.post('/updatextype',(req,res)=>{
     let {id,sname,name,sm} = req.body;
-    console.log({id,sname,name,sm});
     DxTypes.update({name:sname,'sunlist._id':id},{
         "sunlist.$.name":name,
         "sunlist.$.sm":sm

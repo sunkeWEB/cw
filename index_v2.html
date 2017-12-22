@@ -5,16 +5,15 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H+ 后台主题UI框架 - 基本表单</title>
-    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
-    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+    <title>优米云</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
     <link rel="shortcut icon" href="favicon.ico">
     <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
     <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="js/plugins/layDate/laydate/theme/default/laydate.css">
 </head>
@@ -155,6 +154,38 @@
             var ywxm = $('.ywxm').find('option:selected').text();// 业务项目
             var sm = $('.sm').val();// 说明
             var jbpeople = $('.jbpeople').find('option:selected').text();// 经办人
+            if (type=='') {
+                layer.msg("收入支出不能为空");
+                return false;
+            }
+            if (dtype=='') {
+                layer.msg("大类不能为空");
+                return false;
+            }
+            if (xtype=='') {
+                layer.msg("小类不能为空");
+                return false;
+            }
+            if (price=='') {
+                layer.msg("金额不能为空");
+                return false;
+            }
+            if (time=='') {
+                layer.msg("时间不能为空");
+                return false;
+            }
+            if (syhb=='') {
+                layer.msg("生意伙伴不能为空");
+                return false;
+            }
+            if (ywxm=='') {
+                layer.msg("业务项目不能为空");
+                return false;
+            }
+            if (jbpeople=='') {
+                layer.msg("经办人不能为空");
+                return false;
+            }
             var data = {
                 type:type,
                 dtype:dtype,
@@ -166,15 +197,21 @@
                 jbr:jbpeople,
                 sm:sm,
                 time:time,
-                jzr:parent.jzrzcname
+                jzr:parent.jzrzcname,
+                jzrid:parent.jzrid
             };
             $.ajax({
                 url: 'http://localhost:3000/dxtypes/addsrzc',
                 data: data,
                 type: 'post',
                 dataType: 'json',
-                success: function (data) {
-                    console.log(data);
+                success: function (res) {
+                    if (res.code!=0) {
+                        layer.msg(layer.msg);
+                        return false;
+                    }
+                    layer.msg(res.msg);
+                    $('.form-group input,.form-group textarea').val('');
                 }
             });
         });

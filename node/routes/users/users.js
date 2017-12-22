@@ -99,9 +99,8 @@ router.post('/register', (req, res) => {
 
 //修改密码
 router.post('/updatepwd', (req, res) => {
-    let {old, newpwd} = req.body;
-    let name = req.cookies.username; // 获取用户名
-    Users.count({name: name, pwd: md5Pwd(old)}, (err, num) => {
+    let {old, newpwd,id} = req.body;
+    Users.count({_id:id, pwd: md5Pwd(old)}, (err, num) => {
         if (err) {
             return res.json({
                 code: 1,
@@ -136,7 +135,7 @@ router.post('/updatepwd', (req, res) => {
 router.post('/auth', (req, res) => {
     let id = req.cookies.username;
     console.log(" auth " + id);
-    Users.find({_id: id}, {quanxian: 100, _id: 0,dengji:100,zsname:100}, (err, doc) => {
+    Users.find({_id: id}, {quanxian: 100, _id: 100,dengji:100,zsname:100}, (err, doc) => {
         if (err) {
             return res.json({
                 code: 1,

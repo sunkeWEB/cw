@@ -35,6 +35,9 @@
             background-color: white;
             color: #000;
         }
+        .wrapper-content{
+            background-color: white;
+        }
     </style>
 </head>
 
@@ -71,8 +74,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group" style="display: flex">
-                        <label class="control-label" style="width: 100px">装出账户</label>
-                        <label class="control-label czzh" style="width: 122px;color:red">装出账户</label>
+                        <label class="control-label" style="width: 100px">转出账户</label>
+                        <label class="control-label czzh" style="width: 122px;color:red;text-align: left">转出账户</label>
                     </div>
                     <div class="form-group" style="display: flex">
                         <label class="control-label" style="width: 122px">转账时间</label>
@@ -103,7 +106,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn addzhuanzhang">保存</button>
+                    <button type="button" class="btn addzhuanzhang btn-primary">保存</button>
                 </div>
             </div>
         </div>
@@ -399,10 +402,6 @@
         sidePagination: "server", //服务端处理分页
         columns: [
             {
-                checkbox: true,
-                title: '选择'
-            },
-            {
                 title: "单号",
                 field: '_id',
                 align: 'center',
@@ -428,9 +427,9 @@
                 formatter: function (value, row) {
                     var xmpid = row._id;
                     var names = row.name;
-                    return `<button type="button" class="btn" onclick="exportszls('${xmpid}')" style="color: white">收支流水详情</button>
-                              <button type="button" class="btn" onclick="yhzzzzls('${xmpid}')" style="color: white">转账流水详情</button>
-                             <button type="button" class="btn" onclick="zhuanzhang('${xmpid}','${names}')" style="color: white">转账</button>`
+                    return `<button type="button" class="btn btn-info" onclick="exportszls('${xmpid}')" style="color: white">收支流水详情</button>
+                              <button type="button" class="btn btn-info" onclick="yhzzzzls('${xmpid}')" style="color: white">转账流水详情</button>
+                             <button type="button" class="btn btn-info" onclick="zhuanzhang('${xmpid}','${names}')" style="color: white">转账</button>`
                 }
             }
         ],

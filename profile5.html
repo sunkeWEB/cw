@@ -64,7 +64,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary addxm">保存</button>
-                    <button type="button" class="btn btn-primary updatexm">修改</button>
+                    <button type="button" class="btn btn-primary updatexm" style="display: none">修改</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div>
@@ -252,7 +252,6 @@
     });
 
     function updatexmcreate(types) {
-        console.log(types);
         var name = $('.xmname').val();
         var sm = $('.xmsm').val();
         if (name == '') {
@@ -330,11 +329,11 @@
     }
 
     //  这里公用一个modal 修改class
-    $('#myModa12').on('hidden.bs.modal', function (e) {
+    $('#myModal2').on('hidden.bs.modal', function () {
         $('#myModalLabel2').text("项目添加");
-        $('#myModal4  .addxm').css("display", "inline-block");
-        $('#myModal4  .updatexm').css("display", "none");
-        $('.modal-body input').val('');
+        $('#myModal2  .addxm').css("display", "inline-block");
+        $('#myModal2  .updatexm').css("display", "none");
+        $('input').val('');
     });
 
 </script>

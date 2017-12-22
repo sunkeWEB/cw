@@ -19,11 +19,12 @@ let Ysyf = require('./../../model/ysyf');
 
 // let SS = require('./mmmmm');
 router.get('/sort', (req, res) => {
-    Dxtypes.find({}).limit(2).skip(0).exec((err, doc) => {
+    Srzcs.find({$or: [{yshb: {$regex: '小姐'}}, {yshb: {$regex: '马'}}]}).limit(10).skip(0).exec((err, doc) => {
         res.json({
             num: doc
         });
     })
+
 });
 
 router.get('/', (req, res) => {
@@ -62,10 +63,6 @@ function sersch(searchValue) {
         }, {
             xtype: {$regex: searchValue}
         }, {
-            price: {$regex: searchValue}
-        }, {
-            time: {$regex: searchValue}
-        }, {
             zjzh: {$regex: searchValue}
         }, {
             yshb: {$regex: searchValue}
@@ -80,37 +77,111 @@ function sersch(searchValue) {
 }
 
 router.get('/readsrzc', (req, res) => {
-    let {order, offset, limit, sort, sid} = req.query; // 获取查询条件
+    let {order, offset, limit, sort, sid,id,dengji} = req.query; // 获取查询条件 修改的时候根据sid
     let searchValue = req.query.search;
     let k = [];
     let kkk = {};
     let doc1, total = 1;
-    if (sid === undefined) {
-        let searchValue1 = searchValue ? k = sersch(searchValue) : k;
-        if (k.length >= 1) {
-            kkk = {
-                '$or': k
-            };
+    let sort1 = {};
+    if (sort !== undefined) {
+         sort1 = {
+            [sort]: order
         }
-        let query = Srzcs.find(kkk, (err, doc) => {
-            doc1 = doc;
-        });
-        query.count((err, num) => {
-            total = num;
-        });
-    } else {
-        kkk = {
-            _id: sid
-        };
     }
-    Srzcs.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).exec((err, doc) => {
+
+    // 根据用户等级查看数据不同
+
+    if (id===undefined) {
         res.json({
-            code: 0,
-            msg: "数据获取成功",
-            data: doc,
-            total: total
+            code:1,
+            data:[],
+            total:0,
+            msg:"你的账号存在异常请重新登录"
         });
-    })
+    }else{
+        Users.find({_id:id},(err,doc)=>{
+            if (err) {
+                res.json({
+                    code:1,
+                    data:[],
+                    total:0,
+                    msg:"你的账号存在异常请重新登录"
+                });
+            }
+            else{
+                if (doc.length>=1) {
+                    let dengji = doc[0].dengji;
+                    if (dengji === '普通记账') {
+                        if (sid === undefined) {  // 不修改的时候 sid 是undefined
+                            let searchValue1 = searchValue ? k = sersch(searchValue) : k;
+                            if (k.length >= 1) {
+                                kkk = {
+                                    $or: k
+                                };
+                            }
+                            let query = Srzcs.find(kkk, (err, doc) => {
+                                console.log(doc);
+                                doc1 = doc;
+                            });
+                            query.count((err, num) => {
+                                total = num;
+                            });
+                        } else {  // 修改的时候根据sid
+                            kkk = {
+                                _id: sid
+                            };
+                        }
+                        // {$or: [{yshb: {$regex: '小姐'}}]}
+                        Srzcs.find({$and:[{jzrid:id},kkk]}).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort1).exec((err, doc) => {
+                            res.json({
+                                code: 0,
+                                msg: "数据获取成功111",
+                                data: doc === null ? [] : doc,
+                                total: total
+                            });
+                        });
+                    }else{ // 如果是系统管理者或者是 经理记账  数据全部可以查看
+                        if (sid === undefined) {  // 不修改的时候 sid 是undefined
+                            let searchValue1 = searchValue ? k = sersch(searchValue) : k;
+                            if (k.length >= 1) {
+                                kkk = {
+                                    $or: k
+                                };
+                            }
+                            let query = Srzcs.find(kkk, (err, doc) => {
+                                console.log(doc);
+                                doc1 = doc;
+                            });
+                            query.count((err, num) => {
+                                total = num;
+                            });
+                        } else {  // 修改的时候根据sid
+                            kkk = {
+                                _id: sid
+                            };
+                        }
+                        // {$or: [{yshb: {$regex: '小姐'}}]}
+                        Srzcs.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort1).exec((err, doc) => {
+                            res.json({
+                                code: 0,
+                                msg: "数据获取成功111",
+                                data: doc === null ? [] : doc,
+                                total: total
+                            });
+                        });
+                    }
+                }else{
+                    res.json({
+                        code:1,
+                        data:[],
+                        total:0,
+                        msg:"你的账号存在异常请重新登录"
+                    });
+                }
+            }
+        });
+    }
+
 });
 
 //账户管理列表
@@ -119,26 +190,23 @@ function serschzh(searchValue) {
         {
             name: {$regex: searchValue}
         }, {
-            defaultprice: {$regex: searchValue}
-        }, {
-            price: {$regex: searchValue}
-        }, {
-            status: {$regex: searchValue}
-        }, {
-            createtime: {$regex: searchValue}
-        }, {
             sm: {$regex: searchValue}
         }]; // 查询的条件
     return obj;
 }
 
 router.get('/readaccountzh', (req, res) => {
-    let {order, offset, limit, sort, sid} = req.query; // 获取查询条件  sid 如果有值 就是获取单个的数据  如果是undefined 全部数据
+    let {order, offset, limit, sort, sid,dengji,id} = req.query; // 获取查询条件  sid 如果有值 就是获取单个的数据  如果是undefined 全部数据
     let searchValue = req.query.search;
     let k = [];
     let kkk = {};
     let doc1, total = 1;
-
+    let sort2 = {};
+    if (sort !== undefined) {  // 排序
+        sort2 = {
+            [sort]: order
+        }
+    }
     if (sid === undefined) {
         let searchValue1 = searchValue ? k = serschzh(searchValue) : k;
         if (k.length >= 1) {
@@ -157,11 +225,11 @@ router.get('/readaccountzh', (req, res) => {
             _id: sid
         };
     }
-    Accountzh.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).exec((err, doc) => {
+    Accountzh.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort2).exec((err, doc) => {
         res.json({
             code: 0,
             msg: "数据获取成功",
-            data: doc,
+            data:  doc === null ? [] : doc,
             total: total
         });
     });
@@ -179,13 +247,18 @@ router.get('/readaccountype', (req, res) => {
     let {order, offset, limit, sort} = req.query; // 获取查询条件
     let searchValue = req.query.search;
     let k = [];
-
     let searchValue1 = searchValue ? k = serschtype(searchValue) : k;
     let kkk = {};
     if (k.length >= 1) {
         kkk = {
             '$or': k
         };
+    }
+    let sort2 = {};
+    if (sort !== undefined) {
+        sort2 = {
+            [sort]: order
+        }
     }
     let doc1, total;
     let query = AccountTypes.find(kkk, (err, doc) => {
@@ -194,11 +267,11 @@ router.get('/readaccountype', (req, res) => {
     query.count((err, num) => {
         total = num;
     });
-    AccountTypes.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).exec((err, doc) => {
+    AccountTypes.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort2).exec((err, doc) => {
         res.json({
             code: 0,
             msg: "数据获取成功",
-            data: doc,
+            data: doc === null ? [] : doc,
             total: total
         });
     });
@@ -208,8 +281,7 @@ router.get('/readaccountype', (req, res) => {
 function serschdtype(searchValue) {
     let obj = [{
         name: {$regex: searchValue},
-        sm: {$regex: searchValue},
-        dtype: {$regex: searchValue}
+        sm: {$regex: searchValue}
     }]; // 查询的条件
     return obj;
 }
@@ -230,6 +302,12 @@ router.get('/readtype', (req, res) => {
             '$or': k
         };
     }
+    let sort2 = {};
+    if (sort !== undefined) {
+        sort2 = {
+            [sort]: order
+        }
+    }
     let doc1, total;
     let query = Dxtypes.find(kkk, (err, doc) => {
         doc1 = doc;
@@ -237,11 +315,11 @@ router.get('/readtype', (req, res) => {
     query.count((err, num) => {
         total = num;
     });
-    Dxtypes.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).exec((err, doc) => {
+    Dxtypes.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort2).exec((err, doc) => {
         res.json({
             code: 0,
             msg: "数据获取成功",
-            data: doc,
+            data: doc === null ? [] : doc,
             total: total
         });
     });
@@ -252,8 +330,14 @@ router.get('/readtype', (req, res) => {
 function serschkefu(searchValue) {
     let obj = [{
         name: {$regex: searchValue},
-        sm: {$regex: searchValue},
-        dtype: {$regex: searchValue}
+    },{
+        phone: {$regex: searchValue},
+    }, {
+        bz: {$regex: searchValue},
+    }, {
+        email: {$regex: searchValue},
+    },{
+        adders: {$regex: searchValue}
     }]; // 查询的条件
     return obj;
 }
@@ -274,6 +358,12 @@ router.get('/readkehus', (req, res) => {
             '$or': k
         };
     }
+    let sort2 = {};
+    if (sort !== undefined) {
+        sort2 = {
+            [sort]: order
+        }
+    }
     let doc1, total;
     let query = readKeHu.find(kkk, (err, doc) => {
         doc1 = doc;
@@ -281,11 +371,11 @@ router.get('/readkehus', (req, res) => {
     query.count((err, num) => {
         total = num;
     });
-    readKeHu.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).exec((err, doc) => {
+    readKeHu.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort2).exec((err, doc) => {
         res.json({
             code: 0,
             msg: "数据获取成功",
-            data: doc,
+            data: doc === null ? [] : doc,
             total: total
         });
     });
@@ -296,9 +386,14 @@ router.get('/readkehus', (req, res) => {
 function serschyuangong(searchValue) {
     let obj = [{
         name: {$regex: searchValue},
-        sm: {$regex: searchValue},
-        dtype: {$regex: searchValue},
-        status: {$regex: searchValue},
+    }, {
+        phone: {$regex: searchValue},
+    }, {
+        birthday: {$regex: searchValue},
+    },{
+        department: {$regex: searchValue},
+    },{
+        bz: {$regex: searchValue},
     }]; // 查询的条件
     return obj;
 }
@@ -319,6 +414,12 @@ router.get('/readyuangong', (req, res) => {
             '$or': k
         };
     }
+    let sort2 = {};
+    if (sort !== undefined) {
+        sort2 = {
+            [sort]: order
+        }
+    }
     let doc1, total;
     let query = Staffs.find(kkk, (err, doc) => {
         doc1 = doc;
@@ -326,11 +427,11 @@ router.get('/readyuangong', (req, res) => {
     query.count((err, num) => {
         total = num;
     });
-    Staffs.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).exec((err, doc) => {
+    Staffs.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort2).exec((err, doc) => {
         res.json({
             code: 0,
             msg: "数据获取成功",
-            data: doc,
+            data: doc === null ? [] : doc,
             total: total
         });
     });
@@ -341,8 +442,8 @@ router.get('/readyuangong', (req, res) => {
 function serschxm(searchValue) {
     let obj = [{
         name: {$regex: searchValue},
+    }, {
         sm: {$regex: searchValue},
-        status: {$regex: searchValue},
     }]; // 查询的条件
     return obj;
 }
@@ -363,6 +464,12 @@ router.get('/readxm', (req, res) => {
             '$or': k
         };
     }
+    let sort2 = {};
+    if (sort !== undefined) {
+        sort2 = {
+            [sort]: order
+        }
+    }
     let doc1, total;
     let query = Gcxms.find(kkk, (err, doc) => {
         doc1 = doc;
@@ -370,11 +477,11 @@ router.get('/readxm', (req, res) => {
     query.count((err, num) => {
         total = num;
     });
-    Gcxms.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).exec((err, doc) => {
+    Gcxms.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort2).exec((err, doc) => {
         res.json({
             code: 0,
             msg: "数据获取成功",
-            data: doc,
+            data: doc === null ? [] : doc,
             total: total
         });
     });
@@ -385,8 +492,18 @@ router.get('/readxm', (req, res) => {
 function serschusers(searchValue) {
     let obj = [{
         name: {$regex: searchValue},
-        sm: {$regex: searchValue},
-        status: {$regex: searchValue},
+    }, {
+        zsname: {$regex: searchValue},
+    },{
+        avatar: {$regex: searchValue},
+    },{
+        defaultxm: {$regex: searchValue},
+    },{
+        defaultyhk: {$regex: searchValue},
+    },{
+        defaultkhs: {$regex: searchValue},
+    },{
+        dengji: {$regex: searchValue},
     }]; // 查询的条件
     return obj;
 }
@@ -401,6 +518,12 @@ router.get('/readusers', (req, res) => {
         searchValue = 0;
     } else if (searchValue === "锁定") {
         searchValue = 1;
+    }
+    let sort1 = {};
+    if (sort !== undefined) {
+        sort1 = {
+            [sort]: order
+        }
     }
     if (sid === undefined) {
         let searchValue1 = searchValue ? k = serschusers(searchValue) : k;
@@ -420,11 +543,11 @@ router.get('/readusers', (req, res) => {
             _id: sid
         };
     }
-    Users.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).exec((err, doc) => {
+    Users.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort1).exec((err, doc) => {
         res.json({
             code: 0,
             msg: "数据获取成功",
-            data: doc,
+            data: doc === null ? [] : doc,
             total: total
         });
     });
@@ -433,16 +556,27 @@ router.get('/readusers', (req, res) => {
 
 //应收应付
 function serschysyf(searchValue) {
-    let obj = [{
-        name: {$regex: searchValue},
-        sm: {$regex: searchValue},
-        status: {$regex: searchValue},
-    }]; // 查询的条件
+    let obj = [
+        {
+            ssdtype: {$regex: searchValue},
+        }, {
+            ssxtype: {$regex: searchValue},
+        },{
+            yshb: {$regex: searchValue},
+    },{
+            ywxm: {$regex: searchValue},
+        },{
+            jbr: {$regex: searchValue},
+        },{
+            sm: {$regex: searchValue},
+        },{
+            jzr: {$regex: searchValue},
+        }]; // 查询的条件
     return obj;
 }
 
 router.get('/readysyf', (req, res) => {
-    let {order, offset, limit, sort, sid} = req.query; // 获取查询条件
+    let {order, offset, limit, sort, sid,id,dengji} = req.query; // 获取查询条件
     let searchValue = req.query.search;
     let k = [];
     let kkk = {};
@@ -452,32 +586,101 @@ router.get('/readysyf', (req, res) => {
     } else if (searchValue === "锁定") {
         searchValue = 1;
     }
-    if (sid === undefined) {
-        let searchValue1 = searchValue ? k = serschysyf(searchValue) : k;
-        if (k.length >= 1) {
-            kkk = {
-                '$or': k
-            };
+    let sort1 = {};
+    if (sort !== undefined) {
+        sort1 = {
+            [sort]: order
         }
-        let query = Ysyf.find(kkk, (err, doc) => {
-            doc1 = doc;
-        });
-        query.count((err, num) => {
-            total = num;
-        });
-    } else {
-        kkk = {
-            _id: sid
-        };
     }
-    Ysyf.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).exec((err, doc) => {
+    // 根据用户等级查看数据不同
+    if (id===undefined) {
         res.json({
-            code: 0,
-            msg: "数据获取成功",
-            data: doc,
-            total: total
+            code:1,
+            data:[],
+            total:0,
+            msg:"你的账号存在异常请重新登录"
         });
-    });
+    }else{
+        Users.find({_id:id},(err,doc)=>{
+            if (err) {
+                res.json({
+                    code:1,
+                    data:[],
+                    total:0,
+                    msg:"你的账号存在异常请重新登录"
+                });
+            }
+            else{
+                if (doc.length>=1) {
+                    let dengji = doc[0].dengji;
+                    if (dengji === '普通记账') {
+
+                        if (sid === undefined) {
+                            let searchValue1 = searchValue ? k = serschysyf(searchValue) : k;
+                            if (k.length >= 1) {
+                                kkk = {
+                                    '$or': k
+                                };
+                            }
+                            let query = Ysyf.find(kkk, (err, doc) => {
+                                doc1 = doc;
+                            });
+                            query.count((err, num) => {
+                                total = num;
+                            });
+                        } else {
+                            kkk = {
+                                _id: sid
+                            };
+                        }
+                        Ysyf.find({$and:[{jzrid:id},kkk]}).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort1).exec((err, doc) => {
+                            res.json({
+                                code: 0,
+                                msg: "数据获取成功",
+                                data: doc,
+                                total: total
+                            });
+                        });
+                    }else{ // 如果是系统管理者或者是 经理记账  数据全部可以查看
+                        if (sid === undefined) {
+                            let searchValue1 = searchValue ? k = serschysyf(searchValue) : k;
+                            if (k.length >= 1) {
+                                kkk = {
+                                    '$or': k
+                                };
+                            }
+                            let query = Ysyf.find(kkk, (err, doc) => {
+                                doc1 = doc;
+                            });
+                            query.count((err, num) => {
+                                total = num;
+                            });
+                        } else {
+                            kkk = {
+                                _id: sid
+                            };
+                        }
+                        Ysyf.find(kkk).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort1).exec((err, doc) => {
+                            res.json({
+                                code: 0,
+                                msg: "数据获取成功",
+                                data: doc,
+                                total: total
+                            });
+                        });
+                    }
+                }else{
+                    res.json({
+                        code:1,
+                        data:[],
+                        total:0,
+                        msg:"你的账号存在异常请重新登录"
+                    });
+                }
+            }
+        });
+    }
+
 });
 
 // 支出汇总统计图

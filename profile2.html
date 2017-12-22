@@ -204,7 +204,6 @@
                 title: '操作',
                 align: 'center',
                 valign: 'middle',
-                sortable: true,
                 formatter: function (value, row) {
                     var sname = row.sname;
                     var id = row._id;
@@ -223,6 +222,7 @@
         },
     });
     $(function () {
+
         getDxtype("1");
         // 类型改变  大类联动
         $('.srzcoptions').change(function (e) {
@@ -236,6 +236,18 @@
             var type = $('.ssdl').find('option:selected').val();
             var name = $('.slname').val();
             var sm = $('.slsm').val();
+            if (dtype == '') {
+                layer.msg("收入支出不能为空");
+                return false;
+            }
+            if (type == '') {
+                layer.msg("大类名称不能为空");
+                return false;
+            }
+            if (name == '') {
+                layer.msg("小类名称不能为空");
+                return false;
+            }
             var data = {
                 stype: dtype,
                 sname: type,
@@ -259,6 +271,7 @@
                 }
             });
         });
+
         $('.updatextype').click(function(){
             var name = $('.slname').val();
             var sm = $('.slsm').val();
@@ -274,7 +287,14 @@
                 dataType:'json',
                 type:'post',
                 success:function(res) {
-                    console.log(res);
+                    if (res.code!=0) {
+                        layer.msg(res.msg);
+                        return false;
+                    }
+                    layer.msg(res.msg);
+                    $('#myModal1').modal('hide');
+                    $('.modal-body input').val('');
+                    $table.bootstrapTable('refresh');
                 }
             })
         });
@@ -356,8 +376,8 @@
 
     //  这里公用一个modal 修改class
     $('#myModal1').on('hidden.bs.modal', function (e) {
-        $('.typesss').css('display', 'inline-block');
-        $('.sdsss').css('display', 'inline-block');
+        $('.typesss').css('display', 'flex');
+        $('.sdsss').css('display', 'flex');
         $('.addxtype').css('display', 'inline-block');
         $('.updatextype').css('display', 'none');
         $('#myModalLabel1').text("添加信息");

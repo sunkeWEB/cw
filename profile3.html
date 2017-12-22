@@ -52,43 +52,43 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="col-sm-10 control-label">生意伙伴(客户)名称</label>
+                        <label class="control-label">生意伙伴</label>
                         <div class="">
-                            <input type="text" class="form-control khname">
+                            <input type="text" class="form-control khname" placeholder="生意伙伴(客户)名称">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">电话</label>
+                        <label class="control-label">电话</label>
                         <div class="">
-                            <input type="text" class="form-control khphone">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">传真</label>
-                        <div class="">
-                            <input type="text" class="form-control khcz">
+                            <input type="text" class="form-control khphone" placeholder="客户电话">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Email</label>
+                        <label class="control-label">传真</label>
                         <div class="">
-                            <input type="text" class="form-control khemail">
+                            <input type="text" class="form-control khcz"  placeholder="传真">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">地址</label>
+                        <label class="control-label">Email</label>
                         <div class="">
-                            <input type="text" class="form-control khadders">
+                            <input type="text" class="form-control khemail"  placeholder="客户电子邮件">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">备注</label>
+                        <label class="control-label">地址</label>
                         <div class="">
-                            <input type="text" class="form-control khbz">
+                            <input type="text" class="form-control khadders" placeholder="客户地址">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">备注</label>
+                        <div class="">
+                            <input type="text" class="form-control khbz" placeholder="其他说明信息">
                         </div>
                     </div>
 
@@ -304,6 +304,18 @@
         var email = $('.khemail').val();
         var adders = $('.khadders').val();
         var bz = $('.khbz').val();
+        if (name=='') {
+            layer.msg("客户姓名必须填写");
+            return false;
+        }
+        if (phone=='') {
+            layer.msg("客户电话必须填写");
+            return false;
+        }
+        if (adders=='') {
+            layer.msg("客户地址必须填写");
+            return false;
+        }
         var data = {
             name: name,
             phone: phone,

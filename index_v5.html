@@ -193,6 +193,18 @@
             excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
             onMsoNumberFormat: $.DoOnMsoNumberFormat
         },
+        queryParamsType : 'limit',
+        queryParams:function (params) {
+            var obj = {};
+            obj['limit'] = params.limit;
+            obj['offset'] = params.offset;
+            obj['order'] = params.order;
+            obj['search'] = params.search;
+            obj['sort'] = params.sort;
+            obj['dengji'] = parent.dengji;
+            obj['id'] = parent.jzrid;
+            return obj;
+        },
         contentType: "application/x-www-form-urlencoded", /**支持跨域**/
         clickToSelect: true,
         showRefresh: true,                  //是否显示刷新按钮

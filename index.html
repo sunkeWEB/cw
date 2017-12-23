@@ -69,7 +69,7 @@
                     </ul>
 
                 </li>
-                <li>
+                <li class="zjgl">
                     <a href="#">
                         <i class="fa fa fa-bar-chart-o"></i>
                         <span class="nav-label">资金管理</span>
@@ -125,8 +125,8 @@
                             </li>
                             <li><a class="J_menuItem" href="profile6.html">用户管理</a>
                             </li>
-                            <li><a class="J_menuItem" href="calendar.html">数据库维护</a>
-                            </li>
+                            <!--<li><a class="J_menuItem" href="calendar.html">数据库维护</a>-->
+                            <!--</li>-->
                             <li class="updatepwds"><a class="J_menuItem" href="updatepwd.html">修改密码</a>
                             </li>
                         </ul>
@@ -189,7 +189,7 @@
 <!-- 第三方插件 -->
 <script src="js/plugins/pace/pace.min.js"></script>
 <script>
-    var listsrzc,daochu,jzrzcname,jzrid,dengji;
+    var listsrzc,daochu,jzrzcname,jzrid,dengji,quanxianarr=[];
     $(function () {
         $.ajax({
             url: 'http://localhost:3000/users/auth',
@@ -211,7 +211,9 @@
                     $('.xtzgqx > li').not('.updatepwds').remove();
                 }
                 var arr = res.data[0].quanxian;
+                console.log(arr);
                 for (item of arr) {
+                    quanxianarr.push(item.name);
                     if (item.name == "收支记账") {
                         listsrzc = item.list;
                         if (listsrzc.create != 0) {   // 收支流水列表的 创建
@@ -246,6 +248,12 @@
                         }
                     }
                 }
+
+               // 如果资金管理没有权限 删除
+                var result1 = quanxianarr.indexOf("资金管理"); //返回index为2
+                // if (result1 == -1) {
+                //     $('.zjgl').remove();
+                // }
             }
         });
     });

@@ -415,25 +415,32 @@
     function edit (id) {
         pid = id;
         var url = "http://localhost:3000/reads/readysyf";
-        var res = $.readData(url,id);
-        if (res.code!=0) {
-            layer.msg(res.msg);
-            return false;
-        }
-        var lists = res.data[0];
-        laydate.render({
-            elem: '#test1', //指定元素
-            value:new Date((lists.jztime) * 1000)
+        $.ajax({
+            url: url,
+            type: 'get',
+            data: {sid: pid, id: parent.jzrid},
+            dataType: 'json',
+            success: function (res) {
+                if (res.code!=0) {
+                    layer.msg(res.msg);
+                    return false;
+                }
+                var lists = res.data[0];
+                laydate.render({
+                    elem: '#test1', //指定元素
+                    value:new Date((lists.jztime) * 1000)
+                });
+                laydate.render({
+                    elem: '#test2', //指定元素
+                    value:new Date((lists.sktime) * 1000)
+                });
+                $('.price').val(lists.price);
+                $('.sm1').val(lists.sm);
+                getDxtype(lists.dtype.toString(),lists.ssdtype);
+                getDatas(lists.yshb,lists.ywxm); // 初始化 生意伙伴 项目
+                $('#myModa71').modal('show');
+            }
         });
-        laydate.render({
-            elem: '#test2', //指定元素
-            value:new Date((lists.sktime) * 1000)
-        });
-        $('.price').val(lists.price);
-        $('.sm1').val(lists.sm);
-        getDxtype(lists.dtype.toString(),lists.ssdtype);
-        getDatas(lists.yshb,lists.ywxm); // 初始化 生意伙伴 项目
-        $('#myModa71').modal('show');
     }
     function getDxtype(type,ssdtype) {
         var res = sendAjax('http://127.0.0.1:3000/reads/readdalei', 'get', {type: type});

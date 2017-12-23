@@ -364,27 +364,19 @@
                 align: 'center',
                 valign: 'middle'
             },
-            {
-                title: '用户权限',
-                align: 'center',
-                valign: 'middle',
-                formatter: function () {
-                    return "<span>查看</span>"
-                }
-            },
-            {
-                title: '状态',
-                field: 'status',
-                align: 'center',
-                valign: 'middle',
-                formatter: function (v) {
-                    if (v == 0) {
-                        return "<span>激活</span>"
-                    } else {
-                        return "<span>锁定</span>"
-                    }
-                }
-            },
+            // {
+            //     title: '状态',
+            //     field: 'status',
+            //     align: 'center',
+            //     valign: 'middle',
+            //     formatter: function (v) {
+            //         if (v == 0) {
+            //             return "<span>激活</span>"
+            //         } else {
+            //             return "<span>锁定</span>"
+            //         }
+            //     }
+            // },
             {
                 title: '操作',
                 align: 'center',
@@ -435,43 +427,7 @@
         $('.updateusers').click(function () {
             createUpdateuser(0);
         });
-
-
-        var res = sendAjax('http://localhost:3000/reads/read', 'get');
-        if (!res.code == 0) {
-            layer.msg("系统错误  获取失败");
-        }
-        var xm = res.xm;
-        xm.forEach(function (item, index) {
-            $('.userxm').append(`<option value="${item.name}">${item.name}</option>`);
-        });
-        $('.userxm').selectpicker({
-            style: 'btn-white',
-            size: 4,
-            liveSearchPlaceholder: '查找你的项目',
-            noneResultsText: '没有查询到相关的信息'
-        });
-        // 生意伙伴
-        var khs = res.kh;
-        khs.forEach(function (item, index) {
-            $('.useraccount').append(`<option value="${item.name}">${item.name}</option>`);
-        });
-        $('.useraccount').selectpicker({
-            style: 'btn-white',
-            size: 4
-        });
-        // 渲染默认账户
-        var resaccount = sendAjax('http://localhost:3000/reads/readaccountzh', 'get');
-        if (!resaccount.code == 0) {
-            layer.msg("系统错误  获取失败");
-        }
-        resaccount.data.forEach(function (item, index) {
-            $('.userdefaultzh').append(`<option value="${item.name}">${item.name}</option>`);
-        });
-        $('.userdefaultzh').selectpicker({
-            style: 'btn-white',
-            size: 4
-        });
+        getKKK();
     });
 
     function createUpdateuser(types) {
@@ -511,6 +467,8 @@
             }
         }
         if(types==1) {
+            console.log(dengji);
+            console.log(quanxian);
             if (pwd != repwd) {
                 layer.msg("密码和确认密码不相等");
                 return false;
@@ -525,6 +483,7 @@
                 avatar: avatar,
                 defaultyhk: zjzh,
                 pwd: pwd,
+                account:account,
                 defaultxm: xm,
                 dengji: dengji,
                 quanxian: quanxian
@@ -552,7 +511,8 @@
                 defaultyhk: zjzh,
                 defaultxm: xm,
                 dengji: dengji,
-                quanxian: quanxian
+                quanxian: quanxian,
+                account:account
             };
             $.ajax({
                 url: 'http://localhost:3000/dxtypes/updateusers',
@@ -615,7 +575,7 @@
         $('.userzsname').val(lists.zsname); // 真实姓名
         $('.userdefaultzh').selectpicker('val', lists.defaultyhk);
         $('.userxm').selectpicker('val', lists.defaultxm);
-        $('.useraccount').selectpicker('val',lists.defaultxm);
+        $('.useraccount').selectpicker('val',lists.defaultkhs);
         var items = lists.quanxian;
         $('input').iCheck('uncheck');// 设置全部不选择
         switch (lists.dengji) {
@@ -689,8 +649,46 @@
         $('.pwdkk').css('display','flex');
         $('#myModal7  #addusers').css("display","inline-block");
         $('#myModal7  .updateusers').css("display","none");
-        $('.modal-body input').val('');
+        $('input[type="text"],input[type="password"]').val('');
     });
+
+    function getKKK () {
+        var res = sendAjax('http://localhost:3000/reads/read', 'get');
+        if (!res.code == 0) {
+            layer.msg("系统错误  获取失败");
+        }
+        var xm = res.xm;
+        xm.forEach(function (item, index) {
+            $('.userxm').append(`<option value="${item.name}">${item.name}</option>`);
+        });
+        $('.userxm').selectpicker({
+            style: 'btn-white',
+            size: 4,
+            liveSearchPlaceholder: '查找你的项目',
+            noneResultsText: '没有查询到相关的信息'
+        });
+        // 生意伙伴
+        var khs = res.kh;
+        khs.forEach(function (item, index) {
+            $('.useraccount').append(`<option value="${item.name}">${item.name}</option>`);
+        });
+        $('.useraccount').selectpicker({
+            style: 'btn-white',
+            size: 4
+        });
+        // 渲染默认账户
+        var resaccount = sendAjax('http://localhost:3000/reads/readaccountzh', 'get');
+        if (!resaccount.code == 0) {
+            layer.msg("系统错误  获取失败");
+        }
+        resaccount.data.forEach(function (item, index) {
+            $('.userdefaultzh').append(`<option value="${item.name}">${item.name}</option>`);
+        });
+        $('.userdefaultzh').selectpicker({
+            style: 'btn-white',
+            size: 4
+        });
+    }
 
 </script>
 </body>

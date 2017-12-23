@@ -35,7 +35,8 @@
             background-color: white;
             color: #000;
         }
-        .wrapper-content{
+
+        .wrapper-content {
             background-color: white;
         }
     </style>
@@ -216,7 +217,7 @@
             excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
             onMsoNumberFormat: $.DoOnMsoNumberFormat
         },
-        sidePagination: "server", //服务端处理分页
+        sidePagination: "client", //服务端处理分页
         columns: [
             {
                 title: 'pid',
@@ -269,12 +270,12 @@
                 align: 'center',
             }
         ],
-        responseHandler: function (res) {
-            return {
-                "total": res.total,//总页数
-                "rows": res.data   //数据
-            };
-        },
+        // responseHandler: function (res) {
+        //     return {
+        //         // "total": res.total,//总页数
+        //         "rows": res   //数据
+        //     };
+        // },
     });
     $table2.bootstrapTable({
         url: '',         //请求后台的URL（*）
@@ -305,7 +306,7 @@
             excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
             onMsoNumberFormat: $.DoOnMsoNumberFormat
         },
-        sidePagination: "server", //服务端处理分页
+        sidePagination: "client", //服务端处理分页
         columns: [
             {
                 title: '时间',
@@ -329,19 +330,19 @@
                 align: 'center',
                 valign: 'middle',
                 visible: false
-            },{
+            }, {
                 title: '类型',
                 align: 'center',
                 valign: 'middle',
-                formatter:function (value,row) {
+                formatter: function (value, row) {
 
-                    if (row.pid==1) {
+                    if (row.pid == 1) {
                         return "<span>转入</span>"
-                    }else{
+                    } else {
                         return "<span>转出</span>"
                     }
                 }
-            },{
+            }, {
                 title: '成员',
                 field: 'jzr',
                 align: 'center',
@@ -349,9 +350,9 @@
                 title: '帐户',
                 field: 'form',
                 align: 'center',
-                formatter:function (value,row) {
+                formatter: function (value, row) {
                     var to = row.to;
-                    return "<span>"+value +"->"+ to+"</span>"
+                    return "<span>" + value + "->" + to + "</span>"
                 }
             }, {
                 title: '流入',
@@ -376,13 +377,7 @@
                 field: 'zcsm',
                 align: 'center',
             }
-        ],
-        responseHandler: function (res) {
-            return {
-                "total": res.total,//总页数
-                "rows": res.data   //数据
-            };
-        },
+        ]
     });
     $table.bootstrapTable({
         url: 'http://localhost:3000/reads/readaccountzh',         //请求后台的URL（*）
@@ -399,6 +394,9 @@
         pageNumber: 1,                       //初始化加载第一页，默认第一页
         pageSize: 10, //每页的记录行数（*）
         search: true,
+        onDblClickRow:function () {
+            console.log("132456798");
+        },
         sidePagination: "server", //服务端处理分页
         columns: [
             {
@@ -427,9 +425,15 @@
                 formatter: function (value, row) {
                     var xmpid = row._id;
                     var names = row.name;
-                    return `<button type="button" class="btn btn-info" onclick="exportszls('${xmpid}')" style="color: white">收支流水详情</button>
+                    var result2 = parent.quanxianarr.indexOf("账户转账"); //返回index为2
+                    if (result2 == -1) {
+                        return `<button type="button" class="btn btn-info" onclick="exportszls('${xmpid}')" style="color: white">收支流水详情</button>
+                              <button type="button" class="btn btn-info" onclick="yhzzzzls('${xmpid}')" style="color: white">转账流水详情</button>`
+                    }else{
+                        return `<button type="button" class="btn btn-info" onclick="exportszls('${xmpid}')" style="color: white">收支流水详情</button>
                               <button type="button" class="btn btn-info" onclick="yhzzzzls('${xmpid}')" style="color: white">转账流水详情</button>
-                             <button type="button" class="btn btn-info" onclick="zhuanzhang('${xmpid}','${names}')" style="color: white">转账</button>`
+                             <button type="button" class="btn btn-info yhzhzz" onclick="zhuanzhang('${xmpid}','${names}')" style="color: white">转账</button>`
+                    }
                 }
             }
         ],
@@ -470,15 +474,19 @@
                         layer.msg(res.msg);
                         return false;
                     }
-                    console.log(res);
+                    layer.msg(res.msg);
+                    $('.modal-body input').val('');
+                    $table.bootstrapTable('refresh');
+                    $('#myModal189').modal('hide');
                 }
             })
         });
+        quanxiandengji();
     });
 
     function exportszls(x) {
         $table1.bootstrapTable('refreshOptions', {
-            url: 'http://127.0.0.1:3000/reads/readyhzhszls',
+            url: 'http://localhost:3000/reads/readyhzhszls',
             queryParams: function () {
                 return {
                     id: x
@@ -487,6 +495,7 @@
         });
         $('#myModal181').modal('show');
     }
+
     function zhuanzhang(x, name) {
         $('.czzh').text(name);
         var res1 = sendAjax('http://127.0.0.1:3000/reads/readyshb', 'get');
@@ -496,7 +505,6 @@
         }
         $('.zhuanruzh  option').remove();
         res1.yhzh.forEach(function (items) {
-            console.log(items.name,name);
             if (items.name != name) {
                 $('.zhuanruzh').append(`<option value="${items.name}">${items.name}</option>`);
             }
@@ -523,6 +531,15 @@
         $('#myModal190').modal('show');
     }
 
+    function quanxiandengji() {
+
+        var result2 = parent.quanxianarr.indexOf("账户转账"); //返回index为2
+        console.log(result2);
+        if (result2 == -1) {
+            console.log($('.yhzhzz'));
+            $('.yhzhzz').empty();
+        }
+    }
 </script>
 </body>
 

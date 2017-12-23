@@ -77,39 +77,40 @@ function sersch(searchValue) {
 }
 
 router.get('/readsrzc', (req, res) => {
-    let {order, offset, limit, sort, sid,id,dengji} = req.query; // 获取查询条件 修改的时候根据sid
+    let {order, offset, limit, sort, sid, id, dengji} = req.query; // 获取查询条件 修改的时候根据sid
+    console.log("收支流水列表"+id);
     let searchValue = req.query.search;
     let k = [];
     let kkk = {};
     let doc1, total = 1;
     let sort1 = {};
     if (sort !== undefined) {
-         sort1 = {
+        sort1 = {
             [sort]: order
         }
     }
 
     // 根据用户等级查看数据不同
 
-    if (id===undefined) {
+    if (id === undefined) {
         res.json({
-            code:1,
-            data:[],
-            total:0,
-            msg:"你的账号存在异常请重新登录"
+            code: 1,
+            data: [],
+            total: 0,
+            msg: "你的账号存在异常请重新登录4"
         });
-    }else{
-        Users.find({_id:id},(err,doc)=>{
+    } else {
+        Users.find({_id: id}, (err, doc) => {
             if (err) {
                 res.json({
-                    code:1,
-                    data:[],
-                    total:0,
-                    msg:"你的账号存在异常请重新登录"
+                    code: 1,
+                    data: [],
+                    total: 0,
+                    msg: "你的账号存在异常请重新登录5"
                 });
             }
-            else{
-                if (doc.length>=1) {
+            else {
+                if (doc.length >= 1) {
                     let dengji = doc[0].dengji;
                     if (dengji === '普通记账') {
                         if (sid === undefined) {  // 不修改的时候 sid 是undefined
@@ -132,7 +133,7 @@ router.get('/readsrzc', (req, res) => {
                             };
                         }
                         // {$or: [{yshb: {$regex: '小姐'}}]}
-                        Srzcs.find({$and:[{jzrid:id},kkk]}).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort1).exec((err, doc) => {
+                        Srzcs.find({$and: [{jzrid: id}, kkk]}).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort1).exec((err, doc) => {
                             res.json({
                                 code: 0,
                                 msg: "数据获取成功111",
@@ -140,7 +141,7 @@ router.get('/readsrzc', (req, res) => {
                                 total: total
                             });
                         });
-                    }else{ // 如果是系统管理者或者是 经理记账  数据全部可以查看
+                    } else { // 如果是系统管理者或者是 经理记账  数据全部可以查看
                         if (sid === undefined) {  // 不修改的时候 sid 是undefined
                             let searchValue1 = searchValue ? k = sersch(searchValue) : k;
                             if (k.length >= 1) {
@@ -170,12 +171,12 @@ router.get('/readsrzc', (req, res) => {
                             });
                         });
                     }
-                }else{
+                } else {
                     res.json({
-                        code:1,
-                        data:[],
-                        total:0,
-                        msg:"你的账号存在异常请重新登录"
+                        code: 1,
+                        data: [],
+                        total: 0,
+                        msg: "你的账号存在异常请重新登录6"
                     });
                 }
             }
@@ -196,7 +197,7 @@ function serschzh(searchValue) {
 }
 
 router.get('/readaccountzh', (req, res) => {
-    let {order, offset, limit, sort, sid,dengji,id} = req.query; // 获取查询条件  sid 如果有值 就是获取单个的数据  如果是undefined 全部数据
+    let {order, offset, limit, sort, sid, dengji, id} = req.query; // 获取查询条件  sid 如果有值 就是获取单个的数据  如果是undefined 全部数据
     let searchValue = req.query.search;
     let k = [];
     let kkk = {};
@@ -229,7 +230,7 @@ router.get('/readaccountzh', (req, res) => {
         res.json({
             code: 0,
             msg: "数据获取成功",
-            data:  doc === null ? [] : doc,
+            data: doc === null ? [] : doc,
             total: total
         });
     });
@@ -330,13 +331,13 @@ router.get('/readtype', (req, res) => {
 function serschkefu(searchValue) {
     let obj = [{
         name: {$regex: searchValue},
-    },{
+    }, {
         phone: {$regex: searchValue},
     }, {
         bz: {$regex: searchValue},
     }, {
         email: {$regex: searchValue},
-    },{
+    }, {
         adders: {$regex: searchValue}
     }]; // 查询的条件
     return obj;
@@ -390,9 +391,9 @@ function serschyuangong(searchValue) {
         phone: {$regex: searchValue},
     }, {
         birthday: {$regex: searchValue},
-    },{
+    }, {
         department: {$regex: searchValue},
-    },{
+    }, {
         bz: {$regex: searchValue},
     }]; // 查询的条件
     return obj;
@@ -494,15 +495,15 @@ function serschusers(searchValue) {
         name: {$regex: searchValue},
     }, {
         zsname: {$regex: searchValue},
-    },{
+    }, {
         avatar: {$regex: searchValue},
-    },{
+    }, {
         defaultxm: {$regex: searchValue},
-    },{
+    }, {
         defaultyhk: {$regex: searchValue},
-    },{
+    }, {
         defaultkhs: {$regex: searchValue},
-    },{
+    }, {
         dengji: {$regex: searchValue},
     }]; // 查询的条件
     return obj;
@@ -561,22 +562,22 @@ function serschysyf(searchValue) {
             ssdtype: {$regex: searchValue},
         }, {
             ssxtype: {$regex: searchValue},
-        },{
+        }, {
             yshb: {$regex: searchValue},
-    },{
+        }, {
             ywxm: {$regex: searchValue},
-        },{
+        }, {
             jbr: {$regex: searchValue},
-        },{
+        }, {
             sm: {$regex: searchValue},
-        },{
+        }, {
             jzr: {$regex: searchValue},
         }]; // 查询的条件
     return obj;
 }
 
 router.get('/readysyf', (req, res) => {
-    let {order, offset, limit, sort, sid,id,dengji} = req.query; // 获取查询条件
+    let {order, offset, limit, sort, sid, id, dengji} = req.query; // 获取查询条件
     let searchValue = req.query.search;
     let k = [];
     let kkk = {};
@@ -593,25 +594,25 @@ router.get('/readysyf', (req, res) => {
         }
     }
     // 根据用户等级查看数据不同
-    if (id===undefined) {
+    if (id === undefined) {
         res.json({
-            code:1,
-            data:[],
-            total:0,
-            msg:"你的账号存在异常请重新登录"
+            code: 1,
+            data: [],
+            total: 0,
+            msg: "你的账号存在异常请重新登录1"
         });
-    }else{
-        Users.find({_id:id},(err,doc)=>{
+    } else {
+        Users.find({_id: id}, (err, doc) => {
             if (err) {
                 res.json({
-                    code:1,
-                    data:[],
-                    total:0,
-                    msg:"你的账号存在异常请重新登录"
+                    code: 1,
+                    data: [],
+                    total: 0,
+                    msg: "你的账号存在异常请重新登录2"
                 });
             }
-            else{
-                if (doc.length>=1) {
+            else {
+                if (doc.length >= 1) {
                     let dengji = doc[0].dengji;
                     if (dengji === '普通记账') {
 
@@ -633,7 +634,7 @@ router.get('/readysyf', (req, res) => {
                                 _id: sid
                             };
                         }
-                        Ysyf.find({$and:[{jzrid:id},kkk]}).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort1).exec((err, doc) => {
+                        Ysyf.find({$and: [{jzrid: id}, kkk]}).limit(parseInt(limit)).skip(parseInt(offset)).sort(sort1).exec((err, doc) => {
                             res.json({
                                 code: 0,
                                 msg: "数据获取成功",
@@ -641,7 +642,7 @@ router.get('/readysyf', (req, res) => {
                                 total: total
                             });
                         });
-                    }else{ // 如果是系统管理者或者是 经理记账  数据全部可以查看
+                    } else { // 如果是系统管理者或者是 经理记账  数据全部可以查看
                         if (sid === undefined) {
                             let searchValue1 = searchValue ? k = serschysyf(searchValue) : k;
                             if (k.length >= 1) {
@@ -669,12 +670,12 @@ router.get('/readysyf', (req, res) => {
                             });
                         });
                     }
-                }else{
+                } else {
                     res.json({
-                        code:1,
-                        data:[],
-                        total:0,
-                        msg:"你的账号存在异常请重新登录"
+                        code: 1,
+                        data: [],
+                        total: 0,
+                        msg: "你的账号存在异常请重新登录3"
                     });
                 }
             }
@@ -868,60 +869,53 @@ router.get('/readyshb', (req, res) => {
 
 //读取银行账户收支流水详情
 router.get('/readyhzhszls', (req, res) => {
-    let {offset, limit, id} = req.query; // 获取查询条件
-    Accountzh.find({_id: id}).limit(parseInt(limit)).skip(parseInt(offset)).exec((err, doc1) => {
+    let {id} = req.query; // 获取查询条件
+    Accountzh.find({_id: id}, (err, doc) => {
         if (err) {
             res.json({
                 code: 1,
-                msg: "系统错误"
+                msg: "系统错误",
+                data: []
+            });
+        }
+        if (doc.length >= 1) {
+            res.json({
+                code: 0,
+                msg: "获取数据成功",
+                data: doc[0].szdz,
             });
         } else {
-            if (doc1.length >= 1) {
-                Accountzh.find({_id: id}, (err, doc) => {
-                    res.json({
-                        code: 0,
-                        msg: "数据获取成功",
-                        data: doc1[0].szdz,
-                        total: doc[0].szdz.length
-                    });
-                });
-            } else {
-                return res.json({
-                    code: 2,
-                    msg: "没有相关的数据",
-                    data: [],
-                    total: 0
-                });
-            }
+            return res.json({
+                code: 2,
+                msg: "没有相关的数据",
+                data: []
+            });
         }
     });
 });
 
 //读取银行账户转账流水详情
 router.get('/readyhzzzzls', (req, res) => {
-    let {offset, limit, id} = req.query; // 获取查询条件
-    Accountzh.find({_id: id}).limit(parseInt(limit)).skip(parseInt(offset)).exec((err, doc1) => {
+    let {id} = req.query; // 获取查询条件
+    Accountzh.find({_id: id}, (err, doc) => {
         if (err) {
             res.json({
                 code: 1,
-                msg: "系统错误"
+                msg: "数据获取失败",
+                data: [],
             });
         } else {
-            if (doc1.length >= 1) {
-                Accountzh.find({_id: id}, (err, doc) => {
-                    res.json({
-                        code: 0,
-                        msg: "数据获取成功",
-                        data: doc1[0].zzdz,
-                        total: doc[0].zzdz.length
-                    });
+            if (doc.length >= 1) {
+                res.json({
+                    code: 0,
+                    msg: "数据获取成功",
+                    data: doc[0].zzdz,
                 });
             } else {
-                return res.json({
-                    code: 2,
-                    msg: "没有相关的数据",
+                res.json({
+                    code: 1,
+                    msg: "数据获取失败",
                     data: [],
-                    total: 0
                 });
             }
         }

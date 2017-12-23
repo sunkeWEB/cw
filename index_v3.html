@@ -16,16 +16,19 @@
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
     <link href="https://cdn.bootcss.com/layer/3.1.0/theme/default/layer.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="js/plugins/layDate/laydate/theme/default/laydate.css">
     <style>
-        .form-group{
+        .form-group {
             margin-bottom: 12px;
         }
-        .m-b{
+
+        .m-b {
             margin: 0;
         }
-        .columns  button {
+
+        .columns button {
             background-color: white;
             color: #000;
         }
@@ -40,7 +43,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">项目修改</h4>
                 </div>
                 <div class="modal-body">
@@ -52,7 +56,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group"  style="display: flex">
+                        <div class="form-group" style="display: flex">
                             <label class="control-label" style="width: 80px;margin-right: 5px">所属小类</label>
                             <div class="" style="flex: 1">
                                 <select class="form-control m-b ssxl" name="account">
@@ -60,40 +64,41 @@
                             </div>
                         </div>
 
-                        <div class="form-group"  style="display: flex">
+                        <div class="form-group" style="display: flex">
                             <label class="control-label" style="width: 80px;margin-right: 5px">金额</label>
                             <div class="" style="flex: 1">
                                 <input type="number" class="form-control price">
                             </div>
                         </div>
-                        <div class="form-group"  style="display: flex">
+                        <div class="form-group" style="display: flex">
                             <label class="control-label" style="width: 80px;margin-right: 5px">时间</label>
                             <div class="" style="flex: 1">
                                 <input type="text" class="form-control time" placeholder="请选择日期" id="test1">
                             </div>
                         </div>
-                        <div class="form-group"  style="display: flex">
+                        <div class="form-group" style="display: flex">
                             <label class="control-label" style="width: 80px;margin-right: 5px">资金账户</label>
                             <div class="" style="flex: 1">
                                 <select class="form-control  yinhan" name="account">
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group"  style="display: flex">
+                        <div class="form-group" style="display: flex">
                             <label class="control-label" style="width: 80px;margin-right: 5px">生意伙伴</label>
                             <div class="" style="flex: 1">
                                 <select class="form-control  syhb" name="account" data-live-search="true">
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group"  style="display: flex">
+                        <div class="form-group" style="display: flex">
                             <label class="control-label" style="width: 80px;margin-right: 5px">业务项目</label>
                             <div class="" style="flex: 1">
-                                <select class="form-control m-b ywxm1 selectpicker" name="account" data-live-search="true" >
+                                <select class="form-control m-b ywxm1 selectpicker" name="account"
+                                        data-live-search="true">
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group"  style="display: flex">
+                        <div class="form-group" style="display: flex">
                             <label class="control-label" style="width: 80px;margin-right: 5px">经办人</label>
                             <div class="" style="flex: 1">
                                 <select class="form-control m-b jbpeople" name="account">
@@ -101,10 +106,10 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group"  style="display: flex">
+                        <div class="form-group" style="display: flex">
                             <label class=" control-label" style="width: 80px;margin-right: 5px">说明</label>
                             <div class="" style="flex: 1">
-                                <textarea class="form-control sm" name=""   rows="5" style="width: 100%"></textarea>
+                                <textarea class="form-control sm" name="" rows="5" style="width: 100%"></textarea>
                             </div>
                         </div>
                     </div>
@@ -142,7 +147,7 @@
 <script src="js/plugins/bootstrap-table/tableExport.js"></script>
 <script src="js/plugins/bootstrap-table/export/bootstrap-table-export.min.js"></script>
 <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
-<script  src="js/plugins/layDate/laydate/laydate.js"></script>
+<script src="js/plugins/layDate/laydate/laydate.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 <script src="js/plugins/bootstrap-table/xlsx.core.min.js"></script>
 <script src="js/myjquery.js"></script>
@@ -153,7 +158,8 @@
             result = "\\@";
         return result;
     }
-    var pid =''; // 修改项目的id
+
+    var pid = ''; // 修改项目的id
     var $table = $('#table');
     $table.bootstrapTable({
         url: 'http://127.0.0.1:3000/reads/readsrzc',         //请求后台的URL（*）
@@ -161,9 +167,9 @@
         toolbar: '#toolbar',        //工具按钮用哪个容器
         showExport: true,//显示导出按钮
         exportDataType: "basic", //basic', 'all', 'selected'.
-        exportTypes:['excel'],
-        queryParamsType : 'limit',
-        queryParams:function (params) {
+        exportTypes: ['excel'],
+        queryParamsType: 'limit',
+        queryParams: function (params) {
             var obj = {};
             obj['limit'] = params.limit;
             obj['offset'] = params.offset;
@@ -174,8 +180,8 @@
             obj['id'] = parent.jzrid;
             return obj;
         },
-        exportOptions:{
-            ignoreColumn: [0,10],  //忽略某一列的索引
+        exportOptions: {
+            ignoreColumn: [0, 10],  //忽略某一列的索引
             fileName: '收入支出流水账',  //文件名称设置
             worksheetName: 'sheet1',  //表格工作区名称
             excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
@@ -203,19 +209,19 @@
                 field: 'type',
                 align: 'center',
                 valign: 'middle',
-                visible:false
+                visible: false
             },
             {
                 title: '小类',
                 field: 'xtype',
                 align: 'center',
                 valign: 'middle',
-                visible:false
+                visible: false
             },
             {
                 title: '时间',
                 field: 'time',
-                class:"xmstime",
+                class: "xmstime",
                 align: 'center',
                 valign: 'middle',
                 sortable: true,
@@ -229,7 +235,7 @@
                 align: 'center',
                 valign: 'middle',
                 formatter: function (value, row, index) {
-                    return value +" -> "+ row.xtype
+                    return value + " -> " + row.xtype
                 }
             }, {
                 title: '收入',
@@ -273,7 +279,7 @@
                 field: 'ywxm',
                 align: 'center',
                 valign: 'middle',
-                class:"ywxms"
+                class: "ywxms"
             }
             , {
                 title: '经手人',
@@ -291,9 +297,18 @@
                 field: '_id',
                 align: 'center',
                 valign: 'middle',
-                formatter: function (value,row,index) {
-                    return `<button title="你没有权限进行此操作" data-id="${value}" type="button" class="btn delete" onclick="del(this)" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>
-                             <button title="你没有权限进行此操作" data-id="${value}" type="button" class="btn update" onclick="edit(this)" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`
+                formatter: function (value, row, index) {
+                    var result3 = parent.quanxianarr.indexOf("流水修改"); //返回index为2
+                    var result4 = parent.quanxianarr.indexOf("流水删除"); //返回index为2
+                    var str;
+                    if (result4 >= 0) {
+                        str = `<button title="你没有权限进行此操作" data-id="${value}" type="button" class="btn delete" onclick="del(this)" style="background-color: salmon;color: white"><i class="glyphicon glyphicon-trash"></i>删除</button>`;
+                    }
+
+                    if (result3 >= 0) {
+                        str += `<button title="你没有权限进行此操作" data-id="${value}" type="button" class="btn update" onclick="edit(this)" style="background-color: #1d75b3;color: white"><i class="glyphicon glyphicon-pencil"></i>编辑</button>`;
+                    }
+                    return str;
                 }
             }
         ],
@@ -329,86 +344,77 @@
         // 经办人
         $('.jbpeople').selectpicker({
             style: 'btn-white',
-            size:5,
+            size: 5,
         });
 
-       // 保存
+        // 保存
         $('.savedata').click(function (data) {
-                var dtype = $('.ssdl').find('option:selected').text();// 大类
-                var xtype = $('.ssxl').find('option:selected').text();// 小类
-                var price = $('.price').val();// 金额
-                var yinhan = $('.yinhan').find('option:selected').text();// 银行
-                var time = $('.time').val();// 时间
-                var syhb = $('.syhb').find('option:selected').text();// 生意伙伴
-                var ywxm = $('.ywxm1').find('option:selected').text();// 业务项目
-                var sm = $('.sm').val();// 说明
-                var jbpeople = $('.jbpeople').find('option:selected').text();// 经办人
-                var data = {
-                    pid:pid,
-                    dtype:dtype,
-                    xtype:xtype,
-                    price:price,
-                    zjzh:yinhan,
-                    yshb:syhb,
-                    ywxm:ywxm,
-                    jbr:jbpeople,
-                    sm:sm,
-                    time:time
-                };
-                $.ajax({
-                    url: 'http://localhost:3000/dxtypes/updatexm',
-                    data: data,
-                    type: 'post',
-                    dataType: 'json',
-                    success: function (res) {
-                        if (res.code!=0) {
-                            layer.msg(res.msg);
-                            return false;
-                        }
+            var dtype = $('.ssdl').find('option:selected').text();// 大类
+            var xtype = $('.ssxl').find('option:selected').text();// 小类
+            var price = $('.price').val();// 金额
+            var yinhan = $('.yinhan').find('option:selected').text();// 银行
+            var time = $('.time').val();// 时间
+            var syhb = $('.syhb').find('option:selected').text();// 生意伙伴
+            var ywxm = $('.ywxm1').find('option:selected').text();// 业务项目
+            var sm = $('.sm').val();// 说明
+            var jbpeople = $('.jbpeople').find('option:selected').text();// 经办人
+            var data = {
+                pid: pid,
+                dtype: dtype,
+                xtype: xtype,
+                price: price,
+                zjzh: yinhan,
+                yshb: syhb,
+                ywxm: ywxm,
+                jbr: jbpeople,
+                sm: sm,
+                time: time
+            };
+            $.ajax({
+                url: 'http://localhost:3000/dxtypes/updatexm',
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function (res) {
+                    if (res.code != 0) {
                         layer.msg(res.msg);
-                        $('#myModal78').modal('hide');
-                        $table.bootstrapTable('refresh');
+                        return false;
                     }
-                });
+                    layer.msg(res.msg);
+                    $('#myModal78').modal('hide');
+                    $table.bootstrapTable('refresh');
+                }
             });
+        });
 
-       // 选择导出 all selected basic
-        $('.selecrex').click(function(){
+        // 选择导出 all selected basic
+        $('.selecrex').click(function () {
             var exportoption = $(this).find('option:selected').val();
-            $('#table').bootstrapTable('refreshOptions',{
-                exportDataType:exportoption
+            $('#table').bootstrapTable('refreshOptions', {
+                exportDataType: exportoption
             });
         });
 
     });
 
     function kkk() {
-        // if (parent.listsrzc.update == 0) {  // 默认没有权限  如果等于0 有权限  修改功能
-        //     $('.update').removeAttr("disabled");
-        //     $('.update').removeAttr("title");
-        // }
-        // if (parent.listsrzc.delete == 0) {  //删除功能
-        //     $('.delete').removeAttr("disabled");
-        //     $('.delete').removeAttr("title");
-        // }
         if (parent.daochu.create != 0) { // 导出功能
             $.delDaochu($table);
         }
     }
-    
+
     function del(item) {
-        var itemname = $(item).parent().siblings('.ywxm').text(); // 项目的名称
+        var itemname = $(item).parent().siblings('.ywxms').text(); // 项目的名称
         var value = $(item).data('id'); // 获取项目的唯一id
-        console.log(value);
-        layer.confirm('你确定删除 '+itemname+' 嘛？', {
-            btn: ['果断删除','放弃'] //按钮
-        }, function(){
+        layer.confirm('你确定删除 ' + itemname + ' 嘛？', {
+            btn: ['果断删除', '放弃'] //按钮
+        }, function () {
             $.ajax({
-                url:'http://localhost:3000/dxtypes/delxm',
-                data:{id:value},
-                type:'post',
-                dataType:'json',
-                success:function (res) {
+                url: 'http://localhost:3000/dxtypes/delxm',
+                data: {id: value},
+                type: 'post',
+                dataType: 'json',
+                success: function (res) {
                     if (res.code == 1) {
                         layer.msg(res.msg);
                         return false;
@@ -423,42 +429,42 @@
     function edit(item) {
         pid = $(item).data('id'); // 获取项目的唯一id
         $.ajax({
-            url:'http://127.0.0.1:3000/reads/readsrzc',
-            type:'get',
-            data:{sid:pid},
-            dataType:'json',
-            success:function (res) {
-                if (res.code!=0) {
+            url: 'http://127.0.0.1:3000/reads/readsrzc',
+            type: 'get',
+            data: {sid: pid,id:parent.jzrid},
+            dataType: 'json',
+            success: function (res) {
+                if (res.code != 0) {
                     layer.msg("获取数据失败");
                     return false;
                 }
                 var lists = res.data[0];
                 // 银行下拉框
-                $('.yinhan').selectpicker('val',lists.zjzh);
+                $('.yinhan').selectpicker('val', lists.zjzh);
                 $('.yinhan').selectpicker({
                     style: 'btn-white',
-                    size:5,
+                    size: 5,
                 });
                 $('.yinhan').selectpicker('refresh');
                 // 生意伙伴
-                $('.syhb').selectpicker('val',lists.yshb);
+                $('.syhb').selectpicker('val', lists.yshb);
                 $('.syhb').selectpicker({
                     style: 'btn-white',
-                    size:5,
+                    size: 5,
                 });
                 $('.syhb').selectpicker('refresh');
 
-                $('.ywxm1').selectpicker('val',lists.ywxm);
+                $('.ywxm1').selectpicker('val', lists.ywxm);
                 $('.ywxm1').selectpicker({
                     style: 'btn-white',
-                    size:5,
+                    size: 5,
                 });
                 $('.ywxm1').selectpicker('refresh');
 
                 // 时间
                 laydate.render({
                     elem: '#test1', //指定元素mmmlkas
-                    value:formatDate(lists.time)
+                    value: formatDate(lists.time)
                 });
                 $('.sm').val(lists.sm);
                 $('.price').val(lists.price);
@@ -478,6 +484,7 @@
         var date = now.getDate();
         return year + "-" + month + "-" + date;
     }
+
     function getDxtype(type) {
         var res = sendAjax('http://127.0.0.1:3000/reads/readdalei', 'get', {type: type});
         if (!res.code == 0) {
@@ -522,6 +529,7 @@
         $('.ssxl').nextAll().remove();  // bug
         $('.ssxl').selectpicker('refresh');
     }
+
     function getDatas() {
         var res1 = sendAjax('http://127.0.0.1:3000/reads/readyshb', 'get');
         if (res1.code != 0) {
@@ -555,7 +563,7 @@
         // 银行下拉框
         $('.yinhan').selectpicker({
             style: 'btn-white',
-            size:5,
+            size: 5,
         });
     }
 </script>

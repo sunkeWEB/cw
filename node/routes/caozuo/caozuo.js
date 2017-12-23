@@ -472,12 +472,12 @@ router.post('/addzc', (req, res) => {
         zcsm: zcsm,
         jzr: jzr
     };
-    Accountgls.count({name: form}, (err, num) => {
-        if (err) {
+    Accountgls.count({name: form}, (err1, num) => {
+        if (err1) {
             return res.json({
                 code: 1,
                 msg: "系统错误1",
-                data: err
+                data: err1
             });
         }
         if (num >= 1) {
@@ -491,7 +491,7 @@ router.post('/addzc', (req, res) => {
                 if (num >= 1) {
                     // 获取转入账户的净额
                     Accountgls.update({name: to}, {$inc: {price: +parseInt(zcprice)}}, (err10, doc10) => {
-                        if (err) {
+                        if (err10) {
                             res.json({
                                 code: 1,
                                 msg: "系统错误10",
@@ -500,7 +500,7 @@ router.post('/addzc', (req, res) => {
                         } else {
                             //  转出账户减
                             Accountgls.update({name: form}, {$inc: {price: -parseInt(zcprice)}}, (err11, doc11) => {
-                                if (err) {
+                                if (err11) {
                                     res.json({
                                         code: 1,
                                         msg: "系统错误11",
@@ -1190,7 +1190,7 @@ router.post('/delusers', (req, res) => {
     })
 });
 router.post('/updateusers', (req, res) => {
-    let {name, zsname, defaultyhk, defaultxm, dengji, sid} = req.body;
+    let {name, zsname, defaultyhk, defaultxm, dengji, sid,account} = req.body;
     let quanxian = req.body.quanxian.split(' ');
     quanxian.splice(quanxian.length - 1, 1); // 删掉最后一项空格
     let ip = req.ip;  // 注册ip
@@ -1213,6 +1213,7 @@ router.post('/updateusers', (req, res) => {
         name: name, // 用户名
         zsname: zsname, //真实姓名
         defaultyhk: defaultyhk, //默认资金账户
+        defaultkhs:account,
         defaultxm: defaultxm, // 默认项目
         dengji: dengji, // 级别  系统管理  普通记账 经理记账
         quanxian: kkk // 权限数组
@@ -1226,7 +1227,7 @@ router.post('/updateusers', (req, res) => {
         } else {
             return res.json({
                 code: 0,
-                msg: "添加成功",
+                msg: "修改成功",
                 data: doc
             });
         }

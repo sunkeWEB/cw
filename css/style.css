@@ -7867,3 +7867,7 @@ body.skin-3 {
         font-size: 12px
     }
 }
+
+ .wrapper-content > div{
+     /*background-color: white;*/
+ }

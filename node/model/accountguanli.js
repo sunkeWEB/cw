@@ -28,7 +28,7 @@ let accountGuanliSchema = new mongoose.Schema({
             to:String,
             time:Number,
             zcprice:Number,
-            zcsm:Number,
+            zcsm:String,
             jzr:String
         }
     ]

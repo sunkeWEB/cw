@@ -160,7 +160,7 @@ function md5Pwd(pwd) {
 
 // 测试权限创建账号
 router.post('/register1', (req, res) => {
-    let {name, zsname, avatar, defaultyhk, pwd, defaultxm, dengji} = req.body;
+    let {name, zsname, avatar, defaultyhk, pwd, defaultxm, dengji,account} = req.body;
     let quanxian = req.body.quanxian.split(' ');
     quanxian.splice(quanxian.length - 1, 1);
     let k = [];
@@ -187,6 +187,7 @@ router.post('/register1', (req, res) => {
         defaultyhk: defaultyhk, //默认资金账户
         pwd: md5Pwd(pwd), // 密码
         ip: req.ip,  // 最近登录ip
+        defaultkhs:account,
         defaultxm: defaultxm, // 默认项目
         status: 0,  // 状态  是否激活 0 是激活
         time: new Date().getTime(),  // 最近登录时间
@@ -283,41 +284,6 @@ router.post('/delusers',(req,res)=>{
 
     })
 });
-// router.post('/updatexms',(req,res)=>{
-//     let {sid, data} = req.body;
-//     let obj = JSON.parse(data);
-//     Gcxms.count({_id:sid}, (err, num) => {
-//         if (err) {
-//             return res.json({
-//                 code: 1,
-//                 msg: '系统错误'
-//             });
-//         }
-//         if (num === 0) {
-//             return res.json({
-//                 code: 1,
-//                 msg: '没找到账户的信息'
-//             });
-//         } else {
-//             Gcxms.update({_id:sid},obj,function (err, doc) {
-//                 if (err) {
-//                     return res.json({
-//                         code:1,
-//                         msg:"系统错误",
-//                         data:err
-//                     });
-//                 }
-//                 if (doc) {
-//                     return res.json({
-//                         code:0,
-//                         msg:"修改成功",
-//                         data:doc
-//                     })
-//                 }
-//             })
-//         }
-//     })
-// });
 
 router.post('/checklogin',(req,res)=>{
     let id = req.cookies.username;
